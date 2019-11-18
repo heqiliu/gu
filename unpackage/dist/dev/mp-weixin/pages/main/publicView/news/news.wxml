@@ -1,0 +1,1 @@
+<view class="content data-v-31c9ed24"><view class="newsBox data-v-31c9ed24"><view class="newsHead data-v-31c9ed24"><text class="data-v-31c9ed24">{{navTitle}}</text></view><view class="fwb data-v-31c9ed24"><rich-text nodes="{{RichContent}}" class="data-v-31c9ed24"></rich-text></view></view></view>

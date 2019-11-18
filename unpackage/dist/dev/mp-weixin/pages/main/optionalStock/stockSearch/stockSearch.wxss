@@ -1,0 +1,120 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.content.data-v-11c58ce4 {
+  /*距离顶部范围应该在88-95范围内*/
+  top: 25px;
+  background: #f2f2f2;
+  height: 100%;
+}
+.searchBox.data-v-11c58ce4 {
+  width: 100%;
+  height: 70rpx;
+  padding: 0 20rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-top: 20rpx;
+}
+.searchBox input.data-v-11c58ce4 {
+    width: calc(100% - 70rpx);
+    height: 70rpx;
+    background: #fff;
+    float: left;
+    border-radius: 100rpx;
+    color: #222120;
+    padding-left: 20rpx;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    font-size: 28rpx;
+}
+.searchBox .cancelBtn.data-v-11c58ce4 {
+    width: 70rpx;
+    float: right;
+    text-align: right;
+    height: 70rpx;
+    color: #292d2d;
+    font-size: 28rpx;
+    font-weight: 500;
+    line-height: 70rpx;
+}
+.searchTitle.data-v-11c58ce4 {
+  width: 100%;
+  padding: 0 20rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #2b2b2b;
+  font-size: 26rpx;
+  text-align: left;
+  font-weight: 600;
+}
+.resultList.data-v-11c58ce4 {
+  background: #fff;
+  padding-left: 20rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.resultList .lis.data-v-11c58ce4 {
+    height: 90rpx;
+    width: 100%;
+    border-bottom: 2rpx solid #e9e9e9;
+    line-height: 90rpx;
+    padding-right: 20rpx;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+.resultList .lis view.data-v-11c58ce4 {
+      float: left;
+      height: 90rpx;
+      font-size: 28rpx;
+      color: #555;
+}
+.resultList .lis view.data-v-11c58ce4:nth-child(1) {
+      width: 30%;
+      text-align: left;
+}
+.resultList .lis view.data-v-11c58ce4:nth-child(2) {
+      width: 30%;
+      text-align: center;
+}
+.resultList .lis view.data-v-11c58ce4:nth-child(3) {
+      width: 40%;
+      color: #989898;
+      text-align: right;
+      font-size: 24rpx;
+}
+.resultList .lis view:nth-child(3) image.data-v-11c58ce4 {
+        display: block;
+        width: 44rpx;
+        height: 44rpx;
+        float: right;
+        margin-top: 23rpx;
+}
+.resultList .lis.data-v-11c58ce4:last-child {
+    border: none;
+}
+

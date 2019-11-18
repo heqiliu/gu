@@ -1,0 +1,185 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		// {
+		// 	"path" : "pages/main/myAccount/myDownload/management/management"
+		// },
+		{
+			"path": "pages/main/main"
+		},
+		{
+			"path": "pages/index/index"
+		}
+	    ,{
+            "path" : "pages/checkpoint/register/register",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/checkpoint/login/login",
+            "style" : {}
+        }
+		,{
+		    "path" : "pages/checkpoint/forgotPassword/forgotPassword",
+		    "style" : {}
+		}
+        ,{
+            "path" : "pages/main/home/home",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/optionalStock/optionalStock",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/transaction/transaction",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/myAccount/myAccount",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/publicView/news/news",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/bottom/bottom",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/myAccount/verified/verified",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/myAccount/bankCard/bankCard",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/myAccount/changePassword/changePassword",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/myAccount/helpCenter/helpCenter",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/myAccount/pay/pay",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/myAccount/cash/cash",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/myAccount/luckyDraw/luckyDraw",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/transaction/buy/buy",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/transaction/sale/sale",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/transaction/withdrawal/withdrawal",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/transaction/position/position",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/transaction/todayEntrust/todayEntrust",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/transaction/todayClinch/todayClinch",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/transaction/historyEntrust/historyEntrust",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/transaction/historyClinch/historyClinch",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/transaction/capitalFlow/capitalFlow",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/optionalStock/stockSearch/stockSearch",
+            "style" : {
+				"app-plus": {
+					"titleNView": false,
+					"navigationBarTextStyle": "black"
+				}
+			}
+        }
+        ,{
+            "path" : "pages/main/transaction/monthBody/monthBody",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/transaction/monthBody/withInfo/withInfo",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/transaction/monthBody/trade/trade",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/transaction/monthBody/userCenter/userCenter",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/transaction/monthBody/userCenter/capitalSubsidiary/capitalSubsidiary",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/transaction/monthBody/userCenter/customizeStock/customizeStock",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/transaction/monthBody/userCenter/moneyInto/moneyInto",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/stockPool/stockPool",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/myAccount/myDownload/myDownload",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/myAccount/myMessage/myMessage",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/myAccount/cancellation/cancellation",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/home/stockMarketSchool/stockMarketSchool",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/myAccount/myDownload/management/management",
+            "style" : {}
+        }
+        ,{
+            "path" : "pages/main/transaction/cashBack/cashBack",
+            "style" : {}
+        }
+    ],
+	"globalStyle": {
+		"app-plus": {
+			"titleNView": false,
+			"navigationBarBackgroundColor": "#333333",
+			"navigationBarTextStyle": "white"
+		}
+	}
+}

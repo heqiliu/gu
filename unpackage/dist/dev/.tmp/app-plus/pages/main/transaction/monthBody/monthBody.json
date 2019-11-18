@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "with-info": "/pages/main/transaction/monthBody/withInfo/withInfo",
+    "trade": "/pages/main/transaction/monthBody/trade/trade",
+    "user-center": "/pages/main/transaction/monthBody/userCenter/userCenter",
+    "cmd-nav-bar": "/components/cmd-nav-bar/cmd-nav-bar"
+  }
+}

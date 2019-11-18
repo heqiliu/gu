@@ -1,0 +1,195 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.content.data-v-c61f569c {
+  /*距离顶部范围应该在88-95范围内*/
+  height: 100%;
+  background: #fbfbfb;
+  padding-top: 90rpx;
+  top: var(--status-bar-height);
+  padding-bottom: 15rpx;
+}
+.listBox.data-v-c61f569c {
+  background: #fff;
+}
+.listBox .lis.data-v-c61f569c {
+    width: 100%;
+    height: 90rpx;
+    line-height: 90rpx;
+    border-bottom: 2rpx solid #d7d7d7;
+}
+.listBox .lis .left.data-v-c61f569c {
+      width: 250rpx;
+      height: 100%;
+      float: left;
+      padding-left: 30rpx;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      color: #c5c5c5;
+      font-size: 30rpx;
+}
+.listBox .lis .right.data-v-c61f569c {
+      width: calc(100% - 250rpx);
+      height: 90rpx;
+      float: left;
+}
+.listBox .lis .cashType.data-v-c61f569c {
+      font-size: 24rpx;
+      color: #202020;
+}
+.listBox .lis .cashMax.data-v-c61f569c {
+      color: #525252;
+      font-size: 26rpx;
+}
+.listBox .lis .cashMax text.data-v-c61f569c {
+        color: #c43345;
+        font-size: 30rpx;
+        padding-right: 10rpx;
+}
+.listBox .lis .cashMoney.data-v-c61f569c {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+}
+.listBox .lis .cashMoney input.data-v-c61f569c {
+        display: block;
+        width: 100%;
+        height: 50rpx;
+        font-size: 26rpx;
+}
+.cashTixin.data-v-c61f569c {
+  width: 100%;
+  padding: 30rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 130rpx;
+  color: red;
+  font-size: 30rpx;
+}
+.cashTrue.data-v-c61f569c {
+  height: 60rpx;
+  width: 690rpx;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+  line-height: 60rpx;
+  background: #db3652;
+  border-radius: 8rpx;
+  font-size: 26rpx;
+}
+.wenxin.data-v-c61f569c {
+  width: 690rpx;
+  height: 120rpx;
+  margin: 0 auto;
+  color: #c5c5c5;
+  font-size: 28rpx;
+  padding-top: 20rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.waringBox.data-v-c61f569c {
+  width: 690rpx;
+  margin: 0 auto;
+  color: #525252;
+  font-size: 27rpx;
+  padding-bottom: 30rpx;
+}
+.waringBox text.data-v-c61f569c {
+    display: block;
+}
+.cashtxjl.data-v-c61f569c {
+  height: 100rpx;
+  line-height: 100rpx;
+  background: #fff;
+  text-align: center;
+  color: #c43345;
+  border-top: 2rpx solid #cfcfcf;
+  border-bottom: 2rpx solid #cfcfcf;
+  font-size: 32rpx;
+  font-weight: 600;
+}
+.recordLists.data-v-c61f569c {
+  width: 100%;
+  background: #fff;
+  border-bottom: 2rpx solid #cfcfcf;
+  padding: 0 30rpx;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.recordLists .lis.data-v-c61f569c {
+    width: 100%;
+    background: #fff;
+    border-bottom: 2rpx solid #cfcfcf;
+    padding: 0 30rpx;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+}
+.recordLists .lis view.data-v-c61f569c {
+      display: block;
+      width: 100%;
+}
+.recordLists .lis view.data-v-c61f569c:nth-child(1) {
+      font-size: 32rpx;
+      margin-top: 12rpx;
+}
+.recordLists .lis view:nth-child(1) text.data-v-c61f569c {
+        height: 30rpx;
+        margin-bottom: 12rpx;
+}
+.recordLists .lis view:nth-child(1) text.data-v-c61f569c:nth-child(1) {
+        color: #3e3e3e;
+}
+.recordLists .lis view:nth-child(1) text.data-v-c61f569c:nth-child(2) {
+        float: right;
+        color: red;
+}
+.recordLists .lis view.data-v-c61f569c:nth-child(2) {
+      clear: both;
+      color: #7c7c7c;
+      font-size: 26rpx;
+}
+.recordLists .lis view:nth-child(2) text.data-v-c61f569c {
+        height: 30rpx;
+        display: block;
+}
+.recordLists .lis view:nth-child(2) text.data-v-c61f569c:nth-child(1) {
+        float: left;
+}
+.recordLists .lis view:nth-child(2) text.data-v-c61f569c:nth-child(2) {
+        float: right;
+        color: red;
+}
+.recordLists .lis view.data-v-c61f569c:nth-child(3) {
+      clear: both;
+      color: #7c7c7c;
+      font-size: 26rpx;
+}
+

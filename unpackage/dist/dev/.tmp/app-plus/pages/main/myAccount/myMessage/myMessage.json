@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "cmd-nav-bar": "/components/cmd-nav-bar/cmd-nav-bar"
+  }
+}

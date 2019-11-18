@@ -1,0 +1,57 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*每个页面公共css */
+page{
+	height: 100%;
+}
+/*沉浸状态栏变化*/
+.status-bar {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin-bottom: -3rpx;
+  height: 25px;
+  line-height: 25px;
+  /* background: transparent; */
+  /* background: #333; */
+}
+

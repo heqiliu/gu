@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "cmd-nav-bar": "/components/cmd-nav-bar/cmd-nav-bar",
+    "tki-qrcode": "/components/tki-qrcode/tki-qrcode"
+  }
+}

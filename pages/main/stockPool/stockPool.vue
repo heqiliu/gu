@@ -1,0 +1,377 @@
+<template>
+	<view class="content">
+		<!-- #ifdef APP-PLUS -->
+		<view class="status-bar"></view>
+		<cmd-nav-bar background-color="linear-gradient(to right, #EF9435, #E95E28)" title="AI智能选股" font-color="#fff" iconTwo="reload"
+		 @iconTwo="initData()"></cmd-nav-bar>
+		<!-- #endif -->
+		<view class="grp">
+			<view class="grpTit">AI精选</view>
+			<!-- isShow -->
+			<view :class="isRecharged == 'N' ? 'grpCon isShow' : 'grpCon'">
+				<view class="grpLi" v-for="(el,i) in storeData.goldStocks" :key="i">
+					<view class="left" @click="buyIn(el.stockCode)">
+						<text>入选时间</text>
+						<!-- <text :class="Number(el.riseRate) > 0 ? 'red' : 'green'">{{el.riseRate > 0 ? '+' : '-'}}{{el.riseRate}}%</text> -->
+						<text>19/11/03 18:30:55</text>
+					</view>
+					<view class="cen" @click="buyIn(el.stockCode)">
+						<text>{{el.stockName}}</text>
+						<text>{{el.remark}}</text>
+					</view>
+
+					<view class="right" @click="addMyStock(el)">
+						<image :src="imgArray.add" mode=""></image>
+					</view>
+				</view>
+				<view class="pagination">
+					<view>上一页</view>
+					<view>下一页</view>
+				</view>
+			</view>
+			<view class="buyVip" v-if="isRecharged == 'N'">
+				<view class="ts">亲，您的总净资产不足两千，足额可显示</view>
+				<view class="btn" @click="goBuy">充值</view>
+			</view>
+		</view>
+		<view class="grp his">
+			<view class="grpTit">历史战绩</view>
+			<view class="grpCon">
+				<view class="grpTab">
+					<!-- <view class="left" @click="buyIn(el.stockCode)">
+						<text :class="Number(el.riseRate) > 0 ? 'red' : 'green'">{{el.riseRate > 0 ? '+' : '-'}}{{el.riseRate}}%</text>
+						<text>今日涨幅</text>
+					</view>
+					<view class="cen" @click="buyIn(el.stockCode)">
+						<text>{{el.stockName}}</text>
+						<text>{{el.remark}}</text>
+					</view>
+					<view class="right" @click="addMyStock(el)">
+						<image :src="imgArray.add" mode=""></image>
+					</view> -->
+					<view style="width: 20%;">区间涨幅</view>
+					<view style="width: 20%;">股票</view>
+					<view style="width: 30%;">入选时间</view>
+					<view style="width: 30%;">截至时间</view>
+
+				</view>
+				<!-- storeData.hisRecord -->
+				<view class="grpTabL" v-for="(el,i) in 3" :key="i">
+					<view style="width: 20%;">30%</view>
+					<view style="width: 20%;line-height: 2;">华夏银行（800311）</view>
+					<view style="width: 30%;">11/03 12：30</view>
+					<view style="width: 30%;">11/03 12：30</view>
+				</view>
+			</view>
+			<view class="pagination">
+				<view>上一页</view>
+				<view>下一页</view>
+			</view>
+
+		</view>
+	</view>
+</template>
+
+<script>
+	import cmdNavBar from "@/components/cmd-nav-bar/cmd-nav-bar.vue"
+	import http from '@/http/interface.js'
+	export default {
+		components: {
+			cmdNavBar
+		},
+		data() {
+			return {
+				imgArray: {
+					add: require('../../../static/icon/m-zx-h.png')
+				},
+				isRecharged: 'N'
+			};
+		},
+		onLoad() {
+
+		},
+		created() {
+			let _this = this;
+			http.get('transaction/totransaction', {
+				phone: this.$store.state.userInfo.phone
+			}).then((res) => {
+				console.log(res.data.data.balance.quota);
+				if (Number(res.data.data.balance.quota) >= 2000) {
+					_this.isRecharged = 'Y'
+				}
+			})
+		},
+		computed: {
+			storeData() {
+				return this.$store.state.mainPoolData;
+			}
+
+		},
+		methods: {
+			//进入买入股票
+			buyIn(stockCode) {
+				uni.navigateTo({
+					url: '/pages/main/transaction/buy/buy?type=zxgp&stockCode=' + stockCode
+				})
+			},
+			//加入自选
+			addMyStock(el) {
+				http.get('stock/addStock', {
+					stockCode: el.stockCode,
+					stockName: el.stockName,
+					holder: this.$store.state.userInfo.phone
+				}).then((res) => {
+					uni.showModal({
+						title: '提示',
+						content: '加入自选股票成功',
+						showCancel: false,
+					})
+				})
+			},
+			goBuy() {
+				uni.navigateTo({
+					url: '/pages/main/myAccount/pay/pay'
+				})
+			},
+			initData() {
+				uni.showLoading({
+					mask: true
+				});
+				http.get('transaction/toGoldStock').then((res) => {
+					this.$store.commit('mainPoolDataUpdate', res.data.data)
+				})
+			}
+		},
+		mounted() {
+			this.initData();
+			uni.showModal({
+				title: "提示",
+				showCancel: false,
+				mask: true,
+				content: '温馨提示：该股票池由AI智能自动选取展示，仅供欣赏不做任何投资推荐，所有交易风险自负，与本平台无关！',
+			})
+		}
+	}
+</script>
+
+<style lang="scss" scoped>
+	.pagination {
+		font-size: 26upx;
+		color: #007aff;
+		// padding: 10px 5px;
+		display: flex;
+		justify-content: space-evenly;
+		text-align: center;
+		margin: auto;
+
+		view {
+			padding: 10px;
+		}
+	}
+
+	.content {
+		/*距离顶部范围应该在88-95范围内*/
+		/*  #ifdef  APP-PLUS  */
+		padding-top: 90upx;
+		/*  #endif  */
+		top: var(--status-bar-height);
+		padding-bottom: 50upx;
+	}
+
+	.grp {
+		width: 100%;
+		position: relative;
+
+		.grpTit {
+			width: 100%;
+			height: 80upx;
+			line-height: 80upx;
+			color: #0e0e0e;
+			text-indent: 36upx;
+			position: relative;
+			text-align: left;
+			font-size: 28upx;
+			border-bottom: 2upx solid #efefef;
+		}
+
+		.grpTit:after {
+			position: absolute;
+			content: '';
+			height: 34upx;
+			width: 5upx;
+			background: #FF6D28;
+			left: 20upx;
+			top: 23upx;
+		}
+
+		.grpCon {
+			width: 100%;
+			position: relative;
+
+			.grpTab {
+				width: 100%;
+				line-height: 80upx;
+				background-color: #f5f5f5;
+				// padding: 0 10upx;
+				box-sizing: border-box;
+				display: flex;
+				// flex-wrap: wrap;
+				align-items: center;
+				border-bottom: 2upx solid #efefef;
+				font-size: 26upx;
+
+				view {
+					height: 80upx;
+					border-right: 2upx solid #efefef;
+				}
+			}
+
+			.grpTabL {
+				width: 100%;
+				height: 100upx;
+				// padding: 0 10upx;
+				box-sizing: border-box;
+				display: flex;
+				// flex-wrap: wrap;
+				align-items: center;
+				border-bottom: 2upx solid #efefef;
+				font-size: 26upx;
+
+				view {
+					line-height: 100upx;
+					border-right: 2upx solid #efefef;
+				}
+			}
+
+			.grpLi {
+				width: 100%;
+				height: 120upx;
+				box-sizing: border-box;
+				display: flex;
+				flex-wrap: wrap;
+				align-items: center;
+				border-bottom: 2upx solid #efefef;
+				font-size: 26upx;
+
+				view {
+					height: 100upx;
+				}
+
+				.left {
+					width: 225upx;
+					height: 120upx;
+					display: flex;
+					flex-wrap: wrap;
+					align-items: center;
+
+					text {
+						display: block;
+						width: 100%;
+						text-align: center;
+					}
+
+					text:nth-child(1) {
+						background-color: #f5f5f5;
+						font-size: 26upx;
+						color: #a5a5a5;
+						line-height: 33px;
+					}
+
+					text:nth-child(2) {
+						// font-size: 32upx;
+						// font-weight: 600;
+						// color: #404040;
+						// line-height: 33px;
+						font-size: 22upx;
+						/* font-weight: 600; */
+						color: #404040;
+						line-height: 33px;
+					}
+
+					.red {
+						color: #da2430 !important;
+					}
+
+					.green {
+						color: #50a97c !important;
+					}
+				}
+
+				.cen {
+					width: 400upx;
+					border-left: 2upx solid #efefef;
+					box-sizing: border-box;
+					display: flex;
+					flex-wrap: wrap;
+					align-items: center;
+
+					text {
+						display: block;
+						width: 100%;
+						text-align: left;
+						padding: 0 20upx;
+						box-sizing: border-box;
+					}
+
+					text:nth-child(1) {
+						font-weight: 600;
+						font-size: 32upx;
+						color: #262626;
+					}
+
+					text:nth-child(2) {
+						font-size: 24upx;
+						color: #565656;
+					}
+				}
+
+				.right {
+					width: calc(100% - 225upx - 400upx);
+					display: flex;
+					justify-content: center;
+					align-items: center;
+
+					image {
+						display: block;
+						width: 50upx;
+						height: 50upx;
+					}
+				}
+			}
+		}
+
+		.buyVip {
+			// position: absolute;
+			width: 100%;
+			height: calc(100% - 80upx);
+			left: 0;
+			bottom: 0;
+
+			.ts {
+				font-size: 26upx;
+				color: #FF6D28;
+				margin-top: 30%;
+				letter-spacing: 5upx;
+				font-weight: 600;
+
+			}
+
+			.btn {
+				width: 160upx;
+				height: 60upx;
+				background: #FF6D28;
+				color: #fff;
+				border-radius: 8upx;
+				margin: 0 auto;
+				margin-top: 20upx;
+				font-size: 28upx;
+				line-height: 60upx;
+			}
+		}
+
+		.isShow {
+			filter: blur(10upx);
+		}
+
+	}
+</style>

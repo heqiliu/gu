@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "home": "/pages/main/home/home",
+    "my-account": "/pages/main/myAccount/myAccount",
+    "optional-stock": "/pages/main/optionalStock/optionalStock",
+    "transaction": "/pages/main/transaction/transaction",
+    "stock-pool": "/pages/main/stockPool/stockPool"
+  }
+}
