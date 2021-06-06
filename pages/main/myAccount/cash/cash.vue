@@ -2,14 +2,14 @@
 	<view class="content">
 		<!-- #ifdef APP-PLUS -->
 			<view class="status-bar"></view>
-			<cmd-nav-bar back background-color="linear-gradient(to right, #EF9435, #E95E28)" title="提现" font-color="#fff"></cmd-nav-bar>
+			<cmd-nav-bar class="nav-bar" :fixed="false" back background-color="linear-gradient(to right, #EF9435, #E95E28)" title="提现" font-color="#fff"></cmd-nav-bar>
 		<!-- #endif -->
 		<view class="listBox">
 			<view class="lis">
 				<view class="left">提现到</view>
 				<view class="right cashType">
 					<picker @change="cashPickerChange" :value="cashIndex" :range="cashArray">
-						<view class="uni-input">{{cashArray[cashIndex]}}</view>
+						<view class="uni-input" v-model="cashIndex">{{cashArray[cashIndex]}}</view>
 					</picker>
 				</view>
 			</view>
@@ -38,10 +38,13 @@
 			温馨提示
 		</view>
 		<view class="waringBox">
-			<text>1、请确保您输入的提现金额，以及银行帐号信息准确无误。</text>
-			<text>2、最迟4小时到帐,交易日9:00-17:00提款,当日到帐,17:00以后提款下个交易日到帐,具体到帐时间以银行为准(当日累计超10万元的T+1到帐)</text>
+			<!-- <text>1、请确保您输入的提现金额，以及银行帐号信息准确无误。</text>
+			<text>2、提现时间：每个交易日9:00-17:00提款,当日到帐,17:00以后提款下个交易日到帐,具体到帐时间以银行为准(当日累计超10万元的T+1到帐)</text>
 			<text>3、提款手续费每笔3元。</text>
 			<text>4、平台禁止洗钱、虚假交易等行为，一经发现并确认，将终止该账户的使用。</text>
+			<text>5、领取注册红包的用户需股票交易一次方可提现。</text>
+			<text>6、需满100元方可提现。</text> -->
+			<rich-text :nodes="RichContent"></rich-text>
 		</view>
 		<view class="cashtxjl">
 			提现记录
@@ -50,15 +53,15 @@
 			<view class="lis" v-for="(el,i) in withdrawalData" :key="i">
 				<view>
 				<text>
-				{{el.state == '1001' ? '待确认' : ''}}{{el.state == '1002' ? '完成' : ''}}{{el.state == '1003' ? '取消提现' : ''}}{{el.state == '1004' ? '异常' : ''}}
+				{{el.status.name}}
 				</text>
-				<text v-if="el.state == 1001" @click="cancelCash(el)">取消提现</text>
+				<text v-if="el.status.value == 0" @click="cancelCash(el)">取消提现</text>
 				</view>
 				<view>
-					<text>提现时间：{{el.addTime | timeZhuan}}</text>
-					<text>￥{{el.amount}}</text>
+					<text>提现时间：{{el.createTime | timeZhuan}}</text>
+					<text>￥{{el.moneyAmount}}</text>
 				</view>
-				<view>用户:{{el.account}},卡号:{{el.bankCard}}</view>
+				<view>卡号:{{el.transitionAccount}}</view>
 			</view>
 		</view>
 	</view>
@@ -78,12 +81,19 @@
 				//绑定的银行卡s
 				isBindBankList : [],
 				//提款金额
-				cashNum : ''
+				cashNum : '',
+				//提现最低限额
+				min_num : 10,
+				RichContent : '',
+				alipay:'',
+				
 			};
 		},
 		onLoad() {
 			this.initData();
 			this.queryBank();
+			this.withdrawMinLimit();
+			this.getHelp();
 		},
 		filters: {
 		　　 timeZhuan(value) {
@@ -96,17 +106,20 @@
 				this.cashIndex = e.target.value
 			},
 			initData(){
-				http.get('transaction/towithdrawals',{phone:this.$store.state.userInfo.phone}).then((res)=>{
+				http.get('principalOrder/getList',{orderType:'WITHDRAW'}).then((res)=>{
 					this.withdrawalData = res.data.data.records
 				})
 			},
 			queryBank(){
 				//查询所有绑定的银行卡号
-				http.get('bindBankCard/tobind',{phone:this.$store.state.userInfo.phone}).then((res)=>{
-					this.isBindBankList = res.data.data.bankCardList;
+				http.get('user/wallet/getList',{accountType:'BANK'}).then((res)=>{
+					this.isBindBankList = res.data.data.records;
 					let _this = this;
 					this.isBindBankList.forEach((el)=>{
-						_this.cashArray.push(el.openBank + ' ' + el.cardNo);
+						_this.cashArray.push(el.bankName + ' ' + el.account);
+						if(el.alipay!= null && el.alipay !=''){
+							_this.cashArray.push('支付宝'+ ' ' + el.alipay);
+						}
 					})
 				})
 			},cancelCash(el){
@@ -122,19 +135,33 @@
 							})
 							let datas = {};
 							datas.id = el.id;
-							http.get('transaction/cancelCash',datas).then((res)=>{
+							http.get('principalOrder/cancel',{id : el.id}).then((res)=>{
 								uni.showModal({
 									title : '提示',
 									content : '取消提现成功',
 									showCancel : false,
 									success() {
-										this.initData();
+										_this.initData();
 									}
 								})
 								
 							})
 						}
 					}
+				})
+			},
+			withdrawMinLimit(){
+				let _this = this;
+				http.get('principalOrder/withdrawMinLimit',{}).then((res)=>{
+					_this.min_num = Number(res.data.data);
+				})
+			},
+			//获取提现提醒
+			getHelp() {
+				let _this = this;
+				// this.queryStock('');
+				http.get('website/help/getList', {type:'I_WITHDRAWAL',status : true,'pageInfo.size':1,'pageInfo.isReturnPage':false}).then((res) => {
+					_this.RichContent = res.data.data.records[0].content;
 				})
 			},
 			goCash(){
@@ -146,13 +173,34 @@
 					})
 					return;
 				}
-				http.get('transaction/withdrawals',{holder:this.$store.state.userInfo.phone,cardNo:this.isBindBankList[this.cashIndex].cardNo,amount:this.cashNum}).then((res)=>{
-					uni.showModal({
-						title : '提示',
-						content : '提交成功',
-						showCancel : false,
-					})
-					this.initData();
+				let _this = this;
+				var typs='';
+				if(_this.cashIndex==0){
+					typs='BANK'
+				}else{
+					typs='ALI_PAY'
+				}
+				
+				http.get('principalOrder/add',{
+					moneyAmount:this.cashNum,
+					orderType: 'WITHDRAW',
+					accountType:typs
+					}).then((res)=>{
+						if(!res.data.data){
+						
+							uni.showModal({
+								title : '温馨提示',
+								content : res.data.message,
+								showCancel : false,
+							});
+						}else{
+							uni.showModal({
+								title : '提示',
+								content : '提交成功',
+								showCancel : false,
+							})
+						}
+						this.initData();
 				})
 			}
 		}
@@ -160,17 +208,39 @@
 </script>
 
 <style lang="scss" scoped>
+	.status-bar{
+		box-sizing: border-box;
+		display: block;
+		width: 100%;
+		margin-bottom: -3upx;
+		height: var(--status-bar-height);
+		line-height: var(--status-bar-height);
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: linear-gradient(to right, #EF9435, #E95E28);
+		z-index: 99;
+	}
+	.nav-bar{
+		position: fixed;
+		// top: var(--status-bar-height);
+		top: 0;
+		left: 0;
+		z-index:2;
+		width: 100%;
+	}
 	.content{
 		/*距离顶部范围应该在88-95范围内*/
-		height: 100%;
+		// height: 100%;
 		background: #fbfbfb;
 		/*  #ifdef  APP-PLUS  */
-		padding-top: 90upx;
+		// padding-top: 90upx;
 		/*  #endif  */
-		top: var(--status-bar-height);
-		padding-bottom: 15upx;
+		// top: var(--status-bar-height);
+		// padding-bottom: 15upx;
 	}
 	.listBox{
+		padding-top: calc(var(--status-bar-height) + 90upx);
 		background: #fff;
 		.lis{
 			width: 100%;
@@ -323,5 +393,5 @@
 		}
 			
 		}
-	
+
 </style>

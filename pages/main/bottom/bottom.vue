@@ -7,6 +7,7 @@
 					<image v-if="pageNum == 1" :src="imgArray.img2" mode=""></image>
 					<span>首页</span>
 				</li>
+				<li></li>
 				<li @click="jump('/pages/main/optionalStock/optionalStock',2)" :class="pageNum == 2 ? 'isTask' : ''">
 					<image v-if="pageNum != 2" :src="imgArray.img3" mode=""></image>
 					<image v-if="pageNum == 2" :src="imgArray.img4" mode=""></image>

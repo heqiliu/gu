@@ -24,7 +24,7 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.bottomNav.data-v-1dbb693f {
+.bottomNav.data-v-2d814072 {
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -32,46 +32,46 @@
   background: #262626;
   border-top: 1rpx solid #0a0a0a;
 }
-.bottomNav ._ul.data-v-1dbb693f {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
+.bottomNav ._ul.data-v-2d814072 {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
-.bottomNav ._ul ._li.data-v-1dbb693f {
-      float: left;
-      list-style: none;
-      width: 25%;
-      height: 100%;
+.bottomNav ._ul ._li.data-v-2d814072 {
+  float: left;
+  list-style: none;
+  width: 25%;
+  height: 100%;
 }
-.bottomNav ._ul ._li image.data-v-1dbb693f {
-        width: 48rpx;
-        height: 48rpx;
-        display: block;
-        margin: 0 auto;
-        margin-top: 10rpx;
+.bottomNav ._ul ._li image.data-v-2d814072 {
+  width: 48rpx;
+  height: 48rpx;
+  display: block;
+  margin: 0 auto;
+  margin-top: 10rpx;
 }
-.bottomNav ._ul ._li .is.data-v-1dbb693f {
-        display: none;
+.bottomNav ._ul ._li .is.data-v-2d814072 {
+  display: none;
 }
-.bottomNav ._ul ._li .nois.data-v-1dbb693f {
-        display: block;
+.bottomNav ._ul ._li .nois.data-v-2d814072 {
+  display: block;
 }
-.bottomNav ._ul ._li ._span.data-v-1dbb693f {
-        display: block;
-        width: 100%;
-        text-align: center;
-        font-size: 24rpx;
-        color: #8f8f8f;
-        margin-top: 5rpx;
+.bottomNav ._ul ._li ._span.data-v-2d814072 {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 24rpx;
+  color: #8f8f8f;
+  margin-top: 5rpx;
 }
-.bottomNav ._ul .isTask .is.data-v-1dbb693f {
-      display: block;
+.bottomNav ._ul .isTask .is.data-v-2d814072 {
+  display: block;
 }
-.bottomNav ._ul .isTask .nois.data-v-1dbb693f {
-      display: none;
+.bottomNav ._ul .isTask .nois.data-v-2d814072 {
+  display: none;
 }
-.bottomNav ._ul .isTask ._span.data-v-1dbb693f {
-      color: #ff7b2e;
+.bottomNav ._ul .isTask ._span.data-v-2d814072 {
+  color: #ff7b2e;
 }
 

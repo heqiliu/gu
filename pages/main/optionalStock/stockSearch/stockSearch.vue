@@ -11,12 +11,14 @@
 		<view class="searchTitle">
 			{{showMsg}}
 		</view>
+		
 		<view class="resultList">
 			<!-- <view class="lis" v-for="i in 5" :key="i">
 				<view>603126</view>
 				<view>种菜节能</view>
 				<view>已加入自选股</view>
 			</view> -->
+			<view style="width: 100%;height: 20upx;" >
 			<view class="lis" v-for="(el,i) in stockArr" :key="i">
 				<view>{{el.stockCode}}</view>
 				<view>{{el.stockName}}</view>
@@ -25,6 +27,7 @@
 				</view>
 			</view>
 		</view>
+	</view>
 	</view>
 </template>
 
@@ -41,7 +44,8 @@
 		},
 		methods:{
 			goBack(){
-				uni.navigateBack({})
+				uni.navigateBack({});
+			
 			},
 			listenVal(event){
 				event.target.value.length > 0 ? this.showMsg = '搜索结果' : this.showMsg = '最近搜索';
@@ -49,7 +53,7 @@
 					uni.showLoading({
 						title: ''
 					});
-					http.get('stock/getStockInfo',{stockCode:event.target.value}).then((res)=>{
+					http.get('stockInfo',{stockCode:event.target.value}).then((res)=>{
 						this.stockArr.push(res.data.data);
 						this.stockArr.length = 1;
 					})
@@ -58,12 +62,13 @@
 				}
 			},
 			addStock(el){
-				http.get('stock/addStock',{stockCode:el.stockCode,stockName:el.stockName,holder:this.$store.state.userInfo.phone}).then((res)=>{
+				http.get('stock/collection/add',{stockCode:el.stockCode}).then((res)=>{
 					uni.showModal({
 						title : '提示',
 						content : '已关注',
 						showCancel : false,
 					})
+					
 				})
 			}
 		}
@@ -71,21 +76,41 @@
 </script>
 
 <style lang="scss" scoped>
+	.status-bar{
+		box-sizing: border-box;
+		display: block;
+		width: 100%;
+		margin-bottom: -3upx;
+		height: var(--status-bar-height);
+		line-height: var(--status-bar-height);
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: linear-gradient(to right, #EF9435, #E95E28);
+		z-index: 99;
+	}
+	.nav-bar{
+		position: fixed;
+		// top: var(--status-bar-height);
+		left: 0;
+		z-index:2;
+		width: 100%;
+	}
 	.content{
 		/*距离顶部范围应该在88-95范围内*/
 		/*  #ifdef  APP-PLUS  */
 		// padding-top: 90upx;
 		/*  #endif  */
-		top: var(--status-bar-height);
+		// top: var(--status-bar-height);
 		background: #f2f2f2;
-		height: 100%;
+		// height: 100%;
 	}
 	.searchBox{
 		width: 100%;
 		height: 70upx;
 		padding: 0 20upx;
 		box-sizing: border-box;
-		padding-top: 20upx;
+		padding-top: calc(var(--status-bar-height) + 20upx);
 		input{
 			width: calc(100% - 70upx);
 			height: 70upx;
@@ -124,6 +149,7 @@
 		padding-left: 20upx;
 		box-sizing: border-box;
 		.lis{
+			padding-top:20px;
 			height: 90upx;
 			width: 100%;
 			border-bottom: 2upx solid #e9e9e9;

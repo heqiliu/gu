@@ -3,177 +3,200 @@
 		// {
 		// 	"path" : "pages/main/myAccount/myDownload/management/management"
 		// },
+		
 		{
-			"path": "pages/main/main"
+			"path": "pages/index/index",
+			"style": {
+				// "enablePullDownRefresh": true//允许上拉加载更多
+			}
 		},
 		{
-			"path": "pages/index/index"
-		}
-	    ,{
-            "path" : "pages/checkpoint/register/register",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/checkpoint/login/login",
-            "style" : {}
-        }
-		,{
-		    "path" : "pages/checkpoint/forgotPassword/forgotPassword",
-		    "style" : {}
-		}
-        ,{
-            "path" : "pages/main/home/home",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/optionalStock/optionalStock",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/transaction/transaction",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/myAccount/myAccount",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/publicView/news/news",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/bottom/bottom",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/myAccount/verified/verified",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/myAccount/bankCard/bankCard",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/myAccount/changePassword/changePassword",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/myAccount/helpCenter/helpCenter",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/myAccount/pay/pay",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/myAccount/cash/cash",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/myAccount/luckyDraw/luckyDraw",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/transaction/buy/buy",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/transaction/sale/sale",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/transaction/withdrawal/withdrawal",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/transaction/position/position",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/transaction/todayEntrust/todayEntrust",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/transaction/todayClinch/todayClinch",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/transaction/historyEntrust/historyEntrust",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/transaction/historyClinch/historyClinch",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/transaction/capitalFlow/capitalFlow",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/optionalStock/stockSearch/stockSearch",
-            "style" : {
+			"path": "pages/main/main",
+			"style": {
+				// "enablePullDownRefresh": true//允许上拉加载更多
+			}
+		},
+		{
+			"path": "pages/main/home/home",
+			"style": {}
+		}, 
+		
+		{
+			"path": "pages/main/stockPool/new_file",
+			"style": {	
+				"enablePullDownRefresh": false, //允许上拉加载更多
+				// "disableScroll": true, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				"app-plus": {
+					// "bounce" : "none" // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消, 点此查看H5端的取消方法... )
+				}
+			}
+		},
+		
+		
+		 {
+			"path": "pages/checkpoint/register/register",
+			"style": {}
+		}, {
+			"path": "pages/checkpoint/login/login",
+			"style": {}
+		}, {
+			"path": "pages/checkpoint/forgotPassword/forgotPassword",
+			"style": {}
+		},
+		// {
+		// 	"path": "pages/main/home/home",
+		// 	"style": {}
+		// }, 
+		{
+			"path": "pages/main/optionalStock/optionalStock",
+			"style": {}
+		}, {
+			"path": "pages/main/transaction/transaction",
+			"style": {}
+		}, {
+			"path": "pages/main/myAccount/myAccount",
+			"style": {}
+		}, {
+			"path": "pages/main/publicView/news/news",
+			"style": {}
+		}, {
+			"path": "pages/main/bottom/bottom",
+			"style": {}
+		}, {
+			"path": "pages/main/myAccount/verified/verified",
+			"style": {}
+		}, {
+			"path": "pages/main/myAccount/bankCard/bankCard",
+			"style": {}
+		}, {
+			"path": "pages/main/myAccount/changePassword/changePassword",
+			"style": {}
+		}, {
+			"path": "pages/main/myAccount/helpCenter/helpCenter",
+			"style": {}
+		}, {
+			"path": "pages/main/myAccount/pay/pay",
+			"style": {}
+		}, {
+			"path": "pages/main/myAccount/cash/cash",
+			"style": {}
+		}, {
+			"path": "pages/main/myAccount/luckyDraw/luckyDraw",
+			"style": {}
+		}, {
+			"path": "pages/main/transaction/buy/buy",
+			"style": {}
+		}, {
+			"path": "pages/main/transaction/sale/sale",
+			"style": {}
+		}, {
+			"path": "pages/main/transaction/withdrawal/withdrawal",
+			"style": {}
+		}, {
+			"path": "pages/main/transaction/position/position",
+			"style": {}
+		}, {
+			"path": "pages/main/transaction/todayEntrust/todayEntrust",
+			"style": {}
+		}, {
+			"path": "pages/main/transaction/todayClinch/todayClinch",
+			"style": {}
+		}, {
+			"path": "pages/main/transaction/historyEntrust/historyEntrust",
+			"style": {}
+		}, {
+			"path": "pages/main/transaction/historyClinch/historyClinch",
+			"style": {}
+		}, {
+			"path": "pages/main/transaction/capitalFlow/capitalFlow",
+			"style": {}
+		}, {
+			"path": "pages/main/optionalStock/stockSearch/stockSearch",
+			"style": {
 				"app-plus": {
 					"titleNView": false,
 					"navigationBarTextStyle": "black"
 				}
 			}
-        }
-        ,{
-            "path" : "pages/main/transaction/monthBody/monthBody",
+		}, {
+			"path": "pages/main/transaction/monthBody/monthBody",
+			"style": {}
+		}, {
+			"path": "pages/main/transaction/monthBody/withInfo/withInfo",
+			"style": {}
+		}, {
+			"path": "pages/main/transaction/monthBody/trade/trade",
+			"style": {}
+		}, {
+			"path": "pages/main/transaction/monthBody/userCenter/userCenter",
+			"style": {}
+		}, {
+			"path": "pages/main/transaction/monthBody/userCenter/capitalSubsidiary/capitalSubsidiary",
+			"style": {}
+		}, {
+			"path": "pages/main/transaction/monthBody/userCenter/customizeStock/customizeStock",
+			"style": {}
+		}, {
+			"path": "pages/main/transaction/monthBody/userCenter/moneyInto/moneyInto",
+			"style": {}
+		}, {
+			"path": "pages/main/stockPool/stockPool",
+			"style": {
+				"enablePullDownRefresh": false, //允许上拉加载更多
+				// "disableScroll": true, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				"app-plus": {
+					// "bounce" : "none" // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消, 点此查看H5端的取消方法... )
+				}
+			}
+		}, {
+			"path": "pages/main/stockPool/goldStock",
+			"style": {
+				"disableScroll": true, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				// "enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					"bounce": "none" // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+				}
+			}
+		}, {
+			"path": "pages/main/myAccount/myDownload/myDownload",
+			"style": {}
+		}, {
+			"path": "pages/main/myAccount/myMessage/myMessage",
+			"style": {}
+		}, {
+			"path": "pages/main/myAccount/cancellation/cancellation",
+			"style": {}
+		}, {
+			"path": "pages/main/home/stockMarketSchool/stockMarketSchool",
+			"style": {}
+		}, {
+			"path": "pages/main/myAccount/myDownload/management/management",
+			"style": {}
+		}, {
+			"path": "pages/main/transaction/cashBack/cashBack",
+			"style": {}
+		}
+	    ,{
+            "path" : "pages/main/home/transactions/transactions",
             "style" : {}
         }
         ,{
-            "path" : "pages/main/transaction/monthBody/withInfo/withInfo",
+            "path" : "pages/main/home/buys/buys",
+            "style" : {}
+        },{
+            "path" : "pages/main/publicView/news/school_article/school_articlelist",
+            "style" : {}
+        },{
+            "path" : "pages/main/publicView/news/school_article/school_article",
             "style" : {}
         }
         ,{
-            "path" : "pages/main/transaction/monthBody/trade/trade",
+            "path" : "pages/main/publicView/news/stock_discuss/stock_discuss",
             "style" : {}
         }
-        ,{
-            "path" : "pages/main/transaction/monthBody/userCenter/userCenter",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/transaction/monthBody/userCenter/capitalSubsidiary/capitalSubsidiary",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/transaction/monthBody/userCenter/customizeStock/customizeStock",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/transaction/monthBody/userCenter/moneyInto/moneyInto",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/stockPool/stockPool",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/myAccount/myDownload/myDownload",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/myAccount/myMessage/myMessage",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/myAccount/cancellation/cancellation",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/home/stockMarketSchool/stockMarketSchool",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/myAccount/myDownload/management/management",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/main/transaction/cashBack/cashBack",
-            "style" : {}
-        }
+		
+
+        
     ],
 	"globalStyle": {
 		"app-plus": {
@@ -181,5 +204,15 @@
 			"navigationBarBackgroundColor": "#333333",
 			"navigationBarTextStyle": "white"
 		}
+	},
+	"condition" : { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [
+			{
+				"name": "", //模式名称
+				"path": "", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			}
+		]
 	}
 }

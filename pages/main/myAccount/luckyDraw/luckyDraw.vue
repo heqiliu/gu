@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
 	<view class="conbox">
 		<!-- #ifdef APP-PLUS -->
 			<view class="status-bar"></view>
@@ -6,8 +6,8 @@
 		<!-- #endif -->
 		<view class="container">
 			<!-- 背景 -->
-			<image src="../../../../static/img/bg.png" class="cont" mode=""></image>
-			<image src="../../../../static/img/caidai.png" class="caidai" mode=""></image>
+			<img src="../../../../static/img/bg.png" class="cont" mode=""></img>
+			<img src="../../../../static/img/caidai.png" class="caidai" mode=""></img>
 			<view class="header">
 				<view class="header-title">
 					<view class="left">
@@ -32,10 +32,10 @@
 							<view class="canvas-item" :style="[{zIndex:index2}]" v-for="(iteml,index2) in awardsList" :key="index2">
 								<view class="canvas-item-text" :style="[{transform:'rotate('+iteml.turn+')'}]">
 									<text>{{iteml.award}}</text>
-									<image class="canvas-item-text-img" src="../../../../static/img/xiaolian.png" v-if="iteml.type == 3"></image>
-									<image class="canvas-item-text-img" src="../../../../static/img/youhuiquan.png" v-if="iteml.type == 2"></image>
-									<image class="canvas-item-text-img" src="../../../../static/img/jingyan.png" v-if="iteml.type == 1"></image>
-									<image class="canvas-item-text-img" src="../../../../static/img/jifenimg.png" v-if="iteml.type == 0"></image>
+									<img class="canvas-item-text-img" src="../../../../static/img/xiaolian.png" v-if="iteml.type == 3"></img>
+									<img class="canvas-item-text-img" src="../../../../static/img/youhuiquan.png" v-if="iteml.type == 2"></img>
+									<img class="canvas-item-text-img" src="../../../../static/img/jingyan.png" v-if="iteml.type == 1"></img>
+									<img class="canvas-item-text-img" src="../../../../static/img/jifenimg.png" v-if="iteml.type == 0"></img>
 								</view>
 							</view>
 						</view>
@@ -258,20 +258,20 @@
 	}
 
 	.container,
-	image.cont {
+	img.cont {
 		width: 750upx;
 		min-height: 100vh;
 		height: auto;
 		position: relative;
 	}
 
-	image.cont {
+	img.cont {
 		height: 100%;
 		position: absolute;
 		z-index: 0;
 	}
 
-	image.caidai {
+	img.caidai {
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -569,3 +569,4 @@
 		}
 	}
 </style>
+ -->

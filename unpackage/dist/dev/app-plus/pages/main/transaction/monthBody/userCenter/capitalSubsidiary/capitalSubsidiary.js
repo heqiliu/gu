@@ -1,2 +1,0 @@
-setCssToHead(["@charset \x22UTF-8\x22;\n.",[1],"content.",[1],"data-v-b3edbd6e { padding-top: ",[0,90],"; top: var(--status-bar-height); padding-bottom: ",[0,95],"; background: #fbfbfb; height: 100%; }\n",],undefined,{path:"./pages/main/transaction/monthBody/userCenter/capitalSubsidiary/capitalSubsidiary.wxss"})();
-document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/main/transaction/monthBody/userCenter/capitalSubsidiary/capitalSubsidiary.wxml') } }));

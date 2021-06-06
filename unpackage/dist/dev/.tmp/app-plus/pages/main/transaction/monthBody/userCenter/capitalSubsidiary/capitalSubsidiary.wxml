@@ -1,1 +1,1 @@
-<view class="content data-v-b3edbd6e"><view class="status-bar data-v-b3edbd6e"></view><cmd-nav-bar vue-id="1" back background-color="#FF8554" title="资金明细" font-color="#fff" class="data-v-b3edbd6e" bind:__l="__l"></cmd-nav-bar>资金明细</view>
+<view class="content data-v-bf439816"><view class="status-bar data-v-bf439816"></view><cmd-nav-bar vue-id="1" back background-color="#FF8554" title="资金明细" font-color="#fff" class="data-v-bf439816" bind:__l="__l"></cmd-nav-bar>资金明细</view>

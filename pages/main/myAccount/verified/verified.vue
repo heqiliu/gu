@@ -4,30 +4,32 @@
 		<!-- #ifdef APP-PLUS -->
 		<view class="status-bar"></view>
 		<!-- #endif -->
-		<cmd-nav-bar back background-color="linear-gradient(to right, #EF9435, #E95E28)" title="实名认证" font-color="#fff"></cmd-nav-bar>
-		<view class="inputGroup" style="margin-top:54upx">
-			<view class="groupName">
-				真实姓名
+		<cmd-nav-bar class="nav-bar" :fixed="false" back background-color="linear-gradient(to right, #EF9435, #E95E28)" title="实名认证" font-color="#fff"></cmd-nav-bar>
+		<view class="content1">
+			<view class="inputGroup" style="margin-top:54upx">
+				<view class="groupName">
+					真实姓名
+				</view>
+				<input type="text" value="" placeholder="请输入真实姓名" :disabled="isVer" v-model="userName"/>
 			</view>
-			<input type="text" value="" placeholder="请输入真实姓名" :disabled="isVer" v-model="userName"/>
-		</view>
-		<view class="inputGroup" style="margin-top:30upx">
-			<view class="groupName">
-				身份证
+			<view class="inputGroup" style="margin-top:30upx">
+				<view class="groupName">
+					身份证
+				</view>
+				<input type="idcard" value="" placeholder="请输入身份证号码" :disabled="isVer" v-model="userCard"/>
 			</view>
-			<input type="idcard" value="" placeholder="请输入身份证号码" :disabled="isVer" v-model="userCard"/>
-		</view>
-		<view class="inputGroup" style="margin-top:30upx" v-if="!isVer">
-			<view class="groupName">
-				确认身份证
+			<view class="inputGroup" style="margin-top:30upx" v-if="!isVer">
+				<view class="groupName">
+					确认身份证
+				</view>
+				<input type="idcard" value="" placeholder="请确认身份证号" v-model="userCard2"/>
 			</view>
-			<input type="idcard" value="" placeholder="请确认身份证号" v-model="userCard2"/>
-		</view>
-		<view class="inputGroup" style="margin-top:30upx" v-if="!isVer">
-			<view class="groupName">
-				身份证照片
+			<view class="inputGroup" style="margin-top:30upx" v-if="!isVer">
+				<view class="groupName">
+					身份证照片
+				</view>
+				<view class="uploadImg" @click="uploadCardImg">{{isCardUpload == '' ? '未上传' : '已上传'}}</view>
 			</view>
-			<view class="uploadImg" @click="uploadCardImg">{{isCardUpload == '' ? '未上传' : '已上传'}}</view>
 		</view>
 		<view class="isTrue" v-if="!isVer" @click="goverified">提交实名</view>
 	</view>
@@ -56,15 +58,15 @@
 		methods:{
 			initData(){
 				let _this = this;
-				http.get('bindBankCard/tobind',{phone:this.$store.state.userInfo.phone}).then((res)=>{
-					if(res.data.data == undefined){
+				http.get('user/details/getById',{}).then((res)=>{
+					if(res.data.data == undefined || res.data.data.realName == ''){
 						_this.isVer = false
 					}else{
 						_this.isVer = true
 						_this.userName = res.data.data.realName;
-						_this.userCard = res.data.data.idCard;
+						_this.userCard = res.data.data.idNumber;
 					}
-				})
+				});
 			},
 			uploadCardImg(){
 				let _this = this;
@@ -123,11 +125,10 @@
 				uni.showLoading({
 					mask:true
 				})
-				http.get('member/realName',{
+				http.get('realNameApply/add',{
 					realName:this.userName,
-					idCard:this.userCard,
-					phone:this.$store.state.userInfo.phone,
-					idCardImg:this.isCardUpload,
+					idNumber:this.userCard,
+					frontIdentityCardUrl:this.isCardUpload
 				}).then((res)=>{
 					uni.showModal({
 						title : '提示',
@@ -142,12 +143,34 @@
 </script>
 
 <style lang="scss" scoped>
+	.status-bar{
+		box-sizing: border-box;
+		display: block;
+		width: 100%;
+		margin-bottom: -3upx;
+		height: var(--status-bar-height);
+		line-height: var(--status-bar-height);
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: linear-gradient(to right, #EF9435, #E95E28);
+		z-index: 99;
+	}
+	.nav-bar{
+		position: fixed;
+		// top: var(--status-bar-height);
+		left: 0;
+		z-index:2;
+		width: 100%;
+	}
 	.content{
 		/*距离顶部范围应该在88-95范围内*/
-		padding-top: 90upx;
-		top: var(--status-bar-height);
+		// padding-top: 90upx;
+		// top: var(--status-bar-height);
 	}
-	
+	.content1{
+		padding-top: calc(var(--status-bar-height) + 90upx);
+	}
 	.inputGroup{
 		width: 640upx;
 		height: 70upx;

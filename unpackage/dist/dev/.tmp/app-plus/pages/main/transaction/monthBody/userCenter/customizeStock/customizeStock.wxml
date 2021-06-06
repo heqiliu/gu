@@ -1,1 +1,1 @@
-<view class="content data-v-23b55006"><view class="status-bar data-v-23b55006"></view><cmd-nav-bar vue-id="1" back background-color="#FF8554" title="自选股票" font-color="#fff" class="data-v-23b55006" bind:__l="__l"></cmd-nav-bar>自选股票</view>
+<view class="content data-v-47b8dba9"><view class="status-bar data-v-47b8dba9"></view><cmd-nav-bar vue-id="1" back background-color="#FF8554" title="自选股票" font-color="#fff" class="data-v-47b8dba9" bind:__l="__l"></cmd-nav-bar>自选股票</view>

@@ -14,6 +14,7 @@
 					<image v-if="pageNum == 1" src="../../static/icon/m_home_h.png" mode=""></image>
 					<span>首页</span>
 				</li>
+				
 				<li @click="changePage(2)" :class="pageNum == 2 ? 'isTask' : ''">
 					<image v-if="pageNum != 2" src="../../static/icon/m-zx.png" mode=""></image>
 					<image v-if="pageNum == 2" src="../../static/icon/m-zx-h.png" mode=""></image>
@@ -57,6 +58,7 @@
 	
 	export default {
 		components: { home , myAccount , optionalStock , transaction , stockPool},
+		
 		data() {
 			return {
 				pageNum : 1,
@@ -70,6 +72,7 @@
 		    }
 		},
 		onLoad() {
+			//
 			this.pageNum = this.$store.state.mainPageNum;
 			let _this = this;
 			_this.initData();
@@ -100,22 +103,33 @@
 			},
 			//交易数据轮询
 			initData(){
-				http.get('transaction/totransaction',{phone:this.$store.state.userInfo.phone}).then((res)=>{
+				// console.log("交易轮询");
+				if(this.$store.state.userInfo.token == null || this.$store.state.userInfo.token == ''){
+					console.log("缺少token，终止轮询");
+					this.$store.commit('userGoOut', {});
+					uni.reLaunch({
+							//url : '/pages/checkpoint/login/login?msg=token失效，请重新登录'
+							url : '/pages/checkpoint/login/login'
+					});
+					return;
+				}
+				http.get('user/assets',{}).then((res)=>{
+					// console.log("res.data.data:"+res);
 					this.$store.commit('mainTransDataUpdate',res.data.data)
 					let balance=res.data.data.balance;
-					let _this=this;
-					let principal=balance.principal;
-					if(parseFloat(principal) <= 0 && _this.showBanalTip < 1){
-						uni.showToast({
-							title : '您当前可用余额为：'+principal+'；请尽快充值！',
-							icon:'none',
-							duration:5000,
-							complete(res){
-								_this.showBanalTip=_this.showBanalTip+1;
-								console.log("this.showBanalTip"+_this.showBanalTip)
-							}
-						})
-					}
+					// let _this=this;
+					// let principal=balance.principal;
+					// if(parseFloat(principal) <= 0 && _this.showBanalTip < 1){
+					// 	uni.showToast({
+					// 		title : '您当前可用余额为：'+principal+'；请尽快充值！',
+					// 		icon:'none',
+					// 		duration:5000,
+					// 		complete(res){
+					// 			_this.showBanalTip=_this.showBanalTip+1;
+					// 			console.log("this.showBanalTip"+_this.showBanalTip)
+					// 		}
+					// 	})
+					// }
 					
 				})
 			}

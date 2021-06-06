@@ -24,17 +24,17 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.content.data-v-779040f1 {
+.content.data-v-b69d9fb2 {
   /*距离顶部范围应该在88-95范围内*/
   height: 100%;
   padding-bottom: 40rpx;
 }
-.userInfo.data-v-779040f1 {
+.userInfo.data-v-b69d9fb2 {
   width: 100%;
   height: 650rpx;
   position: relative;
 }
-.userInfo .userBack.data-v-779040f1 {
+.userInfo .userBack.data-v-b69d9fb2 {
     display: block;
     width: 100%;
     height: 650rpx;
@@ -43,7 +43,7 @@
     top: 0;
     z-index: 2;
 }
-.userInfo .userContent.data-v-779040f1 {
+.userInfo .userContent.data-v-b69d9fb2 {
     display: block;
     width: 100%;
     height: 650rpx;
@@ -52,12 +52,11 @@
     top: 0;
     z-index: 4;
     padding-top: 120rpx;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     text-align: center;
     color: #fff;
 }
-.userInfo .userContent .userHead.data-v-779040f1 {
+.userInfo .userContent .userHead.data-v-b69d9fb2 {
       display: block;
       width: 170rpx;
       height: 170rpx;
@@ -65,7 +64,7 @@
       border-radius: 50%;
       border: 6rpx solid #f2f2f4;
 }
-.userInfo .userContent .userName.data-v-779040f1 {
+.userInfo .userContent .userName.data-v-b69d9fb2 {
       display: block;
       width: 100%;
       text-align: center;
@@ -73,45 +72,41 @@
       font-size: 34rpx;
       margin-top: 40rpx;
 }
-.userInfo .userContent .userName image.data-v-779040f1 {
+.userInfo .userContent .userName ._img.data-v-b69d9fb2 {
         vertical-align: middle;
         width: 60rpx;
         height: 50rpx;
 }
-.userInfo .userContent .userName text.data-v-779040f1 {
+.userInfo .userContent .userName text.data-v-b69d9fb2 {
         padding-left: 20rpx;
 }
-.userInfo .userContent .num.data-v-779040f1 {
+.userInfo .userContent .num.data-v-b69d9fb2 {
       font-size: 42rpx;
 }
-.userInfo .userContent .myMn.data-v-779040f1 {
+.userInfo .userContent .myMn.data-v-b69d9fb2 {
       font-size: 28rpx;
 }
-.assetsOpe.data-v-779040f1 {
+.assetsOpe.data-v-b69d9fb2 {
   width: 100%;
   height: 100rpx;
   margin-top: 30rpx;
 }
-.assetsOpe .btn.data-v-779040f1 {
+.assetsOpe .btn.data-v-b69d9fb2 {
     width: 50%;
     height: 100rpx;
     float: left;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     display: -webkit-box;
     display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center;
     -webkit-justify-content: center;
-        -ms-flex-pack: center;
             justify-content: center;
     -webkit-box-align: center;
     -webkit-align-items: center;
-        -ms-flex-align: center;
             align-items: center;
 }
-.assetsOpe .btn text.data-v-779040f1 {
+.assetsOpe .btn text.data-v-b69d9fb2 {
       display: block;
       width: 186rpx;
       height: 60rpx;
@@ -121,51 +116,47 @@
       line-height: 60rpx;
       font-size: 32rpx;
       color: #fff;
-      -webkit-box-sizing: border-box;
-              box-sizing: border-box;
+      box-sizing: border-box;
 }
-.funList.data-v-779040f1 {
+.funList.data-v-b69d9fb2 {
   width: 100%;
   background: #fff;
   margin-top: 20rpx;
 }
-.funList .lis.data-v-779040f1 {
+.funList .lis.data-v-b69d9fb2 {
     width: 100%;
     height: 88rpx;
     background: #fff;
     border-bottom: 2rpx solid #e6e6e6;
     line-height: 88rpx;
 }
-.funList .lis .funIcon.data-v-779040f1 {
+.funList .lis .funIcon.data-v-b69d9fb2 {
       width: 90rpx;
       height: 88rpx;
       display: -webkit-box;
       display: -webkit-flex;
-      display: -ms-flexbox;
       display: flex;
       -webkit-box-pack: center;
       -webkit-justify-content: center;
-          -ms-flex-pack: center;
               justify-content: center;
       -webkit-box-align: center;
       -webkit-align-items: center;
-          -ms-flex-align: center;
               align-items: center;
       float: left;
 }
-.funList .lis .funIcon image.data-v-779040f1 {
+.funList .lis .funIcon ._img.data-v-b69d9fb2 {
         display: block;
         width: 54rpx;
         height: 54rpx;
 }
-.funList .lis .funName.data-v-779040f1 {
+.funList .lis .funName.data-v-b69d9fb2 {
       height: 88rpx;
       color: #3f3f3f;
       text-align: left;
       float: left;
       font-size: 28rpx;
 }
-.funList .lis .funCount.data-v-779040f1 {
+.funList .lis .funCount.data-v-b69d9fb2 {
       float: left;
       width: 30rpx;
       height: 30rpx;
@@ -178,38 +169,48 @@
       margin-top: 27rpx;
       margin-left: 15rpx;
 }
-.funList .lis .funRight.data-v-779040f1 {
+.funList .lis .funRight.data-v-b69d9fb2 {
       width: 50rpx;
       height: 88rpx;
       display: -webkit-box;
       display: -webkit-flex;
-      display: -ms-flexbox;
       display: flex;
       -webkit-box-pack: center;
       -webkit-justify-content: center;
-          -ms-flex-pack: center;
               justify-content: center;
       -webkit-box-align: center;
       -webkit-align-items: center;
-          -ms-flex-align: center;
               align-items: center;
       float: right;
 }
-.funList .lis .funRight image.data-v-779040f1 {
+.funList .lis .funRight ._img.data-v-b69d9fb2 {
         display: block;
         width: 18rpx;
         height: 28rpx;
+        padding-right: 30rpx;
 }
-.funList .lis .result.data-v-779040f1 {
+.funList .lis .result.data-v-b69d9fb2 {
       color: #8f8f8f;
       font-size: 26rpx;
       height: 88rpx;
       float: right;
 }
-.logout.data-v-779040f1 {
+.logout.data-v-b69d9fb2 {
   width: 678rpx;
   height: 84rpx;
   background: #d34a34;
+  border-radius: 10rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 84rpx;
+  margin: 0 auto;
+  margin-top: 26rpx;
+  font-size: 30rpx;
+}
+.testVersion.data-v-b69d9fb2 {
+  width: 678rpx;
+  height: 84rpx;
+  background: #d38c3a;
   border-radius: 10rpx;
   color: #fff;
   text-align: center;

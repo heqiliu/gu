@@ -3,8 +3,8 @@
 		<!-- #ifdef APP-PLUS -->
 			<view class="status-bar"></view>
 		<!-- #endif -->
-		<cmd-nav-bar back background-color="linear-gradient(to right, #EF9435, #E95E28)" title="修改密码" font-color="#fff"></cmd-nav-bar>
-		<image class="nmLogo" src="../../../../static/icon/logo_ico.png" mode=""></image>
+		<cmd-nav-bar class="nav-bar" :fixed="false" back background-color="linear-gradient(to right, #EF9435, #E95E28)" title="修改密码" font-color="#fff"></cmd-nav-bar>
+		<img class="nmLogo" src="../../../../static/icon/logo_ico.png" mode=""></img>
 		<view class="inputGroup" style="margin-top:54upx">
 			<view class="groupName">
 				旧密码
@@ -64,7 +64,7 @@
 					return;
 				}
 				
-				http.get('member/updatePassword',{phone:this.$store.state.userInfo.phone,loginPwd:this.oldPass,newLoginPwd:this.newPass1}).then((res)=>{
+				http.get('user/account/updatePassword',{password:this.oldPass,newPassword:this.newPass1}).then((res)=>{
 					this.$store.commit('mainPageNumUpdate',1);
 					this.$store.commit('userGoOut',{});
 					uni.reLaunch({
@@ -78,11 +78,33 @@
 </script>
 
 <style lang="scss" scoped>
+	.status-bar{
+		box-sizing: border-box;
+		display: block;
+		width: 100%;
+		margin-bottom: -3upx;
+		height: var(--status-bar-height);
+		line-height: var(--status-bar-height);
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: linear-gradient(to right, #EF9435, #E95E28);
+		z-index: 99;
+	}
+	.nav-bar{
+		position: fixed;
+		// top: var(--status-bar-height);
+		top: 0;
+		left: 0;
+		z-index:20;
+		width: 100%;
+	}
 	.content{
-		padding-top: 90upx;
-		top: var(--status-bar-height);
+		// padding-top: 90upx;
+		// top: var(--status-bar-height);
 	}
 	.nmLogo{
+		padding-top: calc(var(--status-bar-height) + 90upx);
 		display: block;
 		width: 130upx;
 		height: 130upx;

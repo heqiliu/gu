@@ -7,6 +7,7 @@ import store from '../store.js'
 import md5 from 'js-md5'
 
 export default {
+
 	config: {
 		baseUrl : store.state.webPath,
 		header: {
@@ -94,18 +95,18 @@ export default {
 					}
 				}
 				// 统一的响应日志记录
-				_reslog(response)
+				_reslog(response);
 				if (statusCode === 200) { //成功
 					uni.hideLoading();
 					// ************** 状态码统一处理
-					console.log(response.data);
-					if(response.data.success == false && response.data.code == 4004){
-						store.commit('userGoOut','')
-						uni.redirectTo({
-							url : '/pages/checkpoint/login/login?msg=登录状态过期,请重新登录',
-						})
-						return;
-					}
+					// console.log(response.data);
+					// if(response.data.success == false && response.data.status == 4004){
+					// 	//退出登录，并且返回登录页面
+					// 	store.commit('userGoOut','')
+					// 	uni.redirectTo({
+					// 		url : '/pages/checkpoint/login/login?msg=登录状态过期,请重新登录',
+					// 	})
+					// }
 					
 					if(response.data.success == false && response.data.message != '删除会员收藏的股票信息成功'){
 						uni.showToast({
@@ -141,7 +142,16 @@ export default {
 					// }
 					
 					resolve(response);
-				} else {
+				}
+				// else if(response.data.success == false && response.data.status == 4004){
+				// 		//token错误
+				// 		//退出登录，并且返回登录页面
+				// 		store.commit('userGoOut','')
+				// 		uni.redirectTo({
+				// 			url : '/pages/checkpoint/login/login?msg=登录状态过期,请重新登录',
+				// 		})
+				// }
+				 else {
 					uni.hideLoading();
 					reject(response)
 				}
@@ -212,9 +222,9 @@ export default {
  */
 function _reqlog(req) {
 	if (process.env.NODE_ENV === 'development') {
-		// console.log("【" + req.requestId + "】 地址：" + req.url)
+		console.log("【" + req.requestId + "】 地址：" + req.url)
 		if (req.data) {
-			// console.log("【" + req.requestId + "】 请求参数：" + JSON.stringify(req.data))
+			console.log("【" + req.requestId + "】 请求参数：" + JSON.stringify(req.data))
 		}
 	}
 	//TODO 调接口异步写入日志数据库
@@ -231,7 +241,7 @@ function _reslog(res) {
 			// console.log("【" + res.config.requestId + "】 请求参数：", JSON.stringify(res.config.data))
 		}
 		// console.warn("【" + res.config.requestId + "】 响应结果：",JSON.stringify(res))
-		// console.warn("【" + res.config.requestId + "】 响应结果2：",res)
+		console.warn("【" + res.config.requestId + "】 响应结果2：",res)
 	}
 	//TODO 除了接口服务错误外，其他日志调接口异步写入日志数据库
 	switch(_statusCode){

@@ -1,8 +1,8 @@
 <template>
 	<view class="content">
 		<view class="status-bar"></view>
-		<cmd-nav-bar back background-color="linear-gradient(to right, #EF9435, #E95E28)" title="注销账户" font-color="#fff"></cmd-nav-bar>
-		<image class="nmLogo" src="../../../../static/icon/logo_ico.png" mode=""></image>
+		<cmd-nav-bar class="nav-bar" :fixed="false" back background-color="linear-gradient(to right, #EF9435, #E95E28)" title="注销账户" font-color="#fff"></cmd-nav-bar>
+		<img class="nmLogo" src="../../../../static/icon/logo_ico.png" mode=""></img>
 		<view class="inputGroup" style="margin-top:54upx">
 			<view class="groupName">
 				密码
@@ -33,6 +33,7 @@
 					})
 					return;
 				}
+				let _this = this;
 				uni.showModal({
 					title: '警告',
 					content: '是否确认注销账户',
@@ -41,7 +42,7 @@
 							uni.showLoading({
 								title : '正在注销'
 							})
-							http.get('member/destroyMember',{phone:this.$store.state.userInfo.phone}).then((res)=>{
+							http.get('logout',{password:_this.userPass}).then((res)=>{
 								_this.$store.commit('mainPageNumUpdate',1);
 								_this.$store.commit('userGoOut',{});
 								uni.reLaunch({
@@ -57,15 +58,37 @@
 </script>
 
 <style lang="scss" scoped>
+	.status-bar{
+		box-sizing: border-box;
+		display: block;
+		width: 100%;
+		margin-bottom: -3upx;
+		height: var(--status-bar-height);
+		line-height: var(--status-bar-height);
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: linear-gradient(to right, #EF9435, #E95E28);
+		z-index: 99;
+	}
+	.nav-bar{
+		position: fixed;
+		// top: var(--status-bar-height);
+		top: 0;
+		left: 0;
+		z-index:2;
+		width: 100%;
+	}
 	.content{
 		/*距离顶部范围应该在88-95范围内*/
 		/*  #ifdef  APP-PLUS  */
-		padding-top: 90upx;
+		// padding-top: 90upx;
 		/*  #endif  */
-		top: var(--status-bar-height);
-		padding-bottom: 95upx;
+		// top: var(--status-bar-height);
+		// padding-bottom: 95upx;
 	}
 	.nmLogo{
+		padding-top: calc(var(--status-bar-height) + 90upx);
 		display: block;
 		width: 130upx;
 		height: 130upx;

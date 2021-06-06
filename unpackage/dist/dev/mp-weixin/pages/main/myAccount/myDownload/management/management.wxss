@@ -24,111 +24,128 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
+.status-bar {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin-bottom: -3rpx;
+  height: 25px;
+  line-height: 25px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: -webkit-linear-gradient(left, #EF9435, #E95E28);
+  background: linear-gradient(to right, #EF9435, #E95E28);
+  z-index: 99;
+}
+.nav-bar {
+  position: fixed;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+}
 .content {
   /*距离顶部范围应该在88-95范围内*/
-  top: 25px;
-  padding-bottom: 50rpx;
 }
 .infoLists {
   display: -webkit-box;
   display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 10rpx;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  padding-top: calc(25px*2 + 90rpx);
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  padding-bottom: 10rpx;
+  box-sizing: border-box;
 }
 .infoLists .son {
-    width: 33.3%;
-    height: 160rpx;
-    margin-right: 10rpx;
-    border-radius: 12rpx;
+  width: 33.3%;
+  height: 160rpx;
+  margin-right: 10rpx;
+  border-radius: 12rpx;
 }
 .infoLists .son text {
-      display: block;
-      text-align: center;
-      color: #fff;
+  display: block;
+  text-align: center;
+  color: #fff;
 }
 .infoLists .son text:nth-child(1) {
-      font-size: 26rpx;
-      height: 35rpx;
-      margin-top: 28rpx;
+  font-size: 26rpx;
+  height: 35rpx;
+  margin-top: 28rpx;
 }
 .infoLists .son text:nth-child(2) {
-      font-size: 30rpx;
-      font-weight: 600;
-      margin-top: 20rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  margin-top: 20rpx;
 }
 .infoLists .son:nth-child(1) {
-    background: #F94D4D;
+  background: #F94D4D;
 }
 .infoLists .son:nth-child(2) {
-    background: #B66B18;
+  background: #B66B18;
 }
 .infoLists .son:nth-child(3) {
-    background: #17A6E0;
-    margin: 0;
+  background: #17A6E0;
+  margin: 0;
 }
 .infoLists2 {
   padding-top: 0rpx;
 }
 .infoLists2 .son:nth-child(1) {
-    background: #DE478E;
+  background: #DE478E;
 }
 .infoLists2 .son:nth-child(2) {
-    background: #EF885B;
+  background: #EF885B;
 }
 .infoLists2 .son:nth-child(3) {
-    background: #3C592D;
+  background: #3C592D;
 }
 .recordBox {
   width: 100%;
   padding: 50rpx 30rpx;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 .recordBox .he {
-    width: 100%;
-    height: 70rpx;
-    line-height: 70rpx;
-    color: #333;
-    font-size: 28rpx;
+  width: 100%;
+  height: 70rpx;
+  line-height: 70rpx;
+  color: #333;
+  font-size: 28rpx;
 }
 .recordBox .he text {
-      display: block;
-      width: 25%;
-      float: left;
-      text-align: center;
-      font-weight: 600;
+  display: block;
+  width: 25%;
+  float: left;
+  text-align: center;
+  font-weight: 600;
 }
 .recordBox .reList {
-    width: 100%;
+  width: 100%;
 }
 .recordBox .reList .reli {
-      height: 60rpx;
-      width: 100%;
-      margin-top: 20rpx;
-      border-radius: 12rpx;
-      background: #fbfbfb;
-      font-size: 22rpx;
-      color: #999;
-      line-height: 60rpx;
+  height: 60rpx;
+  width: 100%;
+  margin-top: 20rpx;
+  border-radius: 12rpx;
+  background: #fbfbfb;
+  font-size: 22rpx;
+  color: #999;
+  line-height: 60rpx;
 }
 .recordBox .reList .reli text {
-        display: block;
-        width: 25%;
-        float: left;
-        text-align: center;
+  display: block;
+  width: 25%;
+  float: left;
+  text-align: center;
 }
 .recordBox .reList .reli text:nth-child(3) {
-        line-height: 30rpx;
+  line-height: 30rpx;
 }
 .recordBox .reList .reli:first-child {
-      margin-top: 0rpx;
+  margin-top: 0rpx;
 }
 .lback {
   width: 100%;
@@ -139,90 +156,83 @@
   left: 0;
   display: -webkit-box;
   display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
-      -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
   -webkit-align-items: center;
-      -ms-flex-align: center;
           align-items: center;
 }
 .lback .lcont {
-    width: 680rpx;
-    background: #fff;
-    padding: 10rpx;
-    padding-top: 30rpx;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    border-radius: 8rpx;
-    -webkit-box-shadow: 5rpx 5rpx 15rpx rgba(0, 0, 0, 0.5);
-            box-shadow: 5rpx 5rpx 15rpx rgba(0, 0, 0, 0.5);
-    position: relative;
+  width: 680rpx;
+  background: #fff;
+  padding: 10rpx;
+  padding-top: 30rpx;
+  box-sizing: border-box;
+  border-radius: 8rpx;
+  box-shadow: 5rpx 5rpx 15rpx rgba(0, 0, 0, 0.5);
+  position: relative;
 }
 .lback .lcont .lGroup {
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      margin-top: 20rpx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  margin-top: 20rpx;
 }
 .lback .lcont .lGroup .nams, .lback .lcont .lGroup .bfb {
-        display: block;
-        width: 150px;
-        text-align: right;
-        height: 80rpx;
-        font-size: 26rpx;
-        line-height: 80rpx;
-        color: #999;
+  display: block;
+  width: 150px;
+  text-align: right;
+  height: 80rpx;
+  font-size: 26rpx;
+  line-height: 80rpx;
+  color: #999;
 }
 .lback .lcont .lGroup .bfb {
-        width: 20rpx;
-        display: block;
-        font-size: 28rpx;
-        color: #333;
-        padding: 10rpx;
+  width: 20rpx;
+  display: block;
+  font-size: 28rpx;
+  color: #333;
+  padding: 10rpx;
 }
 .lback .lcont .lGroup input, .lback .lcont .lGroup .pickers {
-        display: block;
-        height: 80rpx;
-        width: 430rpx;
-        padding-left: 10rpx;
-        margin-left: 10rpx;
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
-        border: 2rpx solid #17A6E0;
-        border-radius: 8rpx;
-        font-size: 26rpx;
+  display: block;
+  height: 80rpx;
+  width: 430rpx;
+  padding-left: 10rpx;
+  margin-left: 10rpx;
+  box-sizing: border-box;
+  border: 2rpx solid #17A6E0;
+  border-radius: 8rpx;
+  font-size: 26rpx;
 }
 .lback .lcont .lGroup .pickers .uni-input {
-        height: 100%;
-        width: 100%;
-        line-height: 80rpx;
+  height: 100%;
+  width: 100%;
+  line-height: 80rpx;
 }
 .lback .lcont .isBtn {
-      margin-top: 30rpx;
-      width: 100%;
-      height: 80rpx;
-      color: #fff;
-      font-size: 34rpx;
-      text-align: center;
-      border-radius: 8rpx;
-      background: #17A6E0;
-      line-height: 80rpx;
+  margin-top: 30rpx;
+  width: 100%;
+  height: 80rpx;
+  color: #fff;
+  font-size: 34rpx;
+  text-align: center;
+  border-radius: 8rpx;
+  background: #17A6E0;
+  line-height: 80rpx;
 }
 .lback .lcont .closeview {
-      width: 60rpx;
-      height: 60rpx;
-      border-radius: 50%;
-      border: 4rpx solid #fff;
-      position: absolute;
-      color: #fff;
-      right: 0;
-      top: -100rpx;
-      text-align: center;
-      line-height: 60rpx;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  border: 4rpx solid #fff;
+  position: absolute;
+  color: #fff;
+  right: 0;
+  top: -100rpx;
+  text-align: center;
+  line-height: 60rpx;
 }
 

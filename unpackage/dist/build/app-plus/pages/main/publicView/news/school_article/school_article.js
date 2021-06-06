@@ -1,0 +1,2 @@
+setCssToHead(["@charset \x22UTF-8\x22;\n.",[1],"status-bar { margin-top: ",[0,-36],"; }\n.",[1],"newsBox { padding: ",[0,10]," 4%; }\n.",[1],"newsBox .",[1],"newsHead { font-weight: 600; text-align: center; font-size: ",[0,32],"; color: #262626; }\n.",[1],"newsBox .",[1],"fwb { margin-top: ",[0,10],"; }\n",],undefined,{path:"./pages/main/publicView/news/school_article/school_article.wxss"})();
+document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/main/publicView/news/school_article/school_article.wxml') } }));

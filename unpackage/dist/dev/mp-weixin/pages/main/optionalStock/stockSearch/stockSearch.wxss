@@ -24,47 +24,62 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.content.data-v-11c58ce4 {
-  /*距离顶部范围应该在88-95范围内*/
-  top: 25px;
-  background: #f2f2f2;
-  height: 100%;
+.status-bar.data-v-48d5bb17 {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin-bottom: -3rpx;
+  height: 25px;
+  line-height: 25px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: -webkit-linear-gradient(left, #EF9435, #E95E28);
+  background: linear-gradient(to right, #EF9435, #E95E28);
+  z-index: 99;
 }
-.searchBox.data-v-11c58ce4 {
+.nav-bar.data-v-48d5bb17 {
+  position: fixed;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+}
+.content.data-v-48d5bb17 {
+  /*距离顶部范围应该在88-95范围内*/
+  background: #f2f2f2;
+}
+.searchBox.data-v-48d5bb17 {
   width: 100%;
   height: 70rpx;
   padding: 0 20rpx;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding-top: 20rpx;
+  box-sizing: border-box;
+  padding-top: calc(25px + 20rpx);
 }
-.searchBox input.data-v-11c58ce4 {
-    width: calc(100% - 70rpx);
-    height: 70rpx;
-    background: #fff;
-    float: left;
-    border-radius: 100rpx;
-    color: #222120;
-    padding-left: 20rpx;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    font-size: 28rpx;
+.searchBox input.data-v-48d5bb17 {
+  width: calc(100% - 70rpx);
+  height: 70rpx;
+  background: #fff;
+  float: left;
+  border-radius: 100rpx;
+  color: #222120;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
 }
-.searchBox .cancelBtn.data-v-11c58ce4 {
-    width: 70rpx;
-    float: right;
-    text-align: right;
-    height: 70rpx;
-    color: #292d2d;
-    font-size: 28rpx;
-    font-weight: 500;
-    line-height: 70rpx;
+.searchBox .cancelBtn.data-v-48d5bb17 {
+  width: 70rpx;
+  float: right;
+  text-align: right;
+  height: 70rpx;
+  color: #292d2d;
+  font-size: 28rpx;
+  font-weight: 500;
+  line-height: 70rpx;
 }
-.searchTitle.data-v-11c58ce4 {
+.searchTitle.data-v-48d5bb17 {
   width: 100%;
   padding: 0 20rpx;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   height: 80rpx;
   line-height: 80rpx;
   color: #2b2b2b;
@@ -72,49 +87,48 @@
   text-align: left;
   font-weight: 600;
 }
-.resultList.data-v-11c58ce4 {
+.resultList.data-v-48d5bb17 {
   background: #fff;
   padding-left: 20rpx;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
-.resultList .lis.data-v-11c58ce4 {
-    height: 90rpx;
-    width: 100%;
-    border-bottom: 2rpx solid #e9e9e9;
-    line-height: 90rpx;
-    padding-right: 20rpx;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+.resultList .lis.data-v-48d5bb17 {
+  padding-top: 20px;
+  height: 90rpx;
+  width: 100%;
+  border-bottom: 2rpx solid #e9e9e9;
+  line-height: 90rpx;
+  padding-right: 20rpx;
+  box-sizing: border-box;
 }
-.resultList .lis view.data-v-11c58ce4 {
-      float: left;
-      height: 90rpx;
-      font-size: 28rpx;
-      color: #555;
+.resultList .lis view.data-v-48d5bb17 {
+  float: left;
+  height: 90rpx;
+  font-size: 28rpx;
+  color: #555;
 }
-.resultList .lis view.data-v-11c58ce4:nth-child(1) {
-      width: 30%;
-      text-align: left;
+.resultList .lis view.data-v-48d5bb17:nth-child(1) {
+  width: 30%;
+  text-align: left;
 }
-.resultList .lis view.data-v-11c58ce4:nth-child(2) {
-      width: 30%;
-      text-align: center;
+.resultList .lis view.data-v-48d5bb17:nth-child(2) {
+  width: 30%;
+  text-align: center;
 }
-.resultList .lis view.data-v-11c58ce4:nth-child(3) {
-      width: 40%;
-      color: #989898;
-      text-align: right;
-      font-size: 24rpx;
+.resultList .lis view.data-v-48d5bb17:nth-child(3) {
+  width: 40%;
+  color: #989898;
+  text-align: right;
+  font-size: 24rpx;
 }
-.resultList .lis view:nth-child(3) image.data-v-11c58ce4 {
-        display: block;
-        width: 44rpx;
-        height: 44rpx;
-        float: right;
-        margin-top: 23rpx;
+.resultList .lis view:nth-child(3) image.data-v-48d5bb17 {
+  display: block;
+  width: 44rpx;
+  height: 44rpx;
+  float: right;
+  margin-top: 23rpx;
 }
-.resultList .lis.data-v-11c58ce4:last-child {
-    border: none;
+.resultList .lis.data-v-48d5bb17:last-child {
+  border: none;
 }
 

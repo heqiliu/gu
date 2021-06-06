@@ -2,11 +2,11 @@
 	<view class="content">
 		<!-- #ifdef APP-PLUS -->
 		<view class="status-bar"></view>
-		<cmd-nav-bar back background-color="linear-gradient(to right, #EF9435, #E95E28)" title="卖出" font-color="#fff"></cmd-nav-bar>
+		<cmd-nav-bar class="nav-bar" :fixed="false" back background-color="linear-gradient(to right, #EF9435, #E95E28)" title="卖出" font-color="#fff"></cmd-nav-bar>
 		<!-- #endif -->
 		<view class="buyMsg">
-			昨收<text>{{stockInfo.yesterdayClosed == undefined ? '0.00' : stockInfo.yesterdayClosed}}</text>
-			今开<text>{{stockInfo.todayOpen == undefined ? '0.00' : stockInfo.todayOpen}}</text>
+			昨收<text>{{stockInfo.lastClosePrice == undefined ? '0.00' : stockInfo.lastClosePrice}}</text>
+			今开<text>{{stockInfo.openPrice == undefined ? '0.00' : stockInfo.openPrice}}</text>
 			最高<text>{{stockInfo.highest == undefined ? '0.00' : stockInfo.highest}}</text>
 			最低<text>{{stockInfo.lowest == undefined ? '0.00' : stockInfo.lowest}}</text>
 			涨停<text class="red">{{stockInfo.dailyLimit == undefined ? '0.00' : stockInfo.dailyLimit}}</text>
@@ -39,7 +39,7 @@
 					<view class="backRed bbgcon" @click="priceDelAdd('add')">+</view>
 				</view>
 				<view class="buyxz">
-					现价：<text class="rd">{{stockInfo.curPrice == undefined ? '0.00' : stockInfo.curPrice}}</text>
+					现价：<text class="rd">{{stockInfo.instantPrice == undefined ? '0.00' : stockInfo.instantPrice}}</text>
 					最大可卖：<text>{{maxSale}}</text>
 				</view>
 				<view class="bbg">
@@ -80,86 +80,95 @@
 					<view class="infoName">{{stockInfo.stockName == undefined ? '--' : stockInfo.stockName}}</view>
 					<view class="maill">
 						<view class="m1">卖五</view>
-						<view class="m2">{{stockInfo.sellFive == undefined ? '0.00' : stockInfo.sellFive}}</view>
-						<view class="m3">{{stockInfo.sellFiveAmount == undefined ? '0' : stockInfo.sellFiveAmount}}</view>
+						<view class="m2">{{stockInfo.sellPrices[4] == undefined ? '0.00' : stockInfo.sellPrices[4]}}</view>
+						<view class="m3">{{stockInfo.sellAmounts[4] == undefined ? '0' : stockInfo.sellAmounts[4]}}</view>
 					</view>
 					<view class="maill">
 						<view class="m1">卖四</view>
-						<view class="m2">{{stockInfo.sellFour == undefined ? '0.00' : stockInfo.sellFour}}</view>
-						<view class="m3">{{stockInfo.sellFourAmount == undefined ? '0' : stockInfo.sellFourAmount}}</view>
+						<view class="m2">{{stockInfo.sellPrices[3] == undefined ? '0.00' : stockInfo.sellPrices[3]}}</view>
+						<view class="m3">{{stockInfo.sellAmounts[3] == undefined ? '0' : stockInfo.sellAmounts[3]}}</view>
 					</view>
 					<view class="maill">
 						<view class="m1">卖三</view>
-						<view class="m2">{{stockInfo.sellThree == undefined ? '0.00' : stockInfo.sellThree}}</view>
-						<view class="m3">{{stockInfo.sellThreeAmount == undefined ? '0' : stockInfo.sellThreeAmount}}</view>
+						<view class="m2">{{stockInfo.sellPrices[2] == undefined ? '0.00' : stockInfo.sellPrices[2]}}</view>
+						<view class="m3">{{stockInfo.sellAmounts[2] == undefined ? '0' : stockInfo.sellAmounts[2]}}</view>
 					</view>
 					<view class="maill">
 						<view class="m1">卖二</view>
-						<view class="m2">{{stockInfo.sellTwo == undefined ? '0.00' : stockInfo.sellTwo}}</view>
-						<view class="m3">{{stockInfo.sellTwoAmount == undefined ? '0' : stockInfo.sellTwoAmount}}</view>
+						<view class="m2">{{stockInfo.sellPrices[1] == undefined ? '0.00' : stockInfo.sellPrices[1]}}</view>
+						<view class="m3">{{stockInfo.sellAmounts[1] == undefined ? '0' : stockInfo.sellAmounts[1]}}</view>
 					</view>
 					<view class="maill">
 						<view class="m1">卖一</view>
-						<view class="m2">{{stockInfo.sellOne == undefined ? '0.00' : stockInfo.sellOne}}</view>
-						<view class="m3">{{stockInfo.sellOneAmount == undefined ? '0' : stockInfo.sellOneAmount}}</view>
+						<view class="m2">{{stockInfo.sellPrices[0] == undefined ? '0.00' : stockInfo.sellPrices[0]}}</view>
+						<view class="m3">{{stockInfo.sellAmounts[0] == undefined ? '0' : stockInfo.sellAmounts[0]}}</view>
 					</view>
 				</view>
 				<view class="xux" style="margin-top: 16upx;">
 					<view class="maill">
 						<view class="m1">买一</view>
-						<view class="m2">{{stockInfo.buyOne == undefined ? '0.00' : stockInfo.buyOne}}</view>
-						<view class="m3">{{stockInfo.buyOneAmount == undefined ? '0' : stockInfo.buyOneAmount}}</view>
+						<view class="m2">{{stockInfo.buyPrices[0] == undefined ? '0.00' : stockInfo.buyPrices[0]}}</view>
+						<view class="m3">{{stockInfo.buyAmounts[0] == undefined ? '0' : stockInfo.buyAmounts[0]}}</view>
 					</view>
 					<view class="maill">
 						<view class="m1">买二</view>
-						<view class="m2">{{stockInfo.buyTwo == undefined ? '0.00' : stockInfo.buyTwo}}</view>
-						<view class="m3">{{stockInfo.buyTwoAmount == undefined ? '0' : stockInfo.buyTwoAmount}}</view>
+						<view class="m2">{{stockInfo.buyPrices[1] == undefined ? '0.00' : stockInfo.buyPrices[1]}}</view>
+						<view class="m3">{{stockInfo.buyAmounts[1] == undefined ? '0' : stockInfo.buyAmounts[1]}}</view>
 					</view>
 					<view class="maill">
 						<view class="m1">买三</view>
-						<view class="m2">{{stockInfo.buyThree == undefined ? '0.00' : stockInfo.buyThree}}</view>
-						<view class="m3">{{stockInfo.buyThreeAmount == undefined ? '0' : stockInfo.buyThreeAmount}}</view>
+						<view class="m2">{{stockInfo.buyPrices[2] == undefined ? '0.00' : stockInfo.buyPrices[2]}}</view>
+						<view class="m3">{{stockInfo.buyAmounts[2] == undefined ? '0' : stockInfo.buyAmounts[2]}}</view>
 					</view>
 					<view class="maill">
 						<view class="m1">买四</view>
-						<view class="m2">{{stockInfo.buyFour == undefined ? '0.00' : stockInfo.buyFour}}</view>
-						<view class="m3">{{stockInfo.buyFourAmount == undefined ? '0' : stockInfo.buyFourAmount}}</view>
+						<view class="m2">{{stockInfo.buyPrices[3] == undefined ? '0.00' : stockInfo.buyPrices[3]}}</view>
+						<view class="m3">{{stockInfo.buyAmounts[3] == undefined ? '0' : stockInfo.buyAmounts[3]}}</view>
 					</view>
 					<view class="maill">
 						<view class="m1">买五</view>
-						<view class="m2">{{stockInfo.buyFive == undefined ? '0.00' : stockInfo.buyFive}}</view>
-						<view class="m3">{{stockInfo.buyFiveAmount == undefined ? '0' : stockInfo.buyFiveAmount}}</view>
+						<view class="m2">{{stockInfo.buyPrices[4] == undefined ? '0.00' : stockInfo.buyPrices[4]}}</view>
+						<view class="m3">{{stockInfo.buyAmounts[4] == undefined ? '0' : stockInfo.buyAmounts[4]}}</view>
 					</view>
 				</view>
 			</view>
 			<text style="display: block;clear: both;height: 50upx;"></text>
 		</view>
 		<view class="jrwt">
-			今日委托
+			持股信息
 		</view>
-		<view class="tb">
-			<view class="tbson">
-				<view>名称/代码</view>
-				<view>持有/冻结</view>
-				<view>成本价/现价</view>
-				<view>盈亏</view>
-				<view>操作</view>
+	<view class="tb">
+		<view class="tbson thTop">
+			<view style="width: 20%;">名称/代码</view>
+			<view style="width: 20%;">盈亏/比例</view>
+			<view style="width: 20%;">持仓/可用</view>
+			<view style="width: 20%;">成本/现价</view>
+			<view style="width: 20%;">市值/操作</view>
+		</view>
+		<view class="tbson td" v-for="(el,i) in buysData" :key="i">
+			<view>
+				<text>{{el.stockName}}\n</text> 
+				<text>{{el.stockCode}}</text>
 			</view>
-			<view class="tbson td" v-for="(el,i) in buysData" :key="i">
-				<view>{{el.stockCode}}</view>
-				<view>{{el.amount}}/{{el.freeze}}</view>
-				<view>{{el.buyPrice}}/{{el.curPrice}}</view>
-				<view>{{el.rise}}元</view>
-				<view style="float: left;">
-					<text class="buy-or-can" v-if="el.flag=='S'">成交</text>
-					<text class="buy-or-can" v-else-if="el.flag=='C'">已撤单</text>
-					<text class="buy-or-can" v-else @click="cancellation(el,i)" >卖出</text>
-					<span v-if="el.flag=='N'">/</span>
-					<text v-if="el.flag=='N'" @click="cancle(el,i)">取消</text>
-
-				</view>
-
+			<view style="line-height: 44upx;">
+				<text>{{el.profitAndLoss}}\n</text>
+				<text>{{el.lossThan}}</text>
 			</view>
+			<view style="line-height: 44upx;">
+				<text>{{el.freezeNumber+el.sharesNumber}}\n</text>
+				<text>{{el.sharesNumber}}</text>
+			</view>
+			<view style="line-height: 44upx;">
+				<text>{{el.costPrice}}\n</text>
+				<text>{{el.currentPrice}}</text>
+			</view>
+			<view style="line-height: 44upx;">
+				<text>{{el.marketValue}}\n</text>
+				<text style="color: #0D8AE6;"  @click="cancellation(el,i)">卖出</text>
+			</view>
+			<view style="width: 100%;height: 20upx;background: #a7a7a7;" > </view>
+		</view>
+	</view>
 		</view>
 	</view>
 </template>
@@ -191,15 +200,21 @@
 				buysData: [],
 				//最大可卖
 				maxSale: 0,
-				stase:''
+				stase: '',
+				//卖出订单
+				stockOrder:[],
+				//卖出订单股票信息
+				quoteMap : {},
+				
 			};
 		},
 		methods: {
 			treChange(evt) {
-				this.buyPrice = this.stockInfo.curPrice;
+				this.buyPrice = this.stockInfo.instantPrice;
 			},
 			buyInChange(evt) {
-				this.buyNum = (this.maxSale / evt.target.value).toFixed(0)
+				// this.buyNum = (this.maxSale / evt.target.value).toFixed(0)
+				this.buyNum = parseInt(Math.floor(this.maxSale / evt.target.value /100) * 100 * 1) / 1;
 			},
 			//刷新
 			refresh() {
@@ -282,29 +297,38 @@
 			},
 			//查询股票
 			queryStock(stockCode) {
-				
 				let isgo = false;
 				let _this = this;
 				this.buysData.forEach((el) => {
 					if (el.stockCode == stockCode) {
 						isgo = true;
-						_this.maxSale = el.stockAmount;
 						return;
 					}
 				})
 				if (isgo) {
-					http.get('transaction/tobuy', {
-						stockCode: stockCode,
-						phone: this.$store.state.userInfo.phone
+					http.get('AppPortfolioPage/sell', {
+						stockCode: stockCode
 					}).then((res) => {
-						if (res.data.data.stockMap != undefined) {
-							this.stockInfo = res.data.data.stockMap;
+						
+						if (res.data.data.quote != undefined) {
+							this.stockInfo = res.data.data.quote;
 							this.missVal = this.stockInfo.stockCode;
-							this.buyPrice = this.stockInfo.curPrice;
-							this.available = res.data.data.balance.available;
+							this.buyPrice = this.stockInfo.instantPrice;
+							this.available = res.data.data.userAssetsVo.netAsset;
 						}
+						if(res.data.data.stockHoldVoList != undefined){
+							this.buysData = res.data.data.stockHoldVoList;
+							this.stocks = res.data.data.stockHoldVoList;
+						}
+						// this.stockOrder = []; 
+						// if(res.data.data.stockOrderVoList != undefined){
+						// 	this.stockOrder = res.data.data.stockOrderVoList;
+						// 	this.quoteMap = res.data.data.quoteMap;
+						// }
+						
+						
 					})
-				} 
+				}
 				// else {
 				// 	uni.showModal({
 				// 		title: '提示',
@@ -315,12 +339,13 @@
 			},
 			//获取持有股票
 			getHasStock() {
-				http.get('transaction/tosell', {
-					phone: this.$store.state.userInfo.phone
-				}).then((res) => {
-					console.log(res);
-					this.buysData = res.data.data;
-					this.stocks = res.data.data;
+				// this.queryStock('');
+				http.get('stock/hold/getList', {'pageInfo.size':100,'pageInfo.num':1,'pageInfo.isReturnPage':false}).then((res) => {
+					// console.log(res);
+					// this.buysData = res.data.data.records;
+					// this.stocks = res.data.data.records;
+					this.buysData = res.data.data.records;
+					this.stocks = res.data.data.records;
 				})
 			},
 			//提交
@@ -349,7 +374,7 @@
 					})
 					return
 				}
-				if (this.buyNum > this.maxSale) {
+				if (Number(this.buyNum) > Number(this.maxSale)) {
 					uni.showModal({
 						title: '提示',
 						content: '不能超过最大可卖数！',
@@ -367,27 +392,32 @@
 							uni.showLoading({
 								title: '提交中~'
 							});
-							http.get('transaction/sell?stockCode=' + _this.stockInfo.stockCode + '&holder=' + _this.$store.state.userInfo
-								.phone + '&price=' + _this.buyPrice + '&amount=' + _this.buyNum).then((res) => {
+							http.get('stock/order/add',{
+									stockCode:_this.stockInfo.stockCode,
+									orderNumber:_this.buyNum,
+									orderUnitPrice:_this.buyPrice,
+									orderType : 'SELL'
+								}).then((res) => {
 								if (res.data.success) {
 									uni.showModal({
 										title: '提示',
 										content: res.data.message,
 										showCancel: false,
 									})
-									_this.getHasStock('');
+									uni.redirectTo({url: '/pages/main/transaction/sale/sale'});
 								}
 							})
 						} else if (res.cancel) {
 
 						}
 					}
+					
 				});
 			},
 			//选中
 			cancellation(el, index) {
 				this.queryStock(el.stockCode);
-				this.maxSale = el.stockAmount;
+				this.maxSale = el.sharesNumber;
 			},
 			//取消
 			cancle(el, index) {
@@ -397,9 +427,8 @@
 					content: '是否取消卖出【' + el.stockName + '/' + el.stockCode + '】',
 					success: function(res) {
 						if (res.confirm) {
-							http.get('transaction/cancel', {
-								id: el.srId,
-								type: 'sell'
+							http.get('stock/order/cancellations', {
+								id: el.id
 							}).then((res) => {
 								if (res.data.success) {
 									uni.showToast({
@@ -407,18 +436,21 @@
 										content: res.data.message,
 										showCancel: false,
 									})
-									_this.queryStock('');
-								}else{
+									_this.getHasStock();
+									// _this.queryStock();
+								} else {
 									uni.showModal({
 										title: '提示',
 										content: res.data.message,
 										showCancel: false,
 									})
-									_this.queryStock('');
+									_this.getHasStock();
+									// _this.queryStock('');
 								}
 							})
 						}
-					}
+					},
+					
 				});
 			}
 
@@ -427,20 +459,65 @@
 			uni.showLoading({
 				mask: true
 			})
+			if (options.type == 'zxgp') {
+				this.queryStock(options.stockCode);
+				this.maxSale = options.maxSale;
+				http.get('AppPortfolioPage/sell', {
+					stockCode: options.stockCode
+				}).then((res) => {
+					
+					if (res.data.data.quote != undefined) {
+						this.stockInfo = res.data.data.quote;
+						this.missVal = this.stockInfo.stockCode;
+						this.buyPrice = this.stockInfo.instantPrice;
+						this.available = res.data.data.userAssetsVo.netAsset;
+					}
+					if(res.data.data.stockHoldVoList != undefined){
+						this.buysData = res.data.data.stockHoldVoList;
+						this.stocks = res.data.data.stockHoldVoList;
+					}
+					
+					// this.stockOrder = []; 
+					// if(res.data.data.stockOrderVoList != undefined){
+					// 	this.stockOrder = res.data.data.stockOrderVoList;
+					// 	this.quoteMap = res.data.data.quoteMap;
+					// }
+				})
+			}
+			// this.queryStock('');
 			this.getHasStock();
 		},
-		mounted() {
-		}
+		mounted() {}
 	}
 </script>
 
 <style lang="scss" scoped>
+	.status-bar{
+		box-sizing: border-box;
+		display: block;
+		width: 100%;
+		margin-bottom: -3upx;
+		height: var(--status-bar-height);
+		line-height: var(--status-bar-height);
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: linear-gradient(to right, #EF9435, #E95E28);
+		z-index: 99;
+	}
+	.nav-bar{
+		position: fixed;
+		// top: var(--status-bar-height);
+		left: 0;
+		z-index:20;
+		width: 100%;
+	}
 	.content {
 		/*距离顶部范围应该在88-95范围内*/
 		/*  #ifdef  APP-PLUS  */
-		padding-top: 90upx;
+		// padding-top: 90upx;
 		/*  #endif  */
-		top: var(--status-bar-height);
+		// top: var(--status-bar-height);
 		padding-bottom: 95upx;
 		background: #fbfbfb;
 		height: 100%;
@@ -452,7 +529,10 @@
 		color: #555;
 		text-align: left;
 		font-size: 26upx;
-		padding: 10upx;
+		padding-top: calc(var(--status-bar-height) + 90upx);
+		padding-left: 10upx;
+		padding-bottom: 10upx;
+		padding-right: 10upx;
 		box-sizing: border-box;
 
 		text {
@@ -700,7 +780,7 @@
 				height: 86upx;
 			}
 		}
-		
+
 
 		.td {
 			border: none;
@@ -709,18 +789,19 @@
 			font-size: 25upx;
 			overflow: hidden;
 
-			view:last-child {
-				box-sizing: border-box;
-				text-align: center;
+			// view:last-child {
+			// 	box-sizing: border-box;
+			// 	text-align: center;
 
-				text {
-					width: 50%;
-					height: 100%;
-					// float: left;
-					padding: 5px;
-					text-align: center;
-				}
-				.buy-or-can{
+			// 	text {
+			// 		width: 50%;
+			// 		height: 100%;
+			// 		// float: left;
+			// 		padding: 5px;
+			// 		text-align: center;
+			// 	}
+
+				.buy-or-can {
 					float: none;
 				}
 
@@ -731,7 +812,7 @@
 				text:nth-child(3) {
 					color: red;
 				}
-			}
+			// }
 		}
 
 		.td:nth-child(2n-1) {

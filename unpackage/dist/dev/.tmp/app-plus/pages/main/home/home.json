@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "uni-notice-bar": "/components/uni-notice-bar/uni-notice-bar"
+    "uni-notice-bar": "/components/uni-notice-bar/uni-notice-bar",
+    "countup": "/components/countUp/countUp",
+    "cmd-nav-bar": "/components/cmd-nav-bar/cmd-nav-bar"
   }
 }

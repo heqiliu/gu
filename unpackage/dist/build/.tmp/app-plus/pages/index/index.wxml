@@ -1,1 +1,1 @@
-<view class="content"><uni-nav-bar vue-id="1" left-icon="back" left-text="返回" right-text="菜单" title="导航栏组件" bind:__l="__l"></uni-nav-bar>阿斯顿撒打算</view>
+<view class="contentMain"><scroll-view class="container" scroll-y scroll-top="1"><block wx:if="{{pageNum==1}}"><home vue-id="1" bind:__l="__l"></home></block></scroll-view><view class="bottomNav"></view><view class="bottomTu"></view></view>

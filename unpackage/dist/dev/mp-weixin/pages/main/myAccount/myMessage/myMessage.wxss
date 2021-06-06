@@ -24,45 +24,62 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.content.data-v-1d25442e {
-  padding-top: 90rpx;
-  top: 25px;
+.status-bar.data-v-db0721c8 {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin-bottom: -3rpx;
+  height: 25px;
+  line-height: 25px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: -webkit-linear-gradient(left, #EF9435, #E95E28);
+  background: linear-gradient(to right, #EF9435, #E95E28);
+  z-index: 99;
 }
-.helpList.data-v-1d25442e {
+.nav-bar.data-v-db0721c8 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
   width: 100%;
 }
-.helpList .helpLi.data-v-1d25442e {
-    width: 720rpx;
-    font-size: 28rpx;
-    margin: 0 auto;
-    border-bottom: 2rpx solid #dedede;
-    color: #555;
-    position: relative;
-    background: #f3f3f3;
-    padding: 20rpx;
-    padding-right: 50rpx;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    margin-top: 30rpx;
-    border-radius: 15rpx;
+.helpList.data-v-db0721c8 {
+  padding-top: calc(25px + 90rpx);
+  width: 100%;
 }
-.helpList .time.data-v-1d25442e {
-    text-align: right;
-    color: #999;
-    font-size: 24rpx;
-    text-align: right;
+.helpList .helpLi.data-v-db0721c8 {
+  width: 720rpx;
+  font-size: 28rpx;
+  margin: 0 auto;
+  border-bottom: 2rpx solid #dedede;
+  color: #555;
+  position: relative;
+  background: #f3f3f3;
+  padding: 20rpx;
+  padding-right: 50rpx;
+  box-sizing: border-box;
+  margin-top: 30rpx;
+  border-radius: 15rpx;
 }
-.helpList .liIcon.data-v-1d25442e {
-    display: block;
-    width: 20rpx;
-    height: 20rpx;
-    position: relative;
-    background: red;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    bottom: 50%;
-    margin: auto 0;
-    right: 20rpx;
+.helpList .time.data-v-db0721c8 {
+  text-align: right;
+  color: #999;
+  font-size: 24rpx;
+  text-align: right;
+}
+.helpList .liIcon.data-v-db0721c8 {
+  display: block;
+  width: 20rpx;
+  height: 20rpx;
+  position: relative;
+  background: red;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  margin: auto 0;
+  right: 20rpx;
 }
 

@@ -24,17 +24,36 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.content.data-v-7a8b03cf {
-  /*距离顶部范围应该在88-95范围内*/
-  padding-top: 90rpx;
-  top: var(--status-bar-height);
+.status-bar.data-v-0112567d {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin-bottom: -3rpx;
+  height: var(--status-bar-height);
+  line-height: var(--status-bar-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: -webkit-linear-gradient(left, #EF9435, #E95E28);
+  background: linear-gradient(to right, #EF9435, #E95E28);
+  z-index: 99;
 }
-.newsBox.data-v-7a8b03cf {
+.nav-bar.data-v-0112567d {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+}
+.content.data-v-0112567d {
+  /*距离顶部范围应该在88-95范围内*/
+}
+.newsBox.data-v-0112567d {
   width: 710rpx;
   margin: 0 auto;
-  margin-top: 20rpx;
+  margin-top: calc(var(--status-bar-height) + 90rpx);
 }
-.newsHead.data-v-7a8b03cf {
+.newsHead.data-v-0112567d {
   width: 100%;
   height: auto;
   line-height: 50rpx;
@@ -43,7 +62,8 @@
   text-align: left;
   font-weight: 600;
 }
-.fwb.data-v-7a8b03cf {
+.fwb.data-v-0112567d {
   margin-top: 20rpx;
+  font-size: 28rpx;
 }
 

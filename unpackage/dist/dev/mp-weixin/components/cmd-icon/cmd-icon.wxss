@@ -17,303 +17,303 @@
 	vertical-align: middle;
 }
 .cmd-icon-add::before {
-	content: "\E960";
+	content: "\e960";
 }
 .cmd-icon-add-circle::before {
-	content: "\E901";
+	content: "\e901";
 }
 .cmd-icon-subtract::before {
-	content: "\E962";
+	content: "\e962";
 }
 .cmd-icon-subtract-circle::before {
-	content: "\E961";
+	content: "\e961";
 }
 .cmd-icon-align-center::before {
-	content: "\E902";
+	content: "\e902";
 }
 .cmd-icon-align-left::before {
-	content: "\E903";
+	content: "\e903";
 }
 .cmd-icon-align-right::before {
-	content: "\E904";
+	content: "\e904";
 }
 .cmd-icon-arrow-down::before {
-	content: "\E905";
+	content: "\e905";
 }
 .cmd-icon-arrow-left::before {
-	content: "\E907";
+	content: "\e907";
 }
 .cmd-icon-arrow-right::before {
-	content: "\E908";
+	content: "\e908";
 }
 .cmd-icon-arrow-up::before {
-	content: "\E909";
+	content: "\e909";
 }
 .cmd-icon-bell::before {
-	content: "\E90A";
+	content: "\e90a";
 }
 .cmd-icon-blocked::before {
-	content: "\E90B";
+	content: "\e90b";
 }
 .cmd-icon-bookmark::before {
-	content: "\E90C";
+	content: "\e90c";
 }
 .cmd-icon-bullet-list::before {
-	content: "\E90D";
+	content: "\e90d";
 }
 .cmd-icon-calendar::before {
-	content: "\E90E";
+	content: "\e90e";
 }
 .cmd-icon-camera::before {
-	content: "\E90F";
+	content: "\e90f";
 }
 .cmd-icon-check-circle::before {
-	content: "\E910";
+	content: "\e910";
 }
 .cmd-icon-chevron-down::before {
-	content: "\E911";
+	content: "\e911";
 }
 .cmd-icon-chevron-left::before {
-	content: "\E912";
+	content: "\e912";
 }
 .cmd-icon-chevron-right::before {
-	content: "\E913";
+	content: "\e913";
 }
 .cmd-icon-chevron-up::before {
-	content: "\E914";
+	content: "\e914";
 }
 .cmd-icon-clock::before {
-	content: "\E915";
+	content: "\e915";
 }
 .cmd-icon-close-circle::before {
-	content: "\E916";
+	content: "\e916";
 }
 .cmd-icon-close::before {
-	content: "\E917";
+	content: "\e917";
 }
 .cmd-icon-credit-card::before {
-	content: "\E918";
+	content: "\e918";
 }
 .cmd-icon-download-cloud::before {
-	content: "\E919";
+	content: "\e919";
 }
 .cmd-icon-download::before {
-	content: "\E91A";
+	content: "\e91a";
 }
 .cmd-icon-edit::before {
-	content: "\E91B";
+	content: "\e91b";
 }
 .cmd-icon-equalizer::before {
-	content: "\E91C";
+	content: "\e91c";
 }
 .cmd-icon-external-link::before {
-	content: "\E91D";
+	content: "\e91d";
 }
 .cmd-icon-eye::before {
-	content: "\E91E";
+	content: "\e91e";
 }
 .cmd-icon-file-audio::before {
-	content: "\E91F";
+	content: "\e91f";
 }
 .cmd-icon-file-code::before {
-	content: "\E920";
+	content: "\e920";
 }
 .cmd-icon-file-generic::before {
-	content: "\E921";
+	content: "\e921";
 }
 .cmd-icon-file-jpg::before {
-	content: "\E923";
+	content: "\e923";
 }
 .cmd-icon-file-new::before {
-	content: "\E924";
+	content: "\e924";
 }
 .cmd-icon-file-png::before {
-	content: "\E925";
+	content: "\e925";
 }
 .cmd-icon-file-svg::before {
-	content: "\E926";
+	content: "\e926";
 }
 .cmd-icon-file-video::before {
-	content: "\E927";
+	content: "\e927";
 }
 .cmd-icon-filter::before {
-	content: "\E928";
+	content: "\e928";
 }
 .cmd-icon-folder::before {
-	content: "\E929";
+	content: "\e929";
 }
 .cmd-icon-font-color::before {
-	content: "\E92A";
+	content: "\e92a";
 }
 .cmd-icon-heart::before {
-	content: "\E92B";
+	content: "\e92b";
 }
 .cmd-icon-help::before {
-	content: "\E92C";
+	content: "\e92c";
 }
 .cmd-icon-home::before {
-	content: "\E92D";
+	content: "\e92d";
 }
 .cmd-icon-image::before {
-	content: "\E92E";
+	content: "\e92e";
 }
 .cmd-icon-iphone-x::before {
-	content: "\E92F";
+	content: "\e92f";
 }
 .cmd-icon-iphone::before {
-	content: "\E930";
+	content: "\e930";
 }
 .cmd-icon-lightning-bolt::before {
-	content: "\E931";
+	content: "\e931";
 }
 .cmd-icon-link::before {
-	content: "\E932";
+	content: "\e932";
 }
 .cmd-icon-list::before {
-	content: "\E933";
+	content: "\e933";
 }
 .cmd-icon-lock::before {
-	content: "\E934";
+	content: "\e934";
 }
 .cmd-icon-mail::before {
-	content: "\E935";
+	content: "\e935";
 }
 .cmd-icon-map-pin::before {
-	content: "\E936";
+	content: "\e936";
 }
 .cmd-icon-menu::before {
-	content: "\E937";
+	content: "\e937";
 }
 .cmd-icon-message::before {
-	content: "\E938";
+	content: "\e938";
 }
 .cmd-icon-money::before {
-	content: "\E939";
+	content: "\e939";
 }
 .cmd-icon-next::before {
-	content: "\E93A";
+	content: "\e93a";
 }
 .cmd-icon-numbered-list::before {
-	content: "\E93B";
+	content: "\e93b";
 }
 .cmd-icon-pause::before {
-	content: "\E93C";
+	content: "\e93c";
 }
 .cmd-icon-phone::before {
-	content: "\E93D";
+	content: "\e93d";
 }
 .cmd-icon-play::before {
-	content: "\E93E";
+	content: "\e93e";
 }
 .cmd-icon-playlist::before {
-	content: "\E93F";
+	content: "\e93f";
 }
 .cmd-icon-prev::before {
-	content: "\E940";
+	content: "\e940";
 }
 .cmd-icon-reload::before {
-	content: "\E941";
+	content: "\e941";
 }
 .cmd-icon-repecmd-play::before {
-	content: "\E942";
+	content: "\e942";
 }
 .cmd-icon-search::before {
-	content: "\E943";
+	content: "\e943";
 }
 .cmd-icon-settings::before {
-	content: "\E944";
+	content: "\e944";
 }
 .cmd-icon-share-2::before {
-	content: "\E945";
+	content: "\e945";
 }
 .cmd-icon-share::before {
-	content: "\E946";
+	content: "\e946";
 }
 .cmd-icon-shopping-bag-2::before {
-	content: "\E947";
+	content: "\e947";
 }
 .cmd-icon-shopping-bag::before {
-	content: "\E948";
+	content: "\e948";
 }
 .cmd-icon-shopping-cart::before {
-	content: "\E949";
+	content: "\e949";
 }
 .cmd-icon-shuffle-play::before {
-	content: "\E94A";
+	content: "\e94a";
 }
 .cmd-icon-sketch::before {
-	content: "\E94B";
+	content: "\e94b";
 }
 .cmd-icon-sound::before {
-	content: "\E94C";
+	content: "\e94c";
 }
 .cmd-icon-star::before {
-	content: "\E94D";
+	content: "\e94d";
 }
 .cmd-icon-stop::before {
-	content: "\E94E";
+	content: "\e94e";
 }
 .cmd-icon-streaming::before {
-	content: "\E94F";
+	content: "\e94f";
 }
 .cmd-icon-tag::before {
-	content: "\E950";
+	content: "\e950";
 }
 .cmd-icon-tags::before {
-	content: "\E951";
+	content: "\e951";
 }
 .cmd-icon-text-italic::before {
-	content: "\E952";
+	content: "\e952";
 }
 .cmd-icon-text-strikethrough::before {
-	content: "\E953";
+	content: "\e953";
 }
 .cmd-icon-text-underline::before {
-	content: "\E954";
+	content: "\e954";
 }
 .cmd-icon-trash::before {
-	content: "\E955";
+	content: "\e955";
 }
 .cmd-icon-upload::before {
-	content: "\E956";
+	content: "\e956";
 }
 .cmd-icon-user::before {
-	content: "\E957";
+	content: "\e957";
 }
 .cmd-icon-video::before {
-	content: "\E958";
+	content: "\e958";
 }
 .cmd-icon-volume-minus::before {
-	content: "\E959";
+	content: "\e959";
 }
 .cmd-icon-volume-off::before {
-	content: "\E95A";
+	content: "\e95a";
 }
 .cmd-icon-volume-plus::before {
-	content: "\E95B";
+	content: "\e95b";
 }
 .cmd-icon-analytics::before {
-	content: "\E95C";
+	content: "\e95c";
 }
 .cmd-icon-star-2::before {
-	content: "\E95D";
+	content: "\e95d";
 }
 .cmd-icon-check::before {
-	content: "\E95E";
+	content: "\e95e";
 }
 .cmd-icon-heart-2::before {
-	content: "\E95F";
+	content: "\e95f";
 }
 .cmd-icon-loading::before {
-	content: "\E967";
+	content: "\e967";
 }
 .cmd-icon-loading-2::before {
-	content: "\E966";
+	content: "\e966";
 }
 .cmd-icon-loading-3::before {
-	content: "\E963";
+	content: "\e963";
 }
 .cmd-icon-alert-circle::before {
-	content: "\E964";
+	content: "\e964";
 }
 

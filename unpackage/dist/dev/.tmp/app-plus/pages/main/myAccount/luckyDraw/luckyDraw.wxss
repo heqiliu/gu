@@ -24,7 +24,7 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.conbox.data-v-c1ca38a8 {
+.conbox.data-v-31e28a80 {
   width: 750rpx;
   height: 100vh;
   overflow-x: hidden;
@@ -32,71 +32,62 @@
   padding-top: 90rpx;
   top: var(--status-bar-height);
 }
-.container.data-v-c1ca38a8,
-image.cont.data-v-c1ca38a8 {
+.container.data-v-31e28a80,
+._img.cont.data-v-31e28a80 {
   width: 750rpx;
   min-height: 100vh;
   height: auto;
   position: relative;
 }
-image.cont.data-v-c1ca38a8 {
+._img.cont.data-v-31e28a80 {
   height: 100%;
   position: absolute;
   z-index: 0;
 }
-image.caidai.data-v-c1ca38a8 {
+._img.caidai.data-v-31e28a80 {
   position: absolute;
   top: 0;
   left: 0;
   width: 750rpx;
   height: 1024rpx;
 }
-.header.data-v-c1ca38a8 {
+.header.data-v-31e28a80 {
   display: -webkit-box;
   display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
-      -ms-flex-direction: column;
           flex-direction: column;
   -webkit-box-align: center;
   -webkit-align-items: center;
-      -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
-      -ms-flex-pack: center;
           justify-content: center;
   /* height: 246upx; */
   padding-top: 48rpx;
   padding-bottom: 40rpx;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   position: relative;
   z-index: 3;
 }
-.header-title.data-v-c1ca38a8 {
+.header-title.data-v-31e28a80 {
   width: 100%;
   height: 60rpx;
   display: -webkit-box;
   display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
   -webkit-align-items: center;
-      -ms-flex-align: center;
           align-items: center;
   padding: 0 48rpx;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
-      -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.header-title > view.data-v-c1ca38a8 {
+.header-title > view.data-v-31e28a80 {
   padding: 8rpx 16rpx;
   border: 1px solid #d89720;
   color: #d89720;
@@ -104,7 +95,7 @@ image.caidai.data-v-c1ca38a8 {
   border-radius: 26rpx;
 }
 /* 转盘 */
-.canvas-container.data-v-c1ca38a8 {
+.canvas-container.data-v-31e28a80 {
   margin: 0 auto;
   position: relative;
   width: 600rpx;
@@ -113,13 +104,13 @@ image.caidai.data-v-c1ca38a8 {
   background-size: cover;
   border-radius: 50%;
 }
-.canvas.data-v-c1ca38a8 {
+.canvas.data-v-31e28a80 {
   width: 100%;
   height: 100%;
   display: block !important;
   border-radius: 50%;
 }
-.canvas-content.data-v-c1ca38a8 {
+.canvas-content.data-v-31e28a80 {
   position: absolute;
   left: 0;
   top: 0;
@@ -131,14 +122,14 @@ image.caidai.data-v-c1ca38a8 {
   /* background-clip: padding-box; */
   /* background-color: #ffcb3f; */
 }
-.canvas-element.data-v-c1ca38a8 {
+.canvas-element.data-v-31e28a80 {
   position: relative;
   z-index: 1;
   width: inherit;
   height: inherit;
   border-radius: 50%;
 }
-.canvas-list.data-v-c1ca38a8 {
+.canvas-list.data-v-31e28a80 {
   position: absolute;
   left: 0;
   top: 0;
@@ -146,7 +137,7 @@ image.caidai.data-v-c1ca38a8 {
   height: inherit;
   z-index: 9999;
 }
-.canvas-item.data-v-c1ca38a8 {
+.canvas-item.data-v-31e28a80 {
   position: absolute;
   left: 0;
   top: 0;
@@ -155,40 +146,36 @@ image.caidai.data-v-c1ca38a8 {
   color: #e4370e;
   /* text-shadow: 0 1upx 1upx rgba(255, 255, 255, 0.6); */
 }
-.canvas-item-text.data-v-c1ca38a8 {
+.canvas-item-text.data-v-31e28a80 {
   position: relative;
   display: block;
   padding-top: 46rpx;
   margin: 0 auto;
   text-align: center;
   -webkit-transform-origin: 50% 300rpx;
-  -ms-transform-origin: 50% 300rpx;
-      transform-origin: 50% 300rpx;
+  transform-origin: 50% 300rpx;
   display: -webkit-box;
   display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
-      -ms-flex-direction: column;
           flex-direction: column;
   -webkit-box-align: center;
   -webkit-align-items: center;
-      -ms-flex-align: center;
           align-items: center;
   color: #FB778B;
 }
-.canvas-item-text text.data-v-c1ca38a8 {
+.canvas-item-text text.data-v-31e28a80 {
   font-size: 30rpx;
 }
-.canvas-item-text-img.data-v-c1ca38a8 {
+.canvas-item-text-img.data-v-31e28a80 {
   width: 50rpx;
   height: 50rpx;
   padding-top: 30rpx;
 }
 /* 分隔线 */
-.canvas-line.data-v-c1ca38a8 {
+.canvas-line.data-v-31e28a80 {
   position: absolute;
   left: 0;
   top: 0;
@@ -196,7 +183,7 @@ image.caidai.data-v-c1ca38a8 {
   height: inherit;
   z-index: 99;
 }
-.canvas-litem.data-v-c1ca38a8 {
+.canvas-litem.data-v-31e28a80 {
   position: absolute;
   left: 300rpx;
   top: 0;
@@ -205,13 +192,12 @@ image.caidai.data-v-c1ca38a8 {
   background-color: rgba(228, 55, 14, 0.4);
   overflow: hidden;
   -webkit-transform-origin: 50% 300rpx;
-  -ms-transform-origin: 50% 300rpx;
-      transform-origin: 50% 300rpx;
+  transform-origin: 50% 300rpx;
 }
 /**  
 * 抽奖按钮  
 */
-.canvas-btn.data-v-c1ca38a8 {
+.canvas-btn.data-v-31e28a80 {
   position: absolute;
   left: 260rpx;
   top: 260rpx;
@@ -225,11 +211,10 @@ image.caidai.data-v-c1ca38a8 {
   text-align: center;
   font-size: 26rpx;
   text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.6);
-  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
-          box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
   text-decoration: none;
 }
-.canvas-btn.data-v-c1ca38a8::after {
+.canvas-btn.data-v-31e28a80::after {
   position: absolute;
   display: block;
   content: ' ';
@@ -243,15 +228,15 @@ image.caidai.data-v-c1ca38a8 {
   border-color: transparent;
   border-bottom-color: #e44025;
 }
-.canvas-btn.disabled.data-v-c1ca38a8 {
+.canvas-btn.disabled.data-v-31e28a80 {
   pointer-events: none;
   background: #b07a7b;
   color: #ccc;
 }
-.canvas-btn.disabled.data-v-c1ca38a8::after {
+.canvas-btn.disabled.data-v-31e28a80::after {
   border-bottom-color: #b07a7b;
 }
-.canvas-btn-table.data-v-c1ca38a8 {
+.canvas-btn-table.data-v-31e28a80 {
   color: #A83FDB;
   width: 120rpx;
   text-align: center;
@@ -262,22 +247,19 @@ image.caidai.data-v-c1ca38a8 {
   background-color: #FFFFFF;
   opacity: 0.9;
 }
-.guize.data-v-c1ca38a8 {
+.guize.data-v-31e28a80 {
   width: 502rpx;
   min-height: 300rpx;
   display: -webkit-box;
   display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
-      -ms-flex-direction: column;
           flex-direction: column;
   position: relative;
   z-index: 3;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#F48549), to(#F2642E));
-  background-image: -o-linear-gradient(top, #F48549 0%, #F2642E 100%);
+  background-image: -webkit-linear-gradient(top, #F48549 0%, #F2642E 100%);
   background-image: linear-gradient(-180deg, #F48549 0%, #F2642E 100%);
   border: 18rpx solid #E4431A;
   border-radius: 16px;
@@ -287,11 +269,11 @@ image.caidai.data-v-c1ca38a8 {
   /* box-sizing: border-box; */
   color: #fff;
 }
-.guize .title.data-v-c1ca38a8 {
+.guize .title.data-v-31e28a80 {
   text-align: center;
   margin-bottom: 28rpx;
 }
-.guize .g_item.data-v-c1ca38a8 {
+.guize .g_item.data-v-31e28a80 {
   font-family: PingFang-SC-Medium;
   font-size: 24rpx;
   color: #FFFFFF;
@@ -299,7 +281,7 @@ image.caidai.data-v-c1ca38a8 {
   text-align: justify;
   line-height: 20px;
 }
-.luckyBox.data-v-c1ca38a8 {
+.luckyBox.data-v-31e28a80 {
   position: fixed;
   left: 0;
   top: 0;
@@ -309,22 +291,19 @@ image.caidai.data-v-c1ca38a8 {
   z-index: 999;
   display: -webkit-box;
   display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
-      -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
   -webkit-align-items: center;
-      -ms-flex-align: center;
           align-items: center;
 }
-.luckyBox .luckyContent.data-v-c1ca38a8 {
+.luckyBox .luckyContent.data-v-31e28a80 {
     background: #fff;
     width: 600rpx;
 }
-.luckyBox .luckyContent .tit.data-v-c1ca38a8 {
+.luckyBox .luckyContent .tit.data-v-31e28a80 {
       width: 100%;
       height: 80rpx;
       line-height: 80rpx;
@@ -334,35 +313,33 @@ image.caidai.data-v-c1ca38a8 {
       background: #d64e47;
       position: relative;
 }
-.luckyBox .luckyContent .tit .lClose.data-v-c1ca38a8 {
+.luckyBox .luckyContent .tit .lClose.data-v-31e28a80 {
         position: absolute;
         top: 0;
         right: 0;
         width: 80rpx;
         height: 80rpx;
 }
-.luckyBox .luckyContent .lDetails.data-v-c1ca38a8 {
+.luckyBox .luckyContent .lDetails.data-v-31e28a80 {
       padding: 30rpx;
-      -webkit-box-sizing: border-box;
-              box-sizing: border-box;
+      box-sizing: border-box;
 }
-.luckyBox .luckyContent .lDetails input.data-v-c1ca38a8 {
+.luckyBox .luckyContent .lDetails input.data-v-31e28a80 {
         display: block;
         width: 100%;
         height: 60rpx;
         border: 2rpx solid #FF6D28;
-        -webkit-box-sizing: border-box;
-                box-sizing: border-box;
+        box-sizing: border-box;
         text-align: center;
 }
-.luckyBox .luckyContent .lDetails .ft.data-v-c1ca38a8 {
+.luckyBox .luckyContent .lDetails .ft.data-v-31e28a80 {
         width: 100%;
         color: #d14037;
         font-size: 28rpx;
         line-height: 40rpx;
         text-align: center;
 }
-.luckyBox .luckyContent .lDetails .get.data-v-c1ca38a8 {
+.luckyBox .luckyContent .lDetails .get.data-v-31e28a80 {
         width: 370rpx;
         height: 56rpx;
         line-height: 56rpx;

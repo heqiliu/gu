@@ -24,50 +24,67 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.content.data-v-0e3f1f7d {
-  /*距离顶部范围应该在88-95范围内*/
-  padding-top: 90rpx;
-  top: var(--status-bar-height);
-  padding-bottom: 95rpx;
+.status-bar.data-v-f75ca8b6 {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin-bottom: -3rpx;
+  height: var(--status-bar-height);
+  line-height: var(--status-bar-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: -webkit-linear-gradient(left, #EF9435, #E95E28);
+  background: linear-gradient(to right, #EF9435, #E95E28);
+  z-index: 99;
 }
-.nmLogo.data-v-0e3f1f7d {
+.nav-bar.data-v-f75ca8b6 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+}
+.content.data-v-f75ca8b6 {
+  /*距离顶部范围应该在88-95范围内*/
+}
+.nmLogo.data-v-f75ca8b6 {
+  padding-top: calc(var(--status-bar-height) + 90rpx);
   display: block;
   width: 130rpx;
   height: 130rpx;
   margin: 0 auto;
   margin-top: 80rpx;
 }
-.inputGroup.data-v-0e3f1f7d {
+.inputGroup.data-v-f75ca8b6 {
   width: 620rpx;
   height: 70rpx;
   margin: 0 auto;
 }
-.inputGroup .groupName.data-v-0e3f1f7d {
+.inputGroup .groupName.data-v-f75ca8b6 {
     height: 70rpx;
     width: 140rpx;
     text-align: right;
     line-height: 70rpx;
     color: #393939;
     padding-right: 16rpx;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     font-size: 28rpx;
     float: left;
     font-weight: 600;
 }
-.inputGroup input.data-v-0e3f1f7d {
+.inputGroup input.data-v-f75ca8b6 {
     float: left;
     height: 70rpx;
     width: calc(100% - 140rpx);
     border: 2rpx solid #939393;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     border-radius: 8rpx;
     font-size: 28rpx;
     color: #333;
     padding-left: 15rpx;
 }
-.isTrue.data-v-0e3f1f7d {
+.isTrue.data-v-f75ca8b6 {
   width: 670rpx;
   height: 86rpx;
   line-height: 86rpx;

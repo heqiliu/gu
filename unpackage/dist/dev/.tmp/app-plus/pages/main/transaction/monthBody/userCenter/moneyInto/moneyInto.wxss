@@ -24,7 +24,7 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.content.data-v-7bd24c1f {
+.content.data-v-6d1a36cb {
   /*距离顶部范围应该在88-95范围内*/
   padding-top: 90rpx;
   top: var(--status-bar-height);
@@ -32,36 +32,34 @@
   background: #fbfbfb;
   height: 100%;
 }
-.moneyView.data-v-7bd24c1f {
+.moneyView.data-v-6d1a36cb {
   width: 100%;
   background: #fdf5db;
   height: 90rpx;
   line-height: 90rpx;
   padding: 0 30rpx;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-size: 28rpx;
   color: #16181b;
 }
-.moneyView .yp.data-v-7bd24c1f {
+.moneyView .yp.data-v-6d1a36cb {
     float: left;
 }
-.moneyView .jr.data-v-7bd24c1f {
+.moneyView .jr.data-v-6d1a36cb {
     float: right;
 }
-.moneyView .jr text.data-v-7bd24c1f {
+.moneyView .jr text.data-v-6d1a36cb {
       color: #e94642;
       padding-right: 12rpx;
 }
-.prompt.data-v-7bd24c1f {
+.prompt.data-v-6d1a36cb {
   background: #fff;
   padding: 30rpx;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-size: 30rpx;
   border-bottom: 2rpx solid #e3e3e3;
 }
-.prompt text.data-v-7bd24c1f {
+.prompt text.data-v-6d1a36cb {
     color: #e71c0c;
 }
 

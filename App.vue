@@ -6,8 +6,7 @@
 			console.log('App Launch')
 			//检查app版本
 			
-			
-			//校验登录状态
+			//校验登录状态.
 			let _this = this;
 			uni.getStorage({
 				key : "userLoginInfo",
@@ -20,7 +19,8 @@
 				fail: function(){
 					console.error('登录失效');
 					uni.reLaunch({
-						url: '/pages/checkpoint/login/login?msg=登录失效'
+						// url: '/pages/main/home/home'
+						url: ''
 					});
 				}
 			});

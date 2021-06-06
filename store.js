@@ -1,4 +1,5 @@
-import Vue from 'vue'
+ 
+ import Vue from 'vue'
 import Vuex from 'vuex'
 
 Vue.use(Vuex)
@@ -16,11 +17,11 @@ Vue.use(Vuex)
 export default new Vuex.Store({
 	state: {
 		//服务器地址
-		// webPath : 'http://119.23.219.191:9090/',
-		webPath : 'http://szcaimi.com:8080/',
-		adminPath :'http://szcaimi.com:8088/',
-		// webPath: 'http://192.168.0.15:8080/',
-		// adminPath: 'http://192.168.0.15:8080/',
+		    // webPath: 'http://192.168.5.101:8015/',
+		  // webPath: 'http://cds688.com:8011/',
+			webPath: 'http://szcaimi.com:8015/',
+			// webPath:'http://gzb168.com.cn:8015/',
+		
 		//是否登录
 		hasLogin: false,
 		//用户信息
@@ -29,32 +30,31 @@ export default new Vuex.Store({
 			phone: '',
 			//token
 			token: '',
-			//配资使用方式
-			capitalType: '',
-			//是否充值过
-			isRecharged: 'N',
-			//是否为代理  1001普通用户  1002一级代理  1003二级代理   1004三级代理
-			agent: 0
+			//会员权限
+			power:false,
 		},
-		//缓存的手机号
-		// userPhoneNum: ["123456", "111111", "1000000"],
+		//是否显示过AI页面弹窗
+		isShowAIDialog: true,
 		//首页默认展示页
 		mainPageNum: '1',
 		//存储主页四大板块数据 数据缓存
 		mainIndexData: {},
-		mainStockData: {},
+		mainStockData: {}, 
 		mainPoolData: {
 			goldStocks: [{}, {}, {}, {}, {}],
 		},
 		mainTransData: {},
-		mainMydata: {}
+		mainMydata: {},
+		//分享领红包是否提示
+		// shareTipsNum: 3
 	},
 	mutations: {
 		//登录
-		userIsLogin(state, obj) {
+		userIsLogin(state, obj) { 
 			state.hasLogin = true;
+			
 			state.userInfo = obj;
-			console.log(obj);
+			//console.log(obj);
 			//将用户信息保存在本地  
 			uni.setStorage({
 				key: 'userLoginInfo',
@@ -64,24 +64,18 @@ export default new Vuex.Store({
 		//登出
 		userGoOut(state, obj) {
 			state.hasLogin = false;
+			state.userInfo.power = false;
 			state.userInfo = {};
+			state.isShowAIDialog = false;
 			uni.removeStorage({
 				key: 'userLoginInfo'
 			})
 		},
-		//添加缓存账号
-		// userPhoneNum(state, num) {
-		// 	state.userPhoneNum.unshift(num);
-		// 	// if ($.inArray(num, arr) < 0) {
-		// 	// 	state.userPhoneNum.unshift(num)
-		// 	// }
+		//设置弹窗为已弹出
+		isShowAIDialog(state) {
+			state.isShowAIDialog = true;
+		},
 
-
-		// 	if (state.userPhoneNum.length > 5) {
-		// 		state.userPhoneNum.pop()
-		// 	}
-
-		// },
 		mainPageNumUpdate(state, num) {
 			state.mainPageNum = num
 		},
@@ -94,6 +88,10 @@ export default new Vuex.Store({
 		mainPoolDataUpdate(state, obj) {
 			state.mainPoolData = obj
 		},
+		mainarticleDataUpdate(state, obj) {
+			state.mainarticleData = obj
+		},
+		
 		mainTransDataUpdate(state, obj) {
 			state.mainTransData = obj
 		},

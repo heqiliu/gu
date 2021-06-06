@@ -2,37 +2,41 @@
 	<view class="content">
 		<!-- #ifdef APP-PLUS -->
 			<view class="status-bar"></view>
-			<cmd-nav-bar back background-color="linear-gradient(to right, #EF9435, #E95E28)" title="我的财库" font-color="#fff"></cmd-nav-bar>
+			<cmd-nav-bar class="nav-bar" :fixed="false" back background-color="linear-gradient(to right, #EF9435, #E95E28)" title="我的库房" font-color="#fff"></cmd-nav-bar>
 		<!-- #endif -->
-		<view class="infoLists">
+	<!-- 	<view class="infoLists">
 			<view class="son">
-				<text>{{toproxyData.todayRebate | TF2}}</text>
+				<text>{{toproxyData.todayAmount | TF2}}</text>
 				<text>今日返佣</text>
 			</view>
 			<view class="son">
-				<text>{{toproxyData.quota | TF2}}</text>
+				<text>{{toproxyData.totalNetAsset | TF2}}</text>
 				<text>团队总净资产</text>
 			</view>
 			<view class="son">
-				<text>{{toproxyData.todayAdds}}</text>
+				<text>{{toproxyData.todayInviteNumber}}</text>
 				<text>今日新增人数</text>
 			</view>
-		</view>
-		<view class="infoLists infoLists2">
-			<view class="son">
-				<text>{{toproxyData.rebate | TF2}}</text>
+		</view> -->
+		<view class="infoLists">
+		<!-- 	<view class="son">
+				<text>{{toproxyData.brokerageAmount | TF2}}</text>
 				<text>累计返佣</text>
+			</view> -->
+			<view class="son">
+				<text>{{toproxyData.todayInviteNumber}}</text>
+				<text>今日新增人数</text>
 			</view>
 			<view class="son" @click="showLower">
 				<text></text>
 				<text>我的分享</text>
 			</view>
 			<view class="son">
-				<text>{{toproxyData.total}}</text>
+				<text>{{toproxyData.groupSize}}</text>
 				<text>团队总人数</text>
 			</view>
 		</view>
-		<view class="recordBox">
+<!-- 		<view class="recordBox">
 			<view class="he">
 				<text>用户</text>
 				<text>交易金额</text>
@@ -40,37 +44,37 @@
 				<text>收益</text>
 			</view>
 			<view class="reList">
-				<view class="reli" v-for="(el,i) in toproxyData.returnList" :key="i">
-					<text>{{el.subordinate}}</text>
-					<text>{{el.amount}}元</text>
-					<text>{{el.addTime}}</text>
-					<text>{{el.fee | TF2}}元</text>
+				<view class="reli" v-for="(el,i) in brokerageRecordList" :key="i">
+					<text>{{el.contributorPhone}}</text>
+					<text>{{el.transactionAmount}}元</text>
+					<text>{{el.createTime}}</text>
+					<text>{{el.price}}元</text>
 				</view>
 			</view>
-		</view>
+		</view> -->
 		<view class="lback" v-if="showView">
 			<view class="lcont">
 				<view class="lGroup">
-					<text class="nams">被授权用户 : </text>
+					<text class="nams">代理用户 : </text>
 					<view class="uni-list-cell-db pickers">
-						<picker @change="bindPickerChange" :value="index" :range="lowerList">
-							<view class="uni-input">{{lowerList[index]}}</view>
+						<picker @change="bindPickerChange" :value="index" :range-key="'phone'" :range="lowerList">
+							<view class="uni-input">{{lowerList[index].phone + ' ' + lowerList[index].name}}</view>
 						</picker>
 					</view>
 					<text class="bfb"></text>
 				</view>
 				<view class="lGroup">
-					<text class="nams">日配抽成 : </text> <input type="number" value="" v-model="userDayCut"/>
+					<text class="nams">代理抽成 : </text> <input type="number" value="" v-model="lowerList[index].deferredCommission"/>
 					<text class="bfb">%</text>
 				</view>
-				<view class="lGroup">
+				<!-- <view class="lGroup">
 					<text class="nams">月配抽成 : </text> <input type="number" value="" v-model="userMonthCut"/>
 					<text class="bfb">%</text>
-				</view>
-				<view class="lGroup">
-					<text class="nams">买卖手续费抽成 : </text> <input type="number" value="" v-model="userBuySellCut"/>
+				</view> -->
+			<!-- 	<view class="lGroup">
+					<text class="nams">交易通道费 : </text> <input type="number" value="" v-model="lowerList[index].transactionCommission"/>
 					<text class="bfb">%</text>
-				</view>
+				</view> -->
 				<view class="isBtn" @click="destroyMember">
 					确认分配
 				</view>
@@ -95,16 +99,17 @@
 				toproxyData : {},
 				//抽成
 				userDayCut : "",
-				userMonthCut : "",
+				// userMonthCut : "",
 				userBuySellCut : "",
 				//下级列表
 				lowerList : [],
 				index: 0,
+				brokerageRecordList : []
 			};
 		},
 		created() {
 			this.queryToproxy();
-			this.memberToSetAgent();
+			// this.memberToSetAgent();
 		},
 		computed:{
 			
@@ -125,8 +130,15 @@
 					mask:true
 				})
 				let _this = this;
-				http.get('transaction/toproxy',{phone:this.$store.state.userInfo.phone}).then((res)=>{
-					_this.toproxyData = res.data.data;
+				http.get('AppPortfolioPage/agency',{}).then((res)=>{
+					_this.toproxyData = res.data.data.userBrokerageVo;
+					_this.brokerageRecordList = res.data.data.brokerageRecordVoList;
+					for(var i = 0 ; i < res.data.data.userBrokerageVoList.length ; i++){
+						_this.lowerList.push(res.data.data.userBrokerageVoList[i]);
+					}
+					if(_this.lowerList.length == 0){
+						_this.lowerList.push('无用户')
+					}
 				})
 			},
 			bindPickerChange(el){
@@ -135,10 +147,12 @@
 			//获得下级
 			memberToSetAgent(){
 				let _this = this;
-				http.get('member/toSetAgent',{phone:this.$store.state.userInfo.phone}).then((res)=>{
+				console.log(_this.toproxyData.invitationCode);
+				http.get('user/brokerage/getSubordinateList',{invitationCode :_this.toproxyData.invitationCode }).then((res)=>{
 					_this.lowerList = [];
+					
 					for(var i = 0 ; i < res.data.data.length ; i++){
-						_this.lowerList.push(res.data.data[i].phone)
+						_this.lowerList.push(res.data.data[i].uid);
 					}
 					if(_this.lowerList.length == 0){
 						_this.lowerList.push('无用户')
@@ -150,7 +164,9 @@
 				if(this.lowerList[0] == '无用户'){
 					return;
 				}
-				if(this.userDayCut == "" || this.userMonthCut == "" || this.userBuySellCut == ""){
+				this.userDayCut = this.lowerList[this.index].deferredCommission;
+				this.userBuySellCut = this.lowerList[this.index].transactionCommission;
+				if(this.userDayCut == "" || this.userBuySellCut == ""){
 					uni.showToast({
 						title: '请输入完整的信息',
 						duration: 2000,
@@ -162,12 +178,10 @@
 					mask:true
 				})
 				let _this = this;
-				http.get('member/authorize',{
-					phone:this.$store.state.userInfo.phone,
-					authorizePhone:this.lowerList[this.index],
-					dayCut:this.userDayCut,
-					monthCut:this.userMonthCut,
-					buySellCut:this.userBuySellCut
+				http.get('user/brokerage/update',{
+					uid: this.lowerList[this.index].uid,
+					deferredCommission:this.userDayCut /100,
+					transactionCommission:this.userBuySellCut/100
 				}).then((res)=>{
 					_this.showView = false;
 					uni.showToast({
@@ -176,7 +190,6 @@
 						icon:'success'
 					});
 					this.userDayCut = "";
-					this.userMonthCut = "";
 					this.userBuySellCut = "";
 					this.index = 0
 				})
@@ -186,18 +199,43 @@
 </script>
 
 <style lang="scss">
+	.status-bar{
+		box-sizing: border-box;
+		display: block;
+		width: 100%;
+		margin-bottom: -3upx;
+		height: var(--status-bar-height);
+		line-height: var(--status-bar-height);
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: linear-gradient(to right, #EF9435, #E95E28);
+		z-index: 99;
+	}
+	.nav-bar{
+		position: fixed;
+		/*  #ifdef  APP-PLUS  */
+		top: var(--status-bar-height);
+		/*  #endif  */
+		left: 0;
+		z-index:2;
+		width: 100%;
+	}
 	.content{
 		/*距离顶部范围应该在88-95范围内*/
 		/*  #ifdef  APP-PLUS  */
-		padding-top: 90upx;
+		// padding-top: 90upx;
 		/*  #endif  */
-		top: var(--status-bar-height);
-		padding-bottom: 50upx;
+		// top: var(--status-bar-height);
+		// padding-bottom: 50upx;
 	}
 	.infoLists{
 		display: flex;
 		justify-content: space-between;
-		padding: 10upx;
+		padding-top: calc(var(--status-bar-height)*2 + 90upx);
+		padding-left: 10upx;
+		padding-right: 10upx;
+		padding-bottom: 10upx;
 		box-sizing: border-box;
 		.son{
 			width: 33.3%;

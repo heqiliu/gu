@@ -1,0 +1,20 @@
+{
+  "name": "caimiduoduo",
+  "version": "1.0.0",
+  "description": "1.0.3  \r   修改部分样式",
+  "main": "main.js",
+  "dependencies": {
+    "js-md5": "^0.7.3",
+    "vant": "^2.2.13"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "tabBar": {
+    "backgroudColor": "#FFE4E1",
+    "list": []
+  }
+}

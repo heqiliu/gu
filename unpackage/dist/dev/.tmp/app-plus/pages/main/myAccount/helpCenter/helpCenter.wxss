@@ -24,14 +24,32 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.content.data-v-1de4a15c {
-  padding-top: 90rpx;
-  top: var(--status-bar-height);
+.status-bar.data-v-1ef21db4 {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin-bottom: -3rpx;
+  height: var(--status-bar-height);
+  line-height: var(--status-bar-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: -webkit-linear-gradient(left, #EF9435, #E95E28);
+  background: linear-gradient(to right, #EF9435, #E95E28);
+  z-index: 99;
 }
-.helpList.data-v-1de4a15c {
+.nav-bar.data-v-1ef21db4 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
   width: 100%;
 }
-.helpList .helpLi.data-v-1de4a15c {
+.helpList.data-v-1ef21db4 {
+  padding-top: calc(var(--status-bar-height) + 90rpx);
+  width: 100%;
+}
+.helpList .helpLi.data-v-1ef21db4 {
     width: calc(100% - 20rpx);
     height: 85rpx;
     line-height: 85rpx;
@@ -40,14 +58,14 @@
     border-bottom: 2rpx solid #dedede;
     color: #555;
 }
-.helpList .liIcon.data-v-1de4a15c {
+.helpList .liIcon.data-v-1ef21db4 {
     display: block;
     float: right;
     width: 85rpx;
     height: 85rpx;
     position: relative;
 }
-.helpList .liIcon.data-v-1de4a15c:after {
+.helpList .liIcon.data-v-1ef21db4:after {
     content: '';
     width: 15rpx;
     height: 1rpx;
@@ -56,10 +74,9 @@
     left: 30rpx;
     top: 40rpx;
     -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
             transform: rotate(45deg);
 }
-.helpList .liIcon.data-v-1de4a15c:before {
+.helpList .liIcon.data-v-1ef21db4:before {
     content: '';
     width: 15rpx;
     height: 1rpx;
@@ -68,7 +85,6 @@
     right: 30rpx;
     top: 40rpx;
     -webkit-transform: rotate(-45deg);
-        -ms-transform: rotate(-45deg);
             transform: rotate(-45deg);
 }
 

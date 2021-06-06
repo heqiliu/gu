@@ -1,1 +1,154 @@
-"use weex:vue";var __wxConfig = {"debug":false,"appname":"财米策略","entryPagePath":"pages/main/main.html","page":{"pages/main/main.html":{"window":{"usingComponents":{"home":"/pages/main/home/home","my-account":"/pages/main/myAccount/myAccount","optional-stock":"/pages/main/optionalStock/optionalStock","transaction":"/pages/main/transaction/transaction","stock-pool":"/pages/main/stockPool/stockPool"}}},"pages/index/index.html":{"window":{"usingComponents":{"uni-nav-bar":"/components/uni-nav-bar/uni-nav-bar"}}},"pages/checkpoint/register/register.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/checkpoint/login/login.html":{"window":{"usingComponents":{"uni-icon":"/components/uni-icon/uni-icon"}}},"pages/checkpoint/forgotPassword/forgotPassword.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/home/home.html":{"window":{"usingComponents":{"uni-notice-bar":"/components/uni-notice-bar/uni-notice-bar"}}},"pages/main/optionalStock/optionalStock.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/transaction/transaction.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/myAccount/myAccount.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/publicView/news/news.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/bottom/bottom.html":{"window":{"usingComponents":{}}},"pages/main/myAccount/verified/verified.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/myAccount/bankCard/bankCard.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/myAccount/changePassword/changePassword.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/myAccount/helpCenter/helpCenter.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/myAccount/pay/pay.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/myAccount/cash/cash.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/myAccount/luckyDraw/luckyDraw.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/transaction/buy/buy.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/transaction/sale/sale.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/transaction/withdrawal/withdrawal.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/transaction/position/position.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/transaction/todayEntrust/todayEntrust.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/transaction/todayClinch/todayClinch.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/transaction/historyEntrust/historyEntrust.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/transaction/historyClinch/historyClinch.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/transaction/capitalFlow/capitalFlow.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/optionalStock/stockSearch/stockSearch.html":{"window":{"titleNView":false,"navigationBarTextStyle":"black","usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/transaction/monthBody/monthBody.html":{"window":{"usingComponents":{"with-info":"/pages/main/transaction/monthBody/withInfo/withInfo","trade":"/pages/main/transaction/monthBody/trade/trade","user-center":"/pages/main/transaction/monthBody/userCenter/userCenter","cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/transaction/monthBody/withInfo/withInfo.html":{"window":{"usingComponents":{}}},"pages/main/transaction/monthBody/trade/trade.html":{"window":{"usingComponents":{}}},"pages/main/transaction/monthBody/userCenter/userCenter.html":{"window":{"usingComponents":{}}},"pages/main/transaction/monthBody/userCenter/capitalSubsidiary/capitalSubsidiary.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/transaction/monthBody/userCenter/customizeStock/customizeStock.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/transaction/monthBody/userCenter/moneyInto/moneyInto.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/stockPool/stockPool.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/myAccount/myDownload/myDownload.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar","tki-qrcode":"/components/tki-qrcode/tki-qrcode"}}},"pages/main/myAccount/myMessage/myMessage.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/myAccount/cancellation/cancellation.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/home/stockMarketSchool/stockMarketSchool.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/myAccount/myDownload/management/management.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}},"pages/main/transaction/cashBack/cashBack.html":{"window":{"usingComponents":{"cmd-nav-bar":"/components/cmd-nav-bar/cmd-nav-bar"}}}},"global":{"window":{"titleNView":false,"navigationBarBackgroundColor":"#333333","navigationBarTextStyle":"white"}},"tabBar":{"color":"","selectedColor":"","backgroundColor":"","borderStyle":"black","list":[],"position":"bottom"},"networkTimeout":{"request":60000,"connectSocket":60000,"uploadFile":60000,"downloadFile":60000},"platform":"devtools","pages":["pages/main/main","pages/index/index","pages/checkpoint/register/register","pages/checkpoint/login/login","pages/checkpoint/forgotPassword/forgotPassword","pages/main/home/home","pages/main/optionalStock/optionalStock","pages/main/transaction/transaction","pages/main/myAccount/myAccount","pages/main/publicView/news/news","pages/main/bottom/bottom","pages/main/myAccount/verified/verified","pages/main/myAccount/bankCard/bankCard","pages/main/myAccount/changePassword/changePassword","pages/main/myAccount/helpCenter/helpCenter","pages/main/myAccount/pay/pay","pages/main/myAccount/cash/cash","pages/main/myAccount/luckyDraw/luckyDraw","pages/main/transaction/buy/buy","pages/main/transaction/sale/sale","pages/main/transaction/withdrawal/withdrawal","pages/main/transaction/position/position","pages/main/transaction/todayEntrust/todayEntrust","pages/main/transaction/todayClinch/todayClinch","pages/main/transaction/historyEntrust/historyEntrust","pages/main/transaction/historyClinch/historyClinch","pages/main/transaction/capitalFlow/capitalFlow","pages/main/optionalStock/stockSearch/stockSearch","pages/main/transaction/monthBody/monthBody","pages/main/transaction/monthBody/withInfo/withInfo","pages/main/transaction/monthBody/trade/trade","pages/main/transaction/monthBody/userCenter/userCenter","pages/main/transaction/monthBody/userCenter/capitalSubsidiary/capitalSubsidiary","pages/main/transaction/monthBody/userCenter/customizeStock/customizeStock","pages/main/transaction/monthBody/userCenter/moneyInto/moneyInto","pages/main/stockPool/stockPool","pages/main/myAccount/myDownload/myDownload","pages/main/myAccount/myMessage/myMessage","pages/main/myAccount/cancellation/cancellation","pages/main/home/stockMarketSchool/stockMarketSchool","pages/main/myAccount/myDownload/management/management","pages/main/transaction/cashBack/cashBack"],"nvueCompiler":"uni-app","renderer":"auto","splashscreen":{"alwaysShowBeforeRender":true,"autoclose":false},"compilerVersion":"2.4.1","usingComponents":{}};
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// install a JSONP callback for chunk loading
+/******/ 	function webpackJsonpCallback(data) {
+/******/ 		var chunkIds = data[0];
+/******/ 		var moreModules = data[1];
+/******/ 		var executeModules = data[2];
+/******/
+/******/ 		// add "moreModules" to the modules object,
+/******/ 		// then flag all "chunkIds" as loaded and fire callback
+/******/ 		var moduleId, chunkId, i = 0, resolves = [];
+/******/ 		for(;i < chunkIds.length; i++) {
+/******/ 			chunkId = chunkIds[i];
+/******/ 			if(Object.prototype.hasOwnProperty.call(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 				resolves.push(installedChunks[chunkId][0]);
+/******/ 			}
+/******/ 			installedChunks[chunkId] = 0;
+/******/ 		}
+/******/ 		for(moduleId in moreModules) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
+/******/ 				modules[moduleId] = moreModules[moduleId];
+/******/ 			}
+/******/ 		}
+/******/ 		if(parentJsonpFunction) parentJsonpFunction(data);
+/******/
+/******/ 		while(resolves.length) {
+/******/ 			resolves.shift()();
+/******/ 		}
+/******/
+/******/ 		// add entry modules from loaded chunk to deferred list
+/******/ 		deferredModules.push.apply(deferredModules, executeModules || []);
+/******/
+/******/ 		// run deferred modules when all chunks ready
+/******/ 		return checkDeferredModules();
+/******/ 	};
+/******/ 	function checkDeferredModules() {
+/******/ 		var result;
+/******/ 		for(var i = 0; i < deferredModules.length; i++) {
+/******/ 			var deferredModule = deferredModules[i];
+/******/ 			var fulfilled = true;
+/******/ 			for(var j = 1; j < deferredModule.length; j++) {
+/******/ 				var depId = deferredModule[j];
+/******/ 				if(installedChunks[depId] !== 0) fulfilled = false;
+/******/ 			}
+/******/ 			if(fulfilled) {
+/******/ 				deferredModules.splice(i--, 1);
+/******/ 				result = __webpack_require__(__webpack_require__.s = deferredModule[0]);
+/******/ 			}
+/******/ 		}
+/******/
+/******/ 		return result;
+/******/ 	}
+/******/
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// object to store loaded and loading chunks
+/******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 	// Promise = chunk loading, 0 = chunk loaded
+/******/ 	var installedChunks = {
+/******/ 		"app-config": 0
+/******/ 	};
+/******/
+/******/ 	var deferredModules = [];
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+/******/
+/******/ 	var jsonpArray = this["webpackJsonp"] = this["webpackJsonp"] || [];
+/******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
+/******/ 	jsonpArray.push = webpackJsonpCallback;
+/******/ 	jsonpArray = jsonpArray.slice();
+/******/ 	for(var i = 0; i < jsonpArray.length; i++) webpackJsonpCallback(jsonpArray[i]);
+/******/ 	var parentJsonpFunction = oldJsonpFunction;
+/******/
+/******/
+/******/ 	// run deferred modules from other chunks
+/******/ 	checkDeferredModules();
+/******/ })
+/************************************************************************/
+/******/ ([]);

@@ -24,49 +24,68 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.content.data-v-95b4539e {
-  /*距离顶部范围应该在88-95范围内*/
-  padding-top: 90rpx;
-  top: 25px;
+.status-bar.data-v-751d9824 {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin-bottom: -3rpx;
+  height: 25px;
+  line-height: 25px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: -webkit-linear-gradient(left, #EF9435, #E95E28);
+  background: linear-gradient(to right, #EF9435, #E95E28);
+  z-index: 99;
 }
-.inputGroup.data-v-95b4539e {
+.nav-bar.data-v-751d9824 {
+  position: fixed;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+}
+.content.data-v-751d9824 {
+  /*距离顶部范围应该在88-95范围内*/
+}
+.content1.data-v-751d9824 {
+  padding-top: calc(25px + 90rpx);
+}
+.inputGroup.data-v-751d9824 {
   width: 640rpx;
   height: 70rpx;
   margin: 0 auto;
 }
-.inputGroup .groupName.data-v-95b4539e {
-    height: 70rpx;
-    width: 160rpx;
-    text-align: right;
-    line-height: 70rpx;
-    color: #393939;
-    padding-right: 16rpx;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    font-size: 28rpx;
-    float: left;
-    font-weight: 600;
+.inputGroup .groupName.data-v-751d9824 {
+  height: 70rpx;
+  width: 160rpx;
+  text-align: right;
+  line-height: 70rpx;
+  color: #393939;
+  padding-right: 16rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  float: left;
+  font-weight: 600;
 }
-.inputGroup input.data-v-95b4539e, .inputGroup .uploadImg.data-v-95b4539e {
-    float: left;
-    height: 70rpx;
-    width: calc(100% - 160rpx);
-    border: 2rpx solid #939393;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    border-radius: 8rpx;
-    font-size: 28rpx;
-    color: #333;
-    padding-left: 15rpx;
+.inputGroup input.data-v-751d9824, .inputGroup .uploadImg.data-v-751d9824 {
+  float: left;
+  height: 70rpx;
+  width: calc(100% - 160rpx);
+  border: 2rpx solid #939393;
+  box-sizing: border-box;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  color: #333;
+  padding-left: 15rpx;
 }
-.inputGroup .uploadImg.data-v-95b4539e {
-    text-align: center;
-    line-height: 70rpx;
-    background: #FFFAE8;
-    padding: 0;
-    color: #555;
+.inputGroup .uploadImg.data-v-751d9824 {
+  text-align: center;
+  line-height: 70rpx;
+  background: #FFFAE8;
+  padding: 0;
+  color: #555;
 }
-.isTrue.data-v-95b4539e {
+.isTrue.data-v-751d9824 {
   width: 670rpx;
   height: 86rpx;
   line-height: 86rpx;

@@ -24,49 +24,68 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.content.data-v-220b195c {
-  /*距离顶部范围应该在88-95范围内*/
-  padding-top: 90rpx;
-  top: var(--status-bar-height);
+.status-bar.data-v-213481b4 {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin-bottom: -3rpx;
+  height: var(--status-bar-height);
+  line-height: var(--status-bar-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: -webkit-linear-gradient(left, #EF9435, #E95E28);
+  background: linear-gradient(to right, #EF9435, #E95E28);
+  z-index: 99;
 }
-.inputGroup.data-v-220b195c {
+.nav-bar.data-v-213481b4 {
+  position: fixed;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+}
+.content.data-v-213481b4 {
+  /*距离顶部范围应该在88-95范围内*/
+}
+.content1.data-v-213481b4 {
+  padding-top: calc(var(--status-bar-height) + 90rpx);
+}
+.inputGroup.data-v-213481b4 {
   width: 640rpx;
   height: 70rpx;
   margin: 0 auto;
 }
-.inputGroup .groupName.data-v-220b195c {
+.inputGroup .groupName.data-v-213481b4 {
     height: 70rpx;
     width: 160rpx;
     text-align: right;
     line-height: 70rpx;
     color: #393939;
     padding-right: 16rpx;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     font-size: 28rpx;
     float: left;
     font-weight: 600;
 }
-.inputGroup input.data-v-220b195c, .inputGroup .uploadImg.data-v-220b195c {
+.inputGroup input.data-v-213481b4, .inputGroup .uploadImg.data-v-213481b4 {
     float: left;
     height: 70rpx;
     width: calc(100% - 160rpx);
     border: 2rpx solid #939393;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     border-radius: 8rpx;
     font-size: 28rpx;
     color: #333;
     padding-left: 15rpx;
 }
-.inputGroup .uploadImg.data-v-220b195c {
+.inputGroup .uploadImg.data-v-213481b4 {
     text-align: center;
     line-height: 70rpx;
     background: #FFFAE8;
     padding: 0;
     color: #555;
 }
-.isTrue.data-v-220b195c {
+.isTrue.data-v-213481b4 {
   width: 670rpx;
   height: 86rpx;
   line-height: 86rpx;

@@ -24,14 +24,32 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.content.data-v-088f36ca {
-  padding-top: 90rpx;
-  top: var(--status-bar-height);
+.status-bar.data-v-c95244c4 {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin-bottom: -3rpx;
+  height: var(--status-bar-height);
+  line-height: var(--status-bar-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: -webkit-linear-gradient(left, #EF9435, #E95E28);
+  background: linear-gradient(to right, #EF9435, #E95E28);
+  z-index: 99;
 }
-.helpList.data-v-088f36ca {
+.nav-bar.data-v-c95244c4 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
   width: 100%;
 }
-.helpList .helpLi.data-v-088f36ca {
+.helpList.data-v-c95244c4 {
+  padding-top: calc(var(--status-bar-height) + 90rpx);
+  width: 100%;
+}
+.helpList .helpLi.data-v-c95244c4 {
     width: 720rpx;
     font-size: 28rpx;
     margin: 0 auto;
@@ -41,18 +59,17 @@
     background: #f3f3f3;
     padding: 20rpx;
     padding-right: 50rpx;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     margin-top: 30rpx;
     border-radius: 15rpx;
 }
-.helpList .time.data-v-088f36ca {
+.helpList .time.data-v-c95244c4 {
     text-align: right;
     color: #999;
     font-size: 24rpx;
     text-align: right;
 }
-.helpList .liIcon.data-v-088f36ca {
+.helpList .liIcon.data-v-c95244c4 {
     display: block;
     width: 20rpx;
     height: 20rpx;

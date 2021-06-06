@@ -24,30 +24,48 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.content.data-v-c5b8c68c {
-  /*距离顶部范围应该在88-95范围内*/
-  padding-top: 90rpx;
-  top: var(--status-bar-height);
-  padding-bottom: 95rpx;
+.status-bar.data-v-2f03a294 {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin-bottom: -3rpx;
+  height: var(--status-bar-height);
+  line-height: var(--status-bar-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: -webkit-linear-gradient(left, #EF9435, #E95E28);
+  background: linear-gradient(to right, #EF9435, #E95E28);
+  z-index: 99;
 }
-.newlist.data-v-c5b8c68c {
+.nav-bar.data-v-2f03a294 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
   width: 100%;
 }
-.newlist .lis.data-v-c5b8c68c {
+.content.data-v-2f03a294 {
+  /*距离顶部范围应该在88-95范围内*/
+}
+.newlist.data-v-2f03a294 {
+  width: 100%;
+  margin-top: calc(var(--status-bar-height) + 90rpx);
+}
+.newlist .lis.data-v-2f03a294 {
     width: 100%;
     padding: 20rpx 40rpx;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     background: #fff;
     border-top: 2rpx solid #f1f1f1;
     border-bottom: 2rpx solid #f1f1f1;
 }
-.newlist .lis .lisName.data-v-c5b8c68c {
+.newlist .lis .lisName.data-v-2f03a294 {
       font-size: 28rpx;
       font-weight: 600;
       color: #242424;
 }
-.newlist .lis .lisDetails.data-v-c5b8c68c {
+.newlist .lis .lisDetails.data-v-2f03a294 {
       margin-top: 10rpx;
       font-size: 22rpx;
       color: #ababab;

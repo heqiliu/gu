@@ -2,7 +2,7 @@
 	<view class="content">
 		<!-- #ifdef APP-PLUS -->
 			<view class="status-bar"></view>
-			<cmd-nav-bar back background-color="linear-gradient(to right, #EF9435, #E95E28)" title="活动返佣" font-color="#fff"></cmd-nav-bar>
+			<cmd-nav-bar class="nav-bar" :fixed="false" back background-color="linear-gradient(to right, #EF9435, #E95E28)" title="活动返佣" font-color="#fff"></cmd-nav-bar>
 		<!-- #endif -->
 		<view class="tb">
 			<view class="tbson thTop">
@@ -58,18 +58,41 @@
 </script>
 
 <style lang="scss" scoped>
+	.status-bar{
+		box-sizing: border-box;
+		display: block;
+		width: 100%;
+		margin-bottom: -3upx;
+		height: var(--status-bar-height);
+		line-height: var(--status-bar-height);
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: linear-gradient(to right, #EF9435, #E95E28);
+		z-index: 99;
+	}
+	.nav-bar{
+		position: fixed;
+		// top: var(--status-bar-height);
+		left: 0;
+		z-index:2;
+		width: 100%;
+	}
 	.content{
 		/*距离顶部范围应该在88-95范围内*/
 		/*  #ifdef  APP-PLUS  */
-		padding-top: 90upx;
+		// padding-top: 90upx;
 		/*  #endif  */
 		top: var(--status-bar-height);
-		padding-bottom: 95upx;
+		// padding-bottom: 95upx;
 		background: #fbfbfb;
-		height: 100%;
+		// height: 100%;
 	}
 	
 	.tb{
+		/*  #ifdef  APP-PLUS  */
+		top: calc(var(--status-bar-height) + 90upx);
+		/*  #endif  */
 		width: 100%;
 		position: relative;
 		.tbson{
@@ -92,7 +115,16 @@
 		.thTop{
 			width: 100%;
 			height: 86upx;
+			position: fixed;
+			top: 0;
+			/*  #ifdef  APP-PLUS  */
+			top: calc(var(--status-bar-height) + 90upx);
+			/*  #endif  */
+			left: 0;
 			background: #fbfbfb;
+			z-index:2;
+			
+			
 		}
 		.td{
 			border: none;

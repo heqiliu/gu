@@ -18,20 +18,20 @@
 				<view class="nextimg">换一张</view>
 			</view>
 		</view> -->
-		<view class="inputGroup yzmGroup" style="margin-top:15upx">
+		<view class="inputGroup yzmGroup" style="margin-top:20upx">
 			<view class="groupName">
 				验证码
 			</view>
 			<input type="text" value="" placeholder="短信验证码" v-model="phoneCode"/>
 			<view class="getPhoneCode" @click="getPhoneCode">{{codeTime}}</view>
 		</view>
-		<view class="inputGroup" style="margin-top:15upx">
+		<view class="inputGroup" style="margin-top:20upx">
 			<view class="groupName">
 				新密码
 			</view>
 			<input type="password" value="" placeholder="请输入新密码" v-model="newPass1"/>
 		</view>
-		<view class="inputGroup" style="margin-top:15upx">
+		<view class="inputGroup" style="margin-top:20upx">
 			<view class="groupName">
 				确认密码
 			</view>
@@ -81,7 +81,8 @@
 					})
 					return;
 				}
-				http.get('member/forgetPwd',{phone:this.userPhone,newPwd:this.newPass1,phoneCode:this.phoneCode}).then((res)=>{
+				
+				http.get('updatePassword',{username:this.userPhone,password:this.newPass1,SmsCode:this.phoneCode}).then((res)=>{
 					uni.reLaunch({
 						url : '/pages/checkpoint/login/login?msg=修改密码成功'
 					})
@@ -103,7 +104,7 @@
 					title : '发送中',
 					mask:true
 				})
-				http.get('member/getPhoneCode',{phone:this.userPhone}).then((res)=>{
+				http.get('passwordVerifySMS',{phone:this.userPhone}).then((res)=>{
 					uni.showToast({
 						title: '验证码发送成功',
 						icon: 'none',
@@ -146,6 +147,9 @@
 		.groupName{
 			height: 70upx;
 			width: 140upx;
+			display:flex;
+			justify-content:space-between;
+			
 			text-align: right;
 			line-height: 70upx;
 			color: #393939;
@@ -206,16 +210,19 @@
 		}
 	}
 	.isTrue{
+		/**
 		width: 670upx;
+		height: 86upx;**/
+		width: 620upx;
 		height: 86upx;
 		line-height: 86upx;
 		text-align: center;
 		color: #fff;
 		border-radius: 10upx;
-		background: #FF6D28;
+		background: #d34a43;
 		font-size: 32upx;
 		margin: 0 auto;
-		margin-top: 35upx;
+		margin-top: 50upx;
 	}
 	
 </style>

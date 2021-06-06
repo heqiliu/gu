@@ -1,9 +1,9 @@
 <template>
 	<view class="content">
 			<view class="status-bar"></view>
-			<cmd-nav-bar back background-color="linear-gradient(to right, #EF9435, #E95E28)" title="我的下载" :right-text="agent == '1001' ? '' : ' # '" @rightText="jumpMan" font-color="#fff"></cmd-nav-bar>
+			<cmd-nav-bar class="nav-bar" :fixed="false" back background-color="linear-gradient(to right, #EF9435, #E95E28)" title="我的下载" :right-text="isAgency == false ? '' : '#' " @rightText="jumpMan" font-color="#fff"></cmd-nav-bar>
 		<view class="cont">
-			<image class="logo" src="../../../../static/icon/logo_ico.png" mode=""></image>
+			<img class="logo" src="../../../../static/icon/logo_ico2.png" mode=""></img>
 			<text class="userPhone"></text>
 			<view class="bea">
 				<view class="d"></view>
@@ -17,7 +17,7 @@
 			</view>
 			<view class="ewmBox">
 				<!-- <image src="../../../../static/img/testewm.png" mode=""></image> -->
-				<image :src="qr" mode=""></image>
+				<img :src="qr" mode=""></img>
 			</view>
 			<view class="myid">
 				扫码二维码即可下载APP
@@ -39,19 +39,21 @@
 				userPhone : this.$store.state.userInfo.phone,
 				myTjrId : '',
 				qr : '',
-				isMan : ''
+				isMan : '',
+				isAgency: false
 			};
 		},
 		computed:{
-			agent(){
-				return this.$store.state.userInfo.agent;
-			}
+			// agent(){
+			// 	return this.$store.state.userInfo.agent;
+			// }
 		},
 		mounted() {
 			uni.showLoading({})
-			http.get('member/toInvite',{phone:this.$store.state.userInfo.phone}).then((res)=>{
-				this.myTjrId = res.data.data.myCode;
-				this.getQr(this.$store.state.webPath + 'reg#/?upCode=' + this.myTjrId);
+			http.get('user/brokerage/get',{}).then((res)=>{
+				this.myTjrId = res.data.data.uid;
+				this.isAgency = res.data.data.isAgency;
+				this.getQr(this.$store.state.webPath + 'static/register.html?upCode=' + this.myTjrId);
 			})
 		},
 		methods:{
@@ -69,7 +71,7 @@
 				console.log("aaa"+this.qr);
 			},
 			jumpMan(){
-				if(this.$store.state.userInfo.agent == '1001'){
+				if(this.isAgency == false){
 					return;
 				}
 				uni.navigateTo({
@@ -100,17 +102,38 @@
 </style>
 
 <style lang="scss" scoped>
+	.status-bar{
+		box-sizing: border-box;
+		display: block;
+		width: 100%;
+		margin-bottom: -3upx;
+		height: var(--status-bar-height);
+		line-height: var(--status-bar-height);
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: linear-gradient(to right, #EF9435, #E95E28);
+		z-index: 99;
+	}
+	.nav-bar{
+		position: fixed;
+		// top: var(--status-bar-height);
+		top: 0;
+		left: 0;
+		z-index:2;
+		width: 100%;
+	}
 	.content{
 		/*距离顶部范围应该在88-95范围内*/
 		/*  #ifdef  APP-PLUS  */
-		padding-top: 90upx;
+		// padding-top: 90upx;
 		/*  #endif  */
-		top: var(--status-bar-height);
-		padding-bottom: 50upx;
+		// top: var(--status-bar-height);
+		// padding-bottom: 50upx;
 	}
 	.cont{
 		width: 100%;
-		padding-top: 88upx;
+		padding-top: calc(var(--status-bar-height) + 110upx);
 		.logo{
 			display: block;
 			width: 170upx;
@@ -196,7 +219,7 @@
 			box-sizing: border-box;
 			border: 2upx solid #FF9226;
 			margin-top: 30upx;
-			image{
+			img{
 				display: block;
 				width: 100%;
 				height: 100%;

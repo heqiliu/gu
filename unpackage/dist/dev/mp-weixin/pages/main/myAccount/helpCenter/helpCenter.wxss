@@ -24,51 +24,67 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.content.data-v-1afe8ab1 {
-  padding-top: 90rpx;
-  top: 25px;
+.status-bar.data-v-96e3c9b8 {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin-bottom: -3rpx;
+  height: 25px;
+  line-height: 25px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: -webkit-linear-gradient(left, #EF9435, #E95E28);
+  background: linear-gradient(to right, #EF9435, #E95E28);
+  z-index: 99;
 }
-.helpList.data-v-1afe8ab1 {
+.nav-bar.data-v-96e3c9b8 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
   width: 100%;
 }
-.helpList .helpLi.data-v-1afe8ab1 {
-    width: calc(100% - 20rpx);
-    height: 85rpx;
-    line-height: 85rpx;
-    font-size: 28rpx;
-    margin-left: 20rpx;
-    border-bottom: 2rpx solid #dedede;
-    color: #555;
+.helpList.data-v-96e3c9b8 {
+  padding-top: calc(25px + 90rpx);
+  width: 100%;
 }
-.helpList .liIcon.data-v-1afe8ab1 {
-    display: block;
-    float: right;
-    width: 85rpx;
-    height: 85rpx;
-    position: relative;
+.helpList .helpLi.data-v-96e3c9b8 {
+  width: calc(100% - 20rpx);
+  height: 85rpx;
+  line-height: 85rpx;
+  font-size: 28rpx;
+  margin-left: 20rpx;
+  border-bottom: 2rpx solid #dedede;
+  color: #555;
 }
-.helpList .liIcon.data-v-1afe8ab1:after {
-    content: '';
-    width: 15rpx;
-    height: 1rpx;
-    background: #555;
-    position: absolute;
-    left: 30rpx;
-    top: 40rpx;
-    -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-            transform: rotate(45deg);
+.helpList .liIcon.data-v-96e3c9b8 {
+  display: block;
+  float: right;
+  width: 85rpx;
+  height: 85rpx;
+  position: relative;
 }
-.helpList .liIcon.data-v-1afe8ab1:before {
-    content: '';
-    width: 15rpx;
-    height: 1rpx;
-    background: #555;
-    position: absolute;
-    right: 30rpx;
-    top: 40rpx;
-    -webkit-transform: rotate(-45deg);
-        -ms-transform: rotate(-45deg);
-            transform: rotate(-45deg);
+.helpList .liIcon.data-v-96e3c9b8:after {
+  content: '';
+  width: 15rpx;
+  height: 1rpx;
+  background: #555;
+  position: absolute;
+  left: 30rpx;
+  top: 40rpx;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.helpList .liIcon.data-v-96e3c9b8:before {
+  content: '';
+  width: 15rpx;
+  height: 1rpx;
+  background: #555;
+  position: absolute;
+  right: 30rpx;
+  top: 40rpx;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 

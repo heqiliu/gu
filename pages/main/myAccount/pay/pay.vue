@@ -1,9 +1,9 @@
 <template>
 	<view class="content">
-		<!-- #ifdef APP-PLUS -->
-			<view class="status-bar"></view>
-			<cmd-nav-bar back background-color="linear-gradient(to right, #EF9435, #E95E28)" title="充值" font-color="#fff"></cmd-nav-bar>
-		<!-- #endif -->
+		
+		<view class="status-bar"></view>
+		<cmd-nav-bar class="nav-bar" :fixed="false" back background-color="linear-gradient(to right, #EF9435, #E95E28)" title="充值" font-color="#fff"></cmd-nav-bar>
+		
 		<!-- <view class="current">
 			<view>当前余额</view>
 			<view><text>0.00</text> 元</view>
@@ -14,7 +14,7 @@
 		<view class="payTypeList">
 			<view class="tpLi" @click="payType = 1">
 				<view class="liImg">
-					<image style="width:66upx;height: 50upx;" src="../../../../static/icon/payzfb.png" mode=""></image>
+					<img style="width:66upx;height: 50upx;" src="../../../../static/icon/payzfb.png" mode=""></img>
 				</view>
 				<view class="liDe">
 					支付宝转账
@@ -23,10 +23,10 @@
 					<view :class="payType == 1 ? 'isTask' : ''"></view>
 				</view>
 			</view>
-			
+
 			<view class="tpLi" @click="payType = 2">
 				<view class="liImg">
-					<image style="width:66upx;height: 50upx;" src="../../../../static/icon/payyl.png" mode=""></image>
+					<img style="width:66upx;height: 50upx;" src="../../../../static/icon/payyl.png" mode=""></img>
 				</view>
 				<view class="liDe">
 					线下银行转账（审核到账）
@@ -42,16 +42,16 @@
 					<view class="groupName">
 						支付宝账号
 					</view>
-					<input type="text" value="" placeholder="您转账的支付宝账号,以便平台核实" v-model="userZfb"/>
+					<input type="text" value="" placeholder="您转账的支付宝账号,以便平台核实" v-model="userZfb" />
 				</view>
 				<view class="inputGroup1" style="margin-top:30upx">
 					<view class="groupName">
 						转账金额
 					</view>
-					<input type="number" value="" v-model="zfbPayMoney"/>
+					<input type="number" value="" v-model="zfbPayMoney" />
 					<view class="yuan">元</view>
 				</view>
-				<view class="inputGroup1" style="margin-top:30upx">
+				<view class="inputGroup1" style="margin-top:30upx" v-if="isRecharged == 'N'">
 					<view class="groupName">
 						活动充值
 					</view>
@@ -75,7 +75,7 @@
 				</view>
 				<view class="inputGroup1" style="margin-top:30upx">
 					<view class="groupName">
-						
+
 					</view>
 					<view class="ghd">
 						<view class="subApply" @click="subApply(1001)">提交充值申请</view>
@@ -84,20 +84,20 @@
 			</view>
 		</view>
 		<view v-if="payType == 2">
-			
+
 			<view class="inputGroup" style="margin-top:30upx">
 				<view class="groupName">
 					转账卡号：
 				</view>
-				<input type="number" value="" placeholder="请输入银行转账卡号" v-model="bankCard"/>
+				<input type="number" value="" placeholder="请输入银行转账卡号" v-model="bankCard" />
 			</view>
 			<view class="inputGroup" style="margin-top:30upx">
 				<view class="groupName">
 					转账金额：
 				</view>
-				<input type="number" value="" v-model="bankMoney"/>
+				<input type="number" value="" v-model="bankMoney" />
 			</view>
-			<view class="inputGroup1 inputGroup" style="margin-top:30upx">
+			<view class="inputGroup1 inputGroup" style="margin-top:30upx" v-if="isRecharged == 'N'">
 				<view class="groupName">
 					活动充值：
 				</view>
@@ -109,7 +109,7 @@
 			</view>
 			<view class="inputGroup1 inputGroup" style="margin-top:30upx">
 				<view class="groupName">
-					
+
 				</view>
 				<view class="ghd" style="width:calc(100% - 230rpx)">
 					<view class="subApply" @click="subApply(1001)">提交充值申请</view>
@@ -117,15 +117,16 @@
 			</view>
 		</view>
 		<view class="details">
-			<view class="strong">到账时间：</view>
+			<!-- <view class="strong">到账时间：</view>
 			<view>08:30 - 17:30 （30分钟内到账）</view>
 			<view>17:30 以后 （次日09:00前到账）</view>
-			<view class="red">如长时间未到账，可拨打客服电话</view>
+			<view class="red">如长时间未到账，可拨打客服电话</view> -->
+			<rich-text :nodes="RichContent"></rich-text>
 		</view>
 		<!-- <view class="subTransfer" @click="hasPay">
 			提交转账回执单
 		</view> -->
-		
+
 		<!-- 充值信息弹窗 -->
 		<view class="alertBack" v-if="alertIsShow">
 			<view class="alertContent" v-if="payType == 1">
@@ -140,21 +141,21 @@
 						{{zfbRemark.remarkCode}}
 					</text>
 					<view class="closeBtn" @click="userTransfer(false)">
-						<image src="../../../../static/icon/close.png" mode=""></image>
+						<img src="../../../../static/icon/close.png" mode=""></img>
 					</view>
 				</view>
 				<view class="aDetails">
-					<view class="ft">收款人支付宝账户：{{zfbReceiptInfo.account}}</view>
-					<view class="ft">账户名称：{{zfbReceiptInfo.accountName}}</view>
+					<view class="ft">收款人支付宝账户：{{zfbReceiptInfo.alipayAccounts}}</view>
+					<view class="ft">账户名称：{{zfbReceiptInfo.alipayUsername}}</view>
 					<view class="ft">转账金额：{{zfbPayMoney}} 元</view>
-					<image :src="qr" mode=""></image>
+					<img :src="qr" mode="" ></img>
 				</view>
 				<view class="btm">
 					<view class="btBtn leftBtn" @click="uploadImg">保存二维码</view>
 					<view class="btBtn rightBtn" @click="userTransfer">我已扫码转账</view>
 				</view>
 			</view>
-			
+
 			<view class="alertContent" v-if="payType == 2">
 				<view class="top">
 					<text>
@@ -167,7 +168,7 @@
 						{{yhkRemark.remarkCode}}
 					</text>
 					<view class="closeBtn" @click="userTransfer(false)">
-						<image src="../../../../static/icon/close.png" mode=""></image>
+						<img src="../../../../static/icon/close.png" mode=""></img>
 					</view>
 				</view>
 				<view class="aDetails">
@@ -176,16 +177,16 @@
 					</view>
 					<view class="List1">
 						<view class="lis">
-							收款账户：<text>{{yhkReceiptInfo.account}}</text>
+							收款账户：<text>{{yhkReceiptInfo.bankAccounts}}</text>
 						</view>
 						<view class="lis">
-							收款账户名称：<text>{{yhkReceiptInfo.accountName}}</text>
+							收款账户名称：<text>{{yhkReceiptInfo.bankHolder}}</text>
 						</view>
 						<view class="lis">
-							开户银行：<text>{{yhkReceiptInfo.openBank}}</text>
+							开户银行：<text>{{yhkReceiptInfo.bankName}}</text>
 						</view>
 						<view class="lis">
-							开户支行：<text>{{yhkReceiptInfo.openBranchBank}}</text>
+							开户支行：<text>{{yhkReceiptInfo.bankBranch}}</text>
 						</view>
 					</view>
 				</view>
@@ -194,7 +195,7 @@
 				</view>
 			</view>
 		</view>
-		
+
 		<!-- 活动充值信息弹窗 -->
 		<view class="alertBack" v-if="alertActivityShow == 1">
 			<view class="alertContent" style="height:500upx">
@@ -207,7 +208,7 @@
 					<text style="font-weight: 600;color:red;padding-left: 5upx;">
 					</text>
 					<view class="closeBtn" @click="alertActivityShow = 2">
-						<image src="../../../../static/icon/close.png" mode=""></image>
+						<img src="../../../../static/icon/close.png" mode=""></img>
 					</view>
 				</view>
 				<view class="aDetails">
@@ -226,7 +227,7 @@
 				</view>
 			</view>
 		</view>
-		
+
 		<view class="jrwt">
 			充值记录
 		</view>
@@ -234,51 +235,51 @@
 			<view class="tbson">
 				<view class="width20">充值时间</view>
 				<view class="width20">充值方式</view>
-				<view class="width20">充值金额</view>
-				<view class="width40">充值状态</view>
+				<view class="width25">充值金额</view>
+				<view class="width35">充值状态</view>
 			</view>
-			
+
 			<view class="tbson td" v-for="(el,i) in payActHistory" :key="i">
-				<view>{{el.addTime}}</view>
-				<view>{{el.type == '1001' ? '支付宝' : '银行卡'}}</view>
-				<view>{{el.amount}} 元</view>
-				<view :class="el.state == 1001 ? 'isWei' : ''" @click="continuePay('1',el)">
-				{{el.state == 1001 ? '未确认充值':''}}
-				{{el.state == 1002 ? '待平台确认':''}}
-				{{el.state == 1003 ? '充值完成':''}}
-				{{el.state == 1004 ? '取消':''}}
-				{{el.state == 1005 ? '异常':''}}
-				{{el.state == 1006 ? '待到账':''}}
+				<view class="width20">{{el.createTime}}</view>
+				<view class="width20">{{el.accountType.name}}</view>
+				<view class="width25">{{el.moneyAmount}} 元</view>
+				<!-- @click="continuePay('1',el)" -->
+				<view class="width35 opt" >
+					{{el.status.name}}
+					<!-- {{el.status == "WAIT_FOR_REVIEW" ? "等待审核" : ""}}
+					{{el.status == "USER_VALIDATION" ? "用户确认" : ""}}
+					{{el.status == "SUCCEED" ? "成功" : ""}}
+					{{el.status == "FAIL" ? "失败" : ""}} -->
 				</view>
 			</view>
-			<view class="tbson td" v-for="(el,i) in payHistory" :key="i">
+			<!-- <view class="tbson td" v-for="(el,i) in payHistory" :key="i">
 				<view class="width20">{{el.createTime}}</view>
 				<view class="width20">{{el.type == '1001' ? '支付宝' : '银行卡'}}</view>
-				<view class="width20">{{el.amount}} 元</view>
-				<view class="width40 opt" v-if="el.status == 1001">
-					<view class="isWei" @click="continuePay('2',el)" >未确认充值</view>
+				<view class="width25">{{el.amount}} 元</view>
+				<view class="width35 opt" v-if="el.status == 1001">
+					<view class="isWei" @click="continuePay('2',el)">未确认充值</view>
 					<view class="isWei" @click="canclePay(el)" v-if="el.status == 1001">取消</view>
 				</view>
-				<view class="width40 opt" v-if="el.status == 1002">
+				<view class="width35 opt" v-if="el.status == 1002">
 					待平台确认
 					<view class="isWei" @click="canclePay(el)" v-if="el.status == 1001">取消</view>
 				</view>
-				<view class="width40 opt" v-if="el.status == 1003">
+				<view class="width35 opt" v-if="el.status == 1003">
 					充值完成
 				</view>
-				<view class="width40 opt" v-if="el.status == 1004">
+				<view class="width35 opt" v-if="el.status == 1004">
 					已取消
 				</view>
-				<view class="width40 opt" v-if="el.status == 1005">
+				<view class="width35 opt" v-if="el.status == 1005">
 					异常
 				</view>
-				<view class="width40 opt" v-if="el.status == 1006">
+				<view class="width35 opt" v-if="el.status == 1006">
 					待到账
 					<view class="isWei" @click="canclePay(el)" v-if="el.status == 1001">取消</view>
 				</view>
-				</view>
-			</view>
+			</view> -->
 		</view>
+	</view>
 	</view>
 </template>
 
@@ -286,283 +287,324 @@
 	import cmdNavBar from "@/components/cmd-nav-bar/cmd-nav-bar.vue"
 	import http from '@/http/interface.js'
 	export default {
-		components: {cmdNavBar},
+		components: {
+			cmdNavBar
+		},
 		data() {
 			return {
 				//支付方式  1支付宝  2银行卡
-				payType : 0,
+				payType: 0,
 				//充值弹窗是否显示
-				alertIsShow : false,
+				alertIsShow: false,
 				//活动充值弹窗是否显示
-				alertActivityShow : 0,
+				alertActivityShow: 0,
 				bankArray: [],
 				bankIndex: 0,
 				//初始化数据
-				payHistory : [],
-				payActHistory : [],
+				payHistory: [],
+				payActHistory: [],
 				//商家收款信息
-				zfbReceiptInfo : {},
-				yhkReceiptInfo : {},
+				zfbReceiptInfo: {},
+				yhkReceiptInfo: {},
 				//支付宝充值数据
-				userZfb : '',
-				zfbPayMoney : '',
+				userZfb: '',
+				zfbPayMoney: '',
 				//银行卡充值数据
-				bankCard : '',
-				bankMoney : '',
+				bankCard: '',
+				bankMoney: '',
 				//支付宝。银行卡转账信息
-				zfbRemark : '',
-				yhkRemark : '',
+				zfbRemark: '',
+				yhkRemark: '',
 				//是否是继续充值
-				isGoOnpay : false,
+				isGoOnpay: false,
 				//继续充值状态 0 普通充值  1 2 3
-				isGoOnpayType : "",
-				qr:""
+				isGoOnpayType: "",
+				qr: "",
+				//是否参与过充值活动
+				isRecharged: "",
+				RichContent : '',
 			};
 		},
 		onLoad() {
+			//获取用户是否参与过充值活动
+			this.isRecharged = this.$store.state.userInfo.isRecharged;
 			this.initData();
+			this.getHelp();
 		},
 		mounted() {
-			http.get('transaction/torecharge',{phone:this.$store.state.userInfo.phone}).then((res)=>{
+			http.get('transaction/torecharge', {
+				phone: this.$store.state.userInfo.phone
+			}).then((res) => {
+				//暂时先已活动充值订单为判断条件,如订单全部为失败状态需再做处理
+				if (res.data.data.activityRecharge.length >= 1) {
+					this.isRecharged = "Y";
+				}
 				let _this = this;
-				res.data.data.receiptAccount.forEach((el)=>{
-						_this.zfbReceiptInfo = el
-						this.qr =this.$store.state.adminPath + 'file/'+ el.path;
+				res.data.data.receiptAccount.forEach((el) => {
+					_this.zfbReceiptInfo = el
+					this.qr = this.$store.state.webPath + 'file/' + el.path;
 				})
 			})
+
+
 		},
-		computed:{
-			webPath(){
+		computed: {
+			webPath() {
 				return this.$store.state.webPath;
 			},
-			adminPath(){
+			adminPath() {
 				return this.$store.state.adminPath;
-			}	
+			}
 		},
 		methods: {
-			initData(){
+			initData() {
 				this.isGoOnpayType = "";
 				this.isGoOnpay = false;
 				uni.showLoading({
-					title : '',
-					mask:true
+					title: '',
+					mask: true
 				})
-				http.get('transaction/torecharge',{phone:this.$store.state.userInfo.phone}).then((res)=>{
-					this.payHistory = res.data.data.rechargeRecord;
-					this.payActHistory = res.data.data.activityRecharge;
-					let _this = this;
-					res.data.data.receiptAccount.forEach((el)=>{
-						if(el.type == 1002){
-							_this.zfbReceiptInfo = el
-						}else if(el.type == 1001){
-							_this.yhkReceiptInfo = el
-						}
-					})
+				http.get('AppPortfolioPage/rechargeOrWithdraw', {
+					typeEnum : 'RECHARGE'
+				}).then((res) => {
+					if (res.data.data.principalOrderVoList.length >= 1) {
+						this.isRecharged = "Y";
+					}
+					this.payHistory = res.data.data.principalOrderVoList;
+					this.payActHistory = res.data.data.principalOrderVoList;
+					
+					this.yhkReceiptInfo = res.data.data.financeVo;
+					this.zfbReceiptInfo = res.data.data.financeVo;
+					this.qr = this.$store.state.webPath + 'file/' + this.zfbReceiptInfo.alipayPath;
+					// let _this = this;
+					// res.data.data.receiptAccount.forEach((el) => {
+					// 	if (el.type == 1002) {
+					// 		_this.zfbReceiptInfo = el
+					// 	} else if (el.type == 1001) {
+					// 		_this.yhkReceiptInfo = el
+					// 	}
+					// })
 				})
 			},
-			getQr(){
-				let tempStr=this.$store.state.adminPath+"/file/";
-				http.get('transaction/torecharge',{phone:this.$store.state.userInfo.phone}).then((res)=>{
-				this.payHistory = res.data.data.rechargeRecord;
-				this.payActHistory = res.data.data.activityRecharge;
-				let _this = this;
-				res.data.data.receiptAccount.forEach((el)=>{
-					if(el.type == 1002){
-						_this.zfbReceiptInfo = el
-						this.qr =tempStr+ el.path;
-					}else if(el.type == 1001){
-						_this.yhkReceiptInfo = el
-					}
+			getQr() {
+				let tempStr = this.$store.state.webPath + "/file/";
+				http.get('principalOrder/getList', {
+					'pageInfo.size':1000,
+					'pageInfo.isReturnPage': false
+				}).then((res) => {
+					this.payHistory = res.data.data.records;
+					this.payActHistory = res.data.data.records;
+					// let _this = this;
+					// res.data.data.receiptAccount.forEach((el) => {
+					// 	if (el.type == 1002) {
+					// 		_this.zfbReceiptInfo = el
+					// 		this.qr = tempStr + el.path;
+					// 	} else if (el.type == 1001) {
+					// 		_this.yhkReceiptInfo = el
+					// 	}
+					// })
+
 				})
-				
-				})		
+			},
+			//获取充值提醒
+			getHelp() {
+				let _this = this;
+				// this.queryStock('');
+				http.get('website/help/getList', {type:'I_RECHARGE',status : true,'pageInfo.size':1,'pageInfo.isReturnPage':false}).then((res) => {
+					_this.RichContent = res.data.data.records[0].content;
+				})
 			},
 			bankPickerChange: function(e) {
 				console.log('bankPickerChange发送选择改变，携带值为', e.target.value)
 				this.index = e.target.value
 			},
-			changePayNum(type,num){
+			changePayNum(type, num) {
 				this.alertActivityShow = 1;
-				if(type == '1'){
+				if (type == '1') {
 					this.zfbPayMoney = num;
-				}else{
+				} else {
 					this.bankMoney = num;
 				}
-				
+
 			},
 			//提交转账申请
-			subApply(){
-				if(this.payType == 1){
-					if(!this.zfbReceiptInfo.account){
+			subApply() {
+				if (this.payType == 1) {
+					// if (!this.zfbReceiptInfo.account) {
+					// 	uni.showModal({
+					// 		title: '提示',
+					// 		content: '暂不支持支付宝充值',
+					// 		showCancel: false,
+					// 	})
+					// 	return;
+					// }
+					if (this.userZfb == '') {
 						uni.showModal({
-							title : '提示',
-							content : '暂不支持支付宝充值',
-							showCancel : false,
+							title: '提示',
+							content: '支付宝账号不能为空',
+							showCancel: false,
 						})
 						return;
 					}
-					if(this.userZfb == ''){
+					if (this.zfbPayMoney == '') {
 						uni.showModal({
-							title : '提示',
-							content : '支付宝账号不能为空',
-							showCancel : false,
-						})
-						return;
-					}
-					if(this.zfbPayMoney == ''){
-						uni.showModal({
-							title : '提示',
-							content : '转账金额不能为空',
-							showCancel : false,
+							title: '提示',
+							content: '转账金额不能为空',
+							showCancel: false,
 						})
 						return;
 					}
 					uni.showLoading({
-						title : '提交中~'
+						title: '提交中~'
 					})
-					
+
 					let actType = '';
 					actType = this.zfbPayMoney == '10000' ? 1 : this.zfbPayMoney == '20000' ? 2 : this.zfbPayMoney == '30000' ? 3 : '';
 					//活动
-					if(actType != '' && this.alertActivityShow != 0){
+					if (actType != '' && this.alertActivityShow != 0) {
 						// 活动充值
-						http.get('transaction/activityRecharge',{
-							holder:this.$store.state.userInfo.phone,
-							type:'1001',
-							cardNo:this.userZfb,
-							amount:this.zfbPayMoney,
-							activity:actType,
-							recepitCardNo:this.zfbReceiptInfo.account
-						}).then((res)=>{
+						http.get('transaction/activityRecharge', {
+							holder: this.$store.state.userInfo.phone,
+							type: '1001',
+							cardNo: this.userZfb,
+							amount: this.zfbPayMoney,
+							activity: actType,
+							recepitCardNo: this.zfbReceiptInfo.account
+						}).then((res) => {
 							this.zfbRemark = res.data.data;
 							this.alertIsShow = true;
 							this.initData();
 						})
-					}else{
+					} else {
 						// 普通充值
-						http.get('transaction/rechargeOne',{
-							holder:this.$store.state.userInfo.phone,
-							type:'1001',
-							cardNo:this.userZfb,
-							amount:this.zfbPayMoney,
-							recepitCardNo:this.zfbReceiptInfo.account
-						}).then((res)=>{
+						http.get('principalOrder/add', {
+							transitionAccount: this.userZfb,
+							accountType : 'ALI_PAY',
+							orderType:'RECHARGE',
+							acceptAccount : this.zfbReceiptInfo.alipayAccounts,
+							moneyAmount: this.zfbPayMoney
+						}).then((res) => {
+							uni.showModal({
+								title: '提示',
+								content: res.data.data,
+								showCancel: false,
+							})
 							this.zfbRemark = res.data.data;
 							this.alertIsShow = true;
 							this.initData();
 						})
 					}
-					
-					
-				}else if(this.payType == 2){
-					if(!this.yhkReceiptInfo.account){
+
+
+				} else if (this.payType == 2) {
+					// if (!this.yhkReceiptInfo.account) {
+					// 	uni.showModal({
+					// 		title: '提示',
+					// 		content: '暂不支持银行卡充值',
+					// 		showCancel: false,
+					// 	})
+					// 	return;
+					// }
+					if (this.bankCard == '') {
 						uni.showModal({
-							title : '提示',
-							content : '暂不支持银行卡充值',
-							showCancel : false,
+							title: '提示',
+							content: '银行卡号不能为空',
+							showCancel: false,
 						})
 						return;
 					}
-					if(this.bankCard == ''){
+					if (this.bankMoney == '') {
 						uni.showModal({
-							title : '提示',
-							content : '银行卡号不能为空',
-							showCancel : false,
-						})
-						return;
-					}
-					if(this.bankMoney == ''){
-						uni.showModal({
-							title : '提示',
-							content : '转账金额不能为空',
-							showCancel : false,
+							title: '提示',
+							content: '转账金额不能为空',
+							showCancel: false,
 						})
 						return;
 					}
 					uni.showLoading({
-						title : '提交中~'
+						title: '提交中~'
 					})
 					let actType = '';
 					actType = this.bankMoney == '10000' ? 1 : this.bankMoney == '20000' ? 2 : this.bankMoney == '30000' ? 3 : '';
-					
-					if(actType != '' && this.alertActivityShow != 0){
-						
-						http.get('transaction/activityRecharge',{
-							holder:this.$store.state.userInfo.phone,
-							type:'1002',
-							cardNo:this.bankCard,
-							amount:this.bankMoney,
-							activity:actType,
-							recepitCardNo:this.yhkReceiptInfo.account
-						}).then((res)=>{
+
+					if (actType != '' && this.alertActivityShow != 0) {
+
+						http.get('transaction/activityRecharge', {
+							holder: this.$store.state.userInfo.phone,
+							type: '1002',
+							cardNo: this.bankCard,
+							amount: this.bankMoney,
+							activity: actType,
+							recepitCardNo: this.yhkReceiptInfo.account
+						}).then((res) => {
 							this.yhkRemark = res.data.data;
 							this.alertIsShow = true;
 							this.initData();
 						})
-					}else{
-						http.get('transaction/rechargeOne',{
-							holder:this.$store.state.userInfo.phone,
-							type:'1002',
-							cardNo:this.bankCard,
-							amount:this.bankMoney,
-							recepitCardNo:this.yhkReceiptInfo.account
-						}).then((res)=>{
+					} else {
+						http.get('principalOrder/add', {
+							accountType: 'BANK',
+							orderType:'RECHARGE',
+							transitionAccount: this.bankCard,
+							moneyAmount: this.bankMoney,
+							recepitCardNo: this.yhkReceiptInfo.bankAccounts
+						}).then((res) => {
 							this.yhkRemark = res.data.data;
 							this.alertIsShow = true;
 							this.initData();
 						})
 					}
-					
-					
+
+
 				}
 			},
 			//继续充值
-			continuePay(type,el){
+			continuePay(type, el) {
 				// let eType = '';
 				// if(type == '1'){
 				// 	eType = el.state;
 				// }else{
 				// 	eType = el.type;
 				// }
-				if(el.type == 1001){
+				if (el.type == 1001) {
 					this.payType = 1;
 					this.zfbPayMoney = el.amount;
 					this.zfbRemark = {
-						'remarkCode' : el.remarkCode,
-						'id' : el.id
+						'remarkCode': el.remarkCode,
+						'id': el.id
 					}
-				}else if(el.type == 1002){
+				} else if (el.type == 1002) {
 					this.payType = 2;
 					this.bankMoney = el.amount;
 					this.yhkRemark = {
-						'remarkCode' : el.remarkCode,
-						'id' : el.id
+						'remarkCode': el.remarkCode,
+						'id': el.id
 					}
 				}
 				this.isGoOnpayType = el.activity;
 				this.isGoOnpay = true;
 				this.alertIsShow = true;
 			},
-			
-			
-			canclePay(el){
-					let _this = this;
+
+
+			canclePay(el) {
+				let _this = this;
 				uni.showModal({
-					title : '提示',
-					content : '请确认是否需要取消充值',
+					title: '提示',
+					content: '请确认是否需要取消充值',
 					success(res) {
-						if(res.confirm){
+						if (res.confirm) {
 							uni.showLoading({
-								title : '提交中~'
+								title: '提交中~'
 							})
 							let datas = {};
 							datas.id = el.id;
-							datas.activity = el.activity == 0 ?'':0;
-							http.get('transaction/cancelRecharge',datas).then((res)=>{
+							datas.activity = el.activity == 0 ? '' : 0;
+							http.get('transaction/cancelRecharge', datas).then((res) => {
 								uni.showModal({
-									title : '提示',
-									content : '取消充值申请成功',
-									showCancel : false,
+									title: '提示',
+									content: '取消充值申请成功',
+									showCancel: false,
 								})
 								_this.initData();
 							})
@@ -571,58 +613,60 @@
 				})
 			},
 			//用户已转账  或者取消
-			userTransfer(isFalse){
-				if(!isFalse){
+			userTransfer(isFalse) {
+				if (!isFalse) {
 					this.alertIsShow = false;
 					// this.resetPayInfo();
 					return;
 				}
-				
+
 				let _this = this;
 				uni.showModal({
-					title : '提示',
-					content : '请确认是否已经转账',
+					title: '提示',
+					content: '请确认是否已经转账',
 					success(res) {
-						if(res.confirm){
+						if (res.confirm) {
 							uni.showLoading({
-								title : '提交中~'
+								title: '提交中~'
 							})
 							let actType = '';
-							if(_this.payType == 1){
-								actType = _this.zfbPayMoney == '10000' ? 1 : _this.zfbPayMoney == '20000' ? 2 : _this.zfbPayMoney == '30000' ? 3 : '';
-								if(_this.isGoOnpay){
+							if (_this.payType == 1) {
+								actType = _this.zfbPayMoney == '10000' ? 1 : _this.zfbPayMoney == '20000' ? 2 : _this.zfbPayMoney == '30000' ?
+									3 : '';
+								if (_this.isGoOnpay) {
 									actType = _this.isGoOnpayType;
 								}
 								let datas = {};
 								datas.id = _this.zfbRemark.id;
-								if(actType != '0'){
+								if (actType != '0') {
 									datas.activity = actType
 								}
-								http.get('transaction/rechargeTwo',datas).then((res)=>{
+								http.get('transaction/rechargeTwo', datas).then((res) => {
 									uni.showModal({
-										title : '提示',
-										content : '支付宝确认充值申请成功',
-										showCancel : false,
+										title: '提示',
+										content: '支付宝确认充值申请成功',
+										showCancel: false,
 									})
 									_this.alertIsShow = false;
 									_this.initData();
 									_this.resetPayInfo();
 								})
-							}else if(_this.payType == 2){
-								actType = _this.bankMoney == '10000' ? 1 : _this.bankMoney == '20000' ? 2 : _this.bankMoney == '30000' ? 3 : '';
-								if(_this.isGoOnpay){
+							} else if (_this.payType == 2) {
+								actType = _this.bankMoney == '10000' ? 1 : _this.bankMoney == '20000' ? 2 : _this.bankMoney == '30000' ? 3 :
+									'';
+								if (_this.isGoOnpay) {
 									actType = _this.isGoOnpayType;
 								}
 								let datas = {};
 								datas.id = _this.yhkRemark.id;
-								if(actType != '0'){
+								if (actType != '0') {
 									datas.activity = actType
 								}
-								http.get('transaction/rechargeTwo',datas).then((res)=>{
+								http.get('transaction/rechargeTwo', datas).then((res) => {
 									uni.showModal({
-										title : '提示',
-										content : '银行卡确认充值申请成功',
-										showCancel : false,
+										title: '提示',
+										content: '银行卡确认充值申请成功',
+										showCancel: false,
 									})
 									_this.alertIsShow = false;
 									_this.initData();
@@ -634,26 +678,26 @@
 				})
 			},
 			//保存收款二维码
-			uploadImg(){
+			uploadImg() {
 				let _this = this;
-				let tempStr=_this.adminPath + 'file/' + _this.zfbReceiptInfo.path;
+				let tempStr = _this.webPath + 'file/' + _this.zfbReceiptInfo.alipayPath;
 				console.log(tempStr);
 				uni.downloadFile({
-				    url: tempStr, //仅为示例，并非真实的资源
-				    success: (res) => {
-				        if (res.statusCode === 200) {
-				            uni.showToast({
-				            	title: '已保存',
-				            	position: 'bottom',
-				            	icon: 'none',
-				            	duration: 2500
-				            })
-				        }
-				    }
+					url: tempStr, //仅为示例，并非真实的资源
+					success: (res) => {
+						if (res.statusCode === 200) {
+							uni.showToast({
+								title: '已保存',
+								position: 'bottom',
+								icon: 'none',
+								duration: 2500
+							})
+						}
+					}
 				});
 			},
 			//重置信息
-			resetPayInfo(){
+			resetPayInfo() {
 				this.payType = 0;
 				this.userZfb = '';
 				this.zfbPayMoney = '';
@@ -665,30 +709,52 @@
 			}
 		},
 		filters: {
-	　　　　 timeZhuan(value) {
-				 var date = new Date(value);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
-				   var Y = date.getFullYear() + '-';
-				   var M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '-';
-				   var D = (date.getDate() < 10 ? '0'+date.getDate() : date.getDate()) + ' ';
-				   var h = (date.getHours() < 10 ? '0'+date.getHours() : date.getHours()) + ':';
-				   var m = (date.getMinutes() < 10 ? '0'+date.getMinutes() : date.getMinutes()) + ':';
-				   var s = (date.getSeconds() < 10 ? '0'+date.getSeconds() : date.getSeconds());
-				   return Y+M+D;
-	　　　　 }
-	　　}
+			timeZhuan(value) {
+				var date = new Date(value); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
+				var Y = date.getFullYear() + '-';
+				var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+				var D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' ';
+				var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
+				var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
+				var s = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds());
+				return Y + M + D;
+			}
+		}
 	}
 </script>
 
 <style lang="scss" scoped>
-	.content{
+	.status-bar{
+		box-sizing: border-box;
+		display: block;
+		width: 100%;
+		margin-bottom: -3upx;
+		height: var(--status-bar-height);
+		line-height: var(--status-bar-height);
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: linear-gradient(to right, #EF9435, #E95E28);
+		z-index: 99;
+	}
+	.nav-bar{
+		position: fixed;
+		// top: var(--status-bar-height);
+		top: 0;
+		left: 0;
+		z-index:2;
+		width: 100%;
+	}
+	.content {
 		/*距离顶部范围应该在88-95范围内*/
 		/*  #ifdef  APP-PLUS  */
-		padding-top: 90upx;
+		// padding-top: 90upx;
 		/*  #endif  */
-		top: var(--status-bar-height);
-		padding-bottom: 95upx;
+		// top: var(--status-bar-height);
+		// padding-bottom: 95upx;
 	}
-	.current{
+
+	.current {
 		width: 100%;
 		height: 84upx;
 		line-height: 84upx;
@@ -698,17 +764,21 @@
 		font-size: 30upx;
 		text-align: left;
 		box-sizing: border-box;
-		view:nth-child(1){
+
+		view:nth-child(1) {
 			float: left;
 		}
-		view:nth-child(2){
+
+		view:nth-child(2) {
 			float: right;
-			text{
+
+			text {
 				color: #ce5b51;
 			}
 		}
 	}
-	.payType{
+
+	.payType {
 		width: 100%;
 		height: 74upx;
 		background: #f2f2f2;
@@ -718,49 +788,58 @@
 		font-weight: 600;
 		padding: 0 30upx;
 		line-height: 74upx;
+		margin-top: calc(var(--status-bar-height) + 90upx);
 		border-top: 1upx solid #e2e2e2;
 		box-sizing: border-box;
 	}
-	.payTypeList{
+
+	.payTypeList {
 		width: 100%;
 		background: #fff;
 		border-bottom: 5upx solid #e5e5e5;
-		.tpLi{
+
+		.tpLi {
 			height: 88upx;
 			border-bottom: 1upx solid #e5e5e5;
 			margin-left: 30upx;
 			width: calc(100% - 30upx);
 			line-height: 88upx;
-			.liImg{
+
+			.liImg {
 				width: 100upx;
 				height: 88upx;
 				float: left;
 				display: flex;
 				align-items: center;
-				image{
+
+				img {
 					display: block;
 				}
 			}
-			.liDe{
+
+			.liDe {
 				float: left;
 				font-size: 28upx;
 				color: #454545;
 			}
-			.sele{
+
+			.sele {
 				width: 88upx;
 				height: 88upx;
 				float: right;
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				view{
+
+				view {
 					width: 26upx;
 					height: 26upx;
 					border: 3upx solid #ef9146;
 					border-radius: 50%;
 					position: relative;
 				}
-				view:after{
+
+				view:after {
 					content: '';
 					width: 8upx;
 					height: 2upx;
@@ -770,7 +849,8 @@
 					background: #fff;
 					transform: rotate(30deg);
 				}
-				view:before{
+
+				view:before {
 					content: '';
 					width: 14upx;
 					height: 2upx;
@@ -780,23 +860,27 @@
 					background: #fff;
 					transform: rotate(-50deg);
 				}
-				.isTask{
+
+				.isTask {
 					background: #ef9146;
 				}
 			}
 		}
 	}
-	.inputList{
+
+	.inputList {
 		width: 640upx;
 		margin: 0 auto;
-		
+
 		padding-bottom: 40upx;
 	}
-	.inputGroup1{
+
+	.inputGroup1 {
 		width: 640upx;
 		height: 70upx;
 		margin: 0 auto;
-		.groupName{
+
+		.groupName {
 			height: 70upx;
 			width: 160upx;
 			text-align: right;
@@ -807,7 +891,8 @@
 			font-size: 28upx;
 			float: left;
 		}
-		.ghd{
+
+		.ghd {
 			float: left;
 			height: 70upx;
 			width: calc(100% - 160upx);
@@ -816,7 +901,8 @@
 			color: #333;
 			display: flex;
 			align-items: center;
-			text{
+
+			text {
 				display: block;
 				width: 170upx;
 				height: 60upx;
@@ -828,11 +914,12 @@
 				line-height: 60upx;
 				margin-left: 5upx;
 			}
-			
-			text:first-child{
+
+			text:first-child {
 				margin-left: 0;
 			}
-			.subApply{
+
+			.subApply {
 				height: 60upx;
 				padding: 0 20upx;
 				background: #5A9EF7;
@@ -843,11 +930,13 @@
 				color: #fff;
 			}
 		}
-		.payAgreement{
+
+		.payAgreement {
 			color: red;
 			text-decoration: underline;
 		}
-		input{
+
+		input {
 			float: left;
 			height: 70upx;
 			width: calc(100% - 200upx);
@@ -857,7 +946,8 @@
 			color: #333;
 			padding-left: 15upx;
 		}
-		.yuan{
+
+		.yuan {
 			width: 40upx;
 			height: 70upx;
 			line-height: 70upx;
@@ -867,7 +957,8 @@
 			font-size: 28upx;
 		}
 	}
-	.details{
+
+	.details {
 		width: calc(100% - 60upx);
 		margin: 0 auto;
 		padding-top: 10upx;
@@ -877,14 +968,17 @@
 		font-size: 26upx;
 		border-top: 2upx solid #f1f1f1;
 		margin-top: 20upx;
-		.strong{
+
+		.strong {
 			font-weight: 600;
 		}
-		.red{
+
+		.red {
 			color: red;
 		}
 	}
-	.subTransfer{
+
+	.subTransfer {
 		width: 100%;
 		height: 95upx;
 		background: #eb615c;
@@ -897,87 +991,100 @@
 		bottom: 0;
 		z-index: 5;
 	}
-	.alertBack{
+
+	.alertBack {
 		width: 100%;
 		height: 100%;
 		position: fixed;
 		left: 0;
 		top: 0;
 		z-index: 10;
-		background: rgba(0,0,0,0.2);
+		background: rgba(0, 0, 0, 0.2);
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		.alertContent{
+
+		.alertContent {
 			width: 680upx;
 			height: 900upx;
 			background: #fff;
 			border-radius: 8upx;
 			overflow: hidden;
-			.top{
+
+			.top {
 				height: 84upx;
 				width: 100%;
-				background: #f8f8f8;
+				background: #e64340;
 				padding-left: 40upx;
 				box-sizing: border-box;
 				border-bottom: 1upx solid #ebebeb;
-				text{
+
+				text {
 					display: block;
 					float: left;
 					text-align: left;
 					line-height: 84upx;
-					color: #242424;
+					color: #FFFFFF;
 					font-size: 26upx;
 				}
-				.closeBtn{
+
+				.closeBtn {
 					width: 105upx;
 					height: 84upx;
 					display: flex;
 					justify-content: center;
 					align-items: center;
 					float: right;
-					image{
+
+					img {
 						display: block;
 						width: 25upx;
 						height: 25upx;
 					}
 				}
 			}
-			.aDetails{
+
+			.aDetails {
 				width: 100%;
 				height: calc(100% - 84upx - 84upx);
 				padding-top: 20upx;
 				box-sizing: border-box;
 				overflow-y: scroll;
-				.ft{
+
+				.ft {
 					color: #333333;
 					text-align: center;
 					line-height: 50upx;
 					font-size: 28upx;
 				}
-				image{
+
+				img {
 					display: block;
-					width: 410upx;
-					height: 630upx;
+					width: 400upx;
+					height: 400upx;
 					margin: 0 auto;
 				}
 			}
-			.btm{
+
+			.btm {
 				width: 100%;
 				background: #fff;
 				height: 84upx;
 				border-top: 1upx solid #ebebeb;
 				box-sizing: border-box;
-				.leftBtn{
+
+				.leftBtn {
 					float: left;
 					margin-left: 30upx;
 					background: #51a6f6;
 				}
-				.rightBtn{
+
+				.rightBtn {
 					float: right;
-					background: #5183f6;
+					background: #e64340;
 				}
-				.btBtn{
+
+				.btBtn {
 					height: 60upx;
 					width: 230upx;
 					text-align: center;
@@ -989,24 +1096,28 @@
 					margin-right: 30upx;
 				}
 			}
-			
-			
+
+
 		}
 	}
-	.pt1{
+
+	.pt1 {
 		padding: 30upx;
 		box-sizing: border-box;
 		line-height: 40upx;
 		color: #525252;
 		font-size: 28upx;
-		text{
+
+		text {
 			color: #db6669;
 		}
 	}
-	.List1{
+
+	.List1 {
 		padding-left: 30upx;
 		box-sizing: border-box;
-		.lis{
+
+		.lis {
 			width: 100%;
 			height: 65upx;
 			line-height: 65upx;
@@ -1014,12 +1125,14 @@
 			text-align: left;
 			color: #525252;
 			font-size: 26upx;
-			text{
+
+			text {
 				font-weight: 600;
 			}
 		}
 	}
-	.pt2{
+
+	.pt2 {
 		color: #db6669;
 		font-size: 28upx;
 		text-align: left;
@@ -1028,13 +1141,15 @@
 		padding-left: 30upx;
 		box-sizing: border-box;
 	}
-	.inputGroup{
+
+	.inputGroup {
 		width: 100%;
 		height: 70upx;
 		margin: 0 auto;
 		padding-left: 30upx;
 		box-sizing: border-box;
-		.groupName{
+
+		.groupName {
 			height: 70upx;
 			text-align: left;
 			line-height: 70upx;
@@ -1044,7 +1159,8 @@
 			font-size: 28upx;
 			float: left;
 		}
-		input{
+
+		input {
 			float: left;
 			height: 70upx;
 			width: calc(100% - 230upx);
@@ -1055,7 +1171,8 @@
 			color: #333;
 			padding-left: 15upx;
 		}
-		.selectBox{
+
+		.selectBox {
 			float: left;
 			height: 70upx;
 			width: calc(100% - 230upx);
@@ -1064,7 +1181,8 @@
 			border-radius: 8upx;
 			padding-left: 15upx;
 			overflow: hidden;
-			view{
+
+			view {
 				width: 100%;
 				height: 100%;
 				font-size: 26upx;
@@ -1072,8 +1190,8 @@
 			}
 		}
 	}
-	
-	.jrwt{
+
+	.jrwt {
 		width: 100%;
 		height: 88upx;
 		text-align: center;
@@ -1084,9 +1202,11 @@
 		border-top: 2upx solid #d9d9d9;
 		border-bottom: 2upx solid #d9d9d9;
 	}
-	.tb{
+
+	.tb {
 		width: 100%;
-		.tbson{
+
+		.tbson {
 			text-align: center;
 			line-height: 86upx;
 			height: 86upx;
@@ -1095,67 +1215,80 @@
 			font-size: 28upx;
 			background: #fff;
 			font-weight: 600;
-			view{
+
+			view {
 				float: left;
 				height: 86upx;
 			}
-			
+
 		}
-		
-		.td{
+
+		.td {
 			border: none;
 			background: #FBFBFB;
 			font-weight: 400;
 			font-size: 25upx;
-			view:nth-child(1){
+
+			view:nth-child(1) {
 				line-height: 40upx;
 			}
-			view:nth-child(3){
-				padding: 0 25upx;
+
+			view:nth-child(3) {
 				box-sizing: border-box;
 				text-align: center;
-				text{
+
+				text {
 					color: red
 				}
 			}
-			.opt{
-				view{
+
+			.opt {
+				view {
 					line-height: 86upx;
 					margin-right: 20upx;
 				}
-				view:nth-child(1){
+
+				view:nth-child(1) {
 					margin-left: 20%;
 				}
 			}
 		}
-		.td:nth-child(2n-1){
+
+		.td:nth-child(2n-1) {
 			background: #fff;
 		}
 	}
-	.isWei{
+
+	.isWei {
 		text-decoration: underline;
 		color: red;
 	}
-	
-	.width40{
+
+	.width40 {
 		width: 40%;
 	}
-	.width35{
+
+	.width35 {
 		width: 35%;
 	}
-	.width30{
+
+	.width30 {
 		width: 30%;
 	}
-	.width25{
+
+	.width25 {
 		width: 25%;
 	}
-	.width20{
+
+	.width20 {
 		width: 20%;
 	}
-	.width15{
+
+	.width15 {
 		width: 15%;
 	}
-	.width10{
+
+	.width10 {
 		width: 10%;
 	}
 </style>

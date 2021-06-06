@@ -2,7 +2,7 @@
 	<view class="content">
 		<!-- #ifdef APP-PLUS -->
 			<view class="status-bar"></view>
-			<cmd-nav-bar back background-color="linear-gradient(to right, #EF9435, #E95E28)" :title="navTitle" font-color="#fff"></cmd-nav-bar>
+			<cmd-nav-bar class="nav-bar" :fixed="false" back background-color="linear-gradient(to right, #EF9435, #E95E28)" :title="navTitle" font-color="#fff"></cmd-nav-bar>
 		<!-- #endif -->
 		<view class="newlist">
 			<view class="lis" v-for="el in dataList" @click="queryDetails(el)">
@@ -48,16 +48,38 @@
 </script>
 zz
 <style lang="scss" scoped>
+	.status-bar{
+		box-sizing: border-box;
+		display: block;
+		width: 100%;
+		margin-bottom: -3upx;
+		height: var(--status-bar-height);
+		line-height: var(--status-bar-height);
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: linear-gradient(to right, #EF9435, #E95E28);
+		z-index: 99;
+	}
+	.nav-bar{
+		position: fixed;
+		// top: var(--status-bar-height);
+		top: 0;
+		left: 0;
+		z-index:2;
+		width: 100%;
+	}
 	.content{
 		/*距离顶部范围应该在88-95范围内*/
 		/*  #ifdef  APP-PLUS  */
-		padding-top: 90upx;
+		// padding-top: 90upx;
 		/*  #endif  */
-		top: var(--status-bar-height);
-		padding-bottom: 95upx;
+		// top: var(--status-bar-height);
+		// padding-bottom: 95upx;
 	}
 	.newlist{
 		width: 100%;
+		margin-top:  calc(var(--status-bar-height) + 90upx);
 		.lis{
 			width: 100%;
 			padding: 20upx 40upx;

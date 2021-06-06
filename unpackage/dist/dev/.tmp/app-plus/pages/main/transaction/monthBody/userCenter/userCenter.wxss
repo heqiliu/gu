@@ -24,74 +24,70 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.userbody.data-v-1d3d3b02 {
+.userbody.data-v-785e5ed6 {
   width: 100%;
   padding: 0 30rpx;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0 auto;
   background: #fcfcfc;
 }
-.userbody .infoBox.data-v-1d3d3b02 {
+.userbody .infoBox.data-v-785e5ed6 {
     width: 100%;
     height: 146rpx;
     border-bottom: 2rpx solid #ececec;
     line-height: 146rpx;
     color: #1b1b1b;
 }
-.userbody .infoBox .imgBox.data-v-1d3d3b02 {
+.userbody .infoBox .imgBox.data-v-785e5ed6 {
       width: 110rpx;
       height: 146rpx;
       line-height: 146rpx;
       display: -webkit-box;
       display: -webkit-flex;
-      display: -ms-flexbox;
       display: flex;
       -webkit-box-align: center;
       -webkit-align-items: center;
-          -ms-flex-align: center;
               align-items: center;
       float: left;
 }
-.userbody .infoBox .imgBox image.data-v-1d3d3b02 {
+.userbody .infoBox .imgBox image.data-v-785e5ed6 {
         display: block;
         width: 80rpx;
         height: 80rpx;
 }
-.userbody .infoBox .userPhone.data-v-1d3d3b02 {
+.userbody .infoBox .userPhone.data-v-785e5ed6 {
       float: left;
       font-size: 30rpx;
 }
-.userbody .userAssets.data-v-1d3d3b02 {
+.userbody .userAssets.data-v-785e5ed6 {
     width: 100%;
     height: 140rpx;
     border-bottom: 2rpx solid #ececec;
 }
-.userbody .userAssets .left.data-v-1d3d3b02 {
+.userbody .userAssets .left.data-v-785e5ed6 {
       float: left;
       color: #1b1b1b;
       height: 140rpx;
 }
-.userbody .userAssets .left text.data-v-1d3d3b02 {
+.userbody .userAssets .left text.data-v-785e5ed6 {
         display: block;
         height: 50%;
 }
-.userbody .userAssets .left text.data-v-1d3d3b02:nth-child(1) {
+.userbody .userAssets .left text.data-v-785e5ed6:nth-child(1) {
         font-size: 24rpx;
         line-height: 100rpx;
 }
-.userbody .userAssets .left text.data-v-1d3d3b02:nth-child(2) {
+.userbody .userAssets .left text.data-v-785e5ed6:nth-child(2) {
         font-size: 36rpx;
         font-weight: 600;
 }
-.userbody .userAssets .right.data-v-1d3d3b02 {
+.userbody .userAssets .right.data-v-785e5ed6 {
       float: right;
       height: 100%;
       padding-top: 40rpx;
-      -webkit-box-sizing: border-box;
-              box-sizing: border-box;
+      box-sizing: border-box;
 }
-.userbody .userAssets .right .rbtn.data-v-1d3d3b02 {
+.userbody .userAssets .right .rbtn.data-v-785e5ed6 {
         width: 130rpx;
         height: 56rpx;
         text-align: center;
@@ -100,35 +96,33 @@
         font-size: 28rpx;
         float: right;
 }
-.userbody .userm.data-v-1d3d3b02 {
+.userbody .userm.data-v-785e5ed6 {
     width: 100%;
     height: 140rpx;
     padding-top: 40rpx;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
 }
-.userbody .userm .bro.data-v-1d3d3b02 {
+.userbody .userm .bro.data-v-785e5ed6 {
       float: left;
       width: 50%;
       height: 100%;
       padding-left: 34rpx;
-      -webkit-box-sizing: border-box;
-              box-sizing: border-box;
+      box-sizing: border-box;
       position: relative;
 }
-.userbody .userm .bro text.data-v-1d3d3b02 {
+.userbody .userm .bro text.data-v-785e5ed6 {
         display: block;
         font-size: 24rpx;
         color: #1b1b1b;
 }
-.userbody .userm .bro text.data-v-1d3d3b02:nth-child(1) {
+.userbody .userm .bro text.data-v-785e5ed6:nth-child(1) {
         line-height: 20rpx;
 }
-.userbody .userm .bro text.data-v-1d3d3b02:nth-child(2) {
+.userbody .userm .bro text.data-v-785e5ed6:nth-child(2) {
         line-height: 60rpx;
         font-weight: 600;
 }
-.userbody .userm .bro.data-v-1d3d3b02:after {
+.userbody .userm .bro.data-v-785e5ed6:after {
       content: '';
       position: absolute;
       width: 20rpx;
@@ -137,14 +131,14 @@
       left: 0;
       top: 0;
 }
-.userbody .userm .bro.data-v-1d3d3b02:nth-child(2):after {
+.userbody .userm .bro.data-v-785e5ed6:nth-child(2):after {
       content: '';
       background: #5fa2e2;
 }
-.funList.data-v-1d3d3b02 {
+.funList.data-v-785e5ed6 {
   width: 100%;
 }
-.funList .lis.data-v-1d3d3b02 {
+.funList .lis.data-v-785e5ed6 {
     width: 100%;
     height: 100rpx;
     border-top: 2rpx solid #e1e1e1;
@@ -152,57 +146,50 @@
     line-height: 100rpx;
     margin-top: 20rpx;
     padding-left: 10rpx;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
+    box-sizing: border-box;
     background: #fff;
 }
-.funList .lis .imgbox.data-v-1d3d3b02 {
+.funList .lis .imgbox.data-v-785e5ed6 {
       width: 70rpx;
       height: 100rpx;
       display: -webkit-box;
       display: -webkit-flex;
-      display: -ms-flexbox;
       display: flex;
       -webkit-box-pack: center;
       -webkit-justify-content: center;
-          -ms-flex-pack: center;
               justify-content: center;
       -webkit-box-align: center;
       -webkit-align-items: center;
-          -ms-flex-align: center;
               align-items: center;
       float: left;
 }
-.funList .lis .imgbox image.data-v-1d3d3b02 {
+.funList .lis .imgbox image.data-v-785e5ed6 {
         display: block;
         width: 48rpx;
         height: 48rpx;
 }
-.funList .lis .funName.data-v-1d3d3b02 {
+.funList .lis .funName.data-v-785e5ed6 {
       height: 100%;
       float: left;
       font-size: 28rpx;
       color: #1c1c1c;
       padding-left: 10rpx;
 }
-.funList .lis .zhidao.data-v-1d3d3b02 {
+.funList .lis .zhidao.data-v-785e5ed6 {
       float: right;
       width: 100rpx;
       height: 100%;
       display: -webkit-box;
       display: -webkit-flex;
-      display: -ms-flexbox;
       display: flex;
       -webkit-box-pack: center;
       -webkit-justify-content: center;
-          -ms-flex-pack: center;
               justify-content: center;
       -webkit-box-align: center;
       -webkit-align-items: center;
-          -ms-flex-align: center;
               align-items: center;
 }
-.funList .lis .zhidao image.data-v-1d3d3b02 {
+.funList .lis .zhidao image.data-v-785e5ed6 {
         display: block;
         width: 14rpx;
         height: 24rpx;

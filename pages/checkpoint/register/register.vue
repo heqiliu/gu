@@ -4,7 +4,7 @@
 			<view class="status-bar"></view>
 			<cmd-nav-bar back background-color="#d34a43" title="注册" font-color="#fff"></cmd-nav-bar>
 		<!-- #endif -->
-		<image class="topBanner" src="../../../static/img/reg_banner.jpg" mode=""></image>
+		<image class="topBanner" :src="webPath + 'file/' + banner"  mode=""></image>
 		<view class="inputList">
 			<view class="inputLi">
 				<view class="liContent">
@@ -35,7 +35,7 @@
 					<view class="liImg">
 						<image src="../../../static/icon/reg_id.png" style="width: 42upx;height: 46upx" mode=""></image>
 					</view>
-					<input type="text"  value="" placeholder="请输入注册码" v-model="recCode"/>
+					<input type="text"  value="" placeholder="请输入注册码:168" v-model="recCode"/>
 				</view>
 			</view>
 			<view class="inputLi">
@@ -62,7 +62,7 @@
 			</view>
 			<view class="agreement" @click="rememberPass = !rememberPass">
 				<label>
-					<checkbox height="16upx" width="16upx" value="cb" checked=""/>我同意财米策略
+					<checkbox height="16upx" width="16upx" value="cb" checked=""/>我同意财道策略
 				</label>
 				<text @click="queryAgree">《注册协议》 《交易服务协议》</text>
 				
@@ -73,8 +73,8 @@
 			<navigator url="/pages/checkpoint/login/login" hover-class="navigator-hover">
 				<view class="isHave">已有账号？立即登录</view>
 			</navigator>
-			
 		</view>
+		
 	</view>
 </template>
 
@@ -94,13 +94,35 @@
 				imgCodeSrc: '',
 				phoneCode : '',
 				recCode: '',
-				codeTime: '获取'
+				codeTime: '获取',
+				
+				banner : '',
 			};
 		},
+		// onShow: function() {
+		// 	this.imageanimation();
+		// },
 		onLoad(){
 			this.getImgCode();
+			this.getBannerImg();
+		},
+		computed:{
+			// listenMainIndexData(){
+				// return this.$store.state.mainIndexData;
+			// },
+			webPath(){
+				return this.$store.state.webPath;
+			}
 		},
 		methods:{
+			//获取上方的广告图片
+			getBannerImg(){
+				var _this = this;
+				http.get('website/banner/getList',{type:'APP_REGISTER_TOP',status : true,'pageInfo.size':1,'pageInfo.isReturnPage':false}).then((res)=>{
+					_this.banner = res.data.data.records[0].path;
+				});
+			},
+			
 			goRegistered(){
 				var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;
 				if (!myreg.test(this.userPhone)) {
@@ -153,14 +175,14 @@
 					
 				})
 				http.request({
-					url:'member/registered',
+					url:'register',
 					method:'GET',
 					data:{
-						phone:this.userPhone,
-						loginPwd:this.userPass1,
-						upCode:this.recCode,
-						phoneCode:this.phoneCode,
-						imgCode:this.imgCode
+						username:this.userPhone,
+						password:this.userPass1,
+						invitationCode:this.recCode,
+						SmsCode:this.phoneCode,
+						imageCode:this.imgCode
 					},
 					isRe : this.ImgRandom
 				}).then((res)=>{
@@ -179,7 +201,7 @@
 					let uuid = plus.device.uuid;  
 					this.ImgRandom = uuid;
 				/* #endif */
-				this.imgCodeSrc = this.$store.state.webPath + 'member/generateImage?identifier=' + this.ImgRandom + '&random=' + Math.random();
+				this.imgCodeSrc = this.$store.state.webPath + 'getVerifyImage?identifier=' + this.ImgRandom + '&random=' + Math.random();
 			},
 			queryAgree(){
 				uni.navigateTo({
@@ -203,7 +225,7 @@
 					title : '发送中',
 					mask:true
 				})
-				http.get('member/getPhoneCode',{phone:this.userPhone}).then((res)=>{
+				http.get('getVerifySMS',{phone:this.userPhone}).then((res)=>{
 					uni.showToast({
 						title: '验证码发送成功',
 						icon: 'none',
@@ -222,7 +244,9 @@
 					},1000)
 					
 				})
-			}
+			},
+			
+			
 		}
 	}
 </script>
@@ -277,7 +301,7 @@
 				}
 			}
 			.yzmBtn{
-				width: 240upx;
+				width: 160upx;
 				height: 70upx;
 				float: right;
 				margin-top: 20upx;
@@ -290,7 +314,7 @@
 				}
 			}
 			.getYzm{
-				background: #d34a34;
+				background: #FF6D28;
 				line-height: 70upx;
 				text-align: center;
 				color: #fff;

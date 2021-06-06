@@ -44,8 +44,7 @@ page{
 }
 /*沉浸状态栏变化*/
 .status-bar {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   display: block;
   width: 100%;
   margin-bottom: -3rpx;

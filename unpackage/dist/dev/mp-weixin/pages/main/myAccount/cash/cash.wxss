@@ -24,76 +24,91 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.content.data-v-29c00691 {
-  /*距离顶部范围应该在88-95范围内*/
-  height: 100%;
-  background: #fbfbfb;
-  top: 25px;
-  padding-bottom: 15rpx;
+.status-bar.data-v-77666b84 {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  margin-bottom: -3rpx;
+  height: 25px;
+  line-height: 25px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: -webkit-linear-gradient(left, #EF9435, #E95E28);
+  background: linear-gradient(to right, #EF9435, #E95E28);
+  z-index: 99;
 }
-.listBox.data-v-29c00691 {
+.nav-bar.data-v-77666b84 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+}
+.content.data-v-77666b84 {
+  /*距离顶部范围应该在88-95范围内*/
+  background: #fbfbfb;
+}
+.listBox.data-v-77666b84 {
+  padding-top: calc(25px + 90rpx);
   background: #fff;
 }
-.listBox .lis.data-v-29c00691 {
-    width: 100%;
-    height: 90rpx;
-    line-height: 90rpx;
-    border-bottom: 2rpx solid #d7d7d7;
+.listBox .lis.data-v-77666b84 {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 2rpx solid #d7d7d7;
 }
-.listBox .lis .left.data-v-29c00691 {
-      width: 250rpx;
-      height: 100%;
-      float: left;
-      padding-left: 30rpx;
-      -webkit-box-sizing: border-box;
-              box-sizing: border-box;
-      color: #c5c5c5;
-      font-size: 30rpx;
+.listBox .lis .left.data-v-77666b84 {
+  width: 250rpx;
+  height: 100%;
+  float: left;
+  padding-left: 30rpx;
+  box-sizing: border-box;
+  color: #c5c5c5;
+  font-size: 30rpx;
 }
-.listBox .lis .right.data-v-29c00691 {
-      width: calc(100% - 250rpx);
-      height: 90rpx;
-      float: left;
+.listBox .lis .right.data-v-77666b84 {
+  width: calc(100% - 250rpx);
+  height: 90rpx;
+  float: left;
 }
-.listBox .lis .cashType.data-v-29c00691 {
-      font-size: 24rpx;
-      color: #202020;
+.listBox .lis .cashType.data-v-77666b84 {
+  font-size: 24rpx;
+  color: #202020;
 }
-.listBox .lis .cashMax.data-v-29c00691 {
-      color: #525252;
-      font-size: 26rpx;
+.listBox .lis .cashMax.data-v-77666b84 {
+  color: #525252;
+  font-size: 26rpx;
 }
-.listBox .lis .cashMax text.data-v-29c00691 {
-        color: #c43345;
-        font-size: 30rpx;
-        padding-right: 10rpx;
+.listBox .lis .cashMax text.data-v-77666b84 {
+  color: #c43345;
+  font-size: 30rpx;
+  padding-right: 10rpx;
 }
-.listBox .lis .cashMoney.data-v-29c00691 {
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-          -ms-flex-align: center;
-              align-items: center;
+.listBox .lis .cashMoney.data-v-77666b84 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+          align-items: center;
 }
-.listBox .lis .cashMoney input.data-v-29c00691 {
-        display: block;
-        width: 100%;
-        height: 50rpx;
-        font-size: 26rpx;
+.listBox .lis .cashMoney input.data-v-77666b84 {
+  display: block;
+  width: 100%;
+  height: 50rpx;
+  font-size: 26rpx;
 }
-.cashTixin.data-v-29c00691 {
+.cashTixin.data-v-77666b84 {
   width: 100%;
   padding: 30rpx;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   height: 130rpx;
   color: red;
   font-size: 30rpx;
 }
-.cashTrue.data-v-29c00691 {
+.cashTrue.data-v-77666b84 {
   height: 60rpx;
   width: 690rpx;
   margin: 0 auto;
@@ -104,27 +119,26 @@
   border-radius: 8rpx;
   font-size: 26rpx;
 }
-.wenxin.data-v-29c00691 {
+.wenxin.data-v-77666b84 {
   width: 690rpx;
   height: 120rpx;
   margin: 0 auto;
   color: #c5c5c5;
   font-size: 28rpx;
   padding-top: 20rpx;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
-.waringBox.data-v-29c00691 {
+.waringBox.data-v-77666b84 {
   width: 690rpx;
   margin: 0 auto;
   color: #525252;
   font-size: 27rpx;
   padding-bottom: 30rpx;
 }
-.waringBox text.data-v-29c00691 {
-    display: block;
+.waringBox text.data-v-77666b84 {
+  display: block;
 }
-.cashtxjl.data-v-29c00691 {
+.cashtxjl.data-v-77666b84 {
   height: 100rpx;
   line-height: 100rpx;
   background: #fff;
@@ -135,42 +149,58 @@
   font-size: 32rpx;
   font-weight: 600;
 }
-.recordLists.data-v-29c00691 {
+.recordLists.data-v-77666b84 {
   width: 100%;
   background: #fff;
   border-bottom: 2rpx solid #cfcfcf;
   padding: 0 30rpx;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
-.recordLists view.data-v-29c00691 {
-    display: block;
-    width: 100%;
+.recordLists .lis.data-v-77666b84 {
+  width: 100%;
+  background: #fff;
+  border-bottom: 2rpx solid #cfcfcf;
+  padding: 0 30rpx;
+  box-sizing: border-box;
 }
-.recordLists view.data-v-29c00691:nth-child(1) {
-    color: #3e3e3e;
-    font-size: 32rpx;
-    line-height: 50rpx;
-    margin-top: 12rpx;
+.recordLists .lis view.data-v-77666b84 {
+  display: block;
+  width: 100%;
 }
-.recordLists view.data-v-29c00691:nth-child(2) {
-    color: #7c7c7c;
-    font-size: 26rpx;
+.recordLists .lis view.data-v-77666b84:nth-child(1) {
+  font-size: 32rpx;
+  margin-top: 12rpx;
 }
-.recordLists view:nth-child(2) text.data-v-29c00691 {
-      height: 30rpx;
-      display: block;
+.recordLists .lis view:nth-child(1) text.data-v-77666b84 {
+  height: 30rpx;
+  margin-bottom: 12rpx;
 }
-.recordLists view:nth-child(2) text.data-v-29c00691:nth-child(1) {
-      float: left;
+.recordLists .lis view:nth-child(1) text.data-v-77666b84:nth-child(1) {
+  color: #3e3e3e;
 }
-.recordLists view:nth-child(2) text.data-v-29c00691:nth-child(2) {
-      float: right;
-      color: red;
+.recordLists .lis view:nth-child(1) text.data-v-77666b84:nth-child(2) {
+  float: right;
+  color: red;
 }
-.recordLists view.data-v-29c00691:nth-child(3) {
-    clear: both;
-    color: #7c7c7c;
-    font-size: 26rpx;
+.recordLists .lis view.data-v-77666b84:nth-child(2) {
+  clear: both;
+  color: #7c7c7c;
+  font-size: 26rpx;
+}
+.recordLists .lis view:nth-child(2) text.data-v-77666b84 {
+  height: 30rpx;
+  display: block;
+}
+.recordLists .lis view:nth-child(2) text.data-v-77666b84:nth-child(1) {
+  float: left;
+}
+.recordLists .lis view:nth-child(2) text.data-v-77666b84:nth-child(2) {
+  float: right;
+  color: red;
+}
+.recordLists .lis view.data-v-77666b84:nth-child(3) {
+  clear: both;
+  color: #7c7c7c;
+  font-size: 26rpx;
 }
 

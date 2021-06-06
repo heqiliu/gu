@@ -1,0 +1,1 @@
+<view class="content"><view class="newsBox"><view class="newsHead"><text>{{navTitle}}</text></view><scroll-view class="fwb"><rich-text nodes="{{RichContent}}"></rich-text></scroll-view></view></view>

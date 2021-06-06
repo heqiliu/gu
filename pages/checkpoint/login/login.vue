@@ -1,6 +1,6 @@
 <template>
 	<view class="content">
-		<image class="loginBg" src="../../../static/img/login_bg.png" mode=""></image>
+		<image class="loginBg" src="../../../static/img/login_bg3.jpg" mode=""></image>
 		<view class="loginBox">
 			<image class="niumiIcon" src="../../../static/icon/logo_ico.png" mode=""></image>
 			<view class="inputs">
@@ -57,6 +57,7 @@
 <script>
 	import http from '@/http/interface.js'
 	import uniIcon from "@/components/uni-icon/uni-icon.vue"
+	
 	export default {
 		components: {
 			uniIcon
@@ -103,9 +104,10 @@
 					title: '正在登录~',
 					mask: true
 				});
-				http.get('member/login', {
-					phone: this.userPhone,
-					loginPwd: this.userPwd
+				
+				http.get('login', {
+						username: this.userPhone,
+						password: this.userPwd
 				}).then((res) => {
 					if (res.data.success) {
 						let obj = res.data.data;
@@ -113,6 +115,7 @@
 							obj.capitalType = '';
 						}
 						obj.phone = this.userPhone;
+						obj.power= res.data.data.power
 						this.$store.commit('userIsLogin', obj);
 
 						//增加历史账号记录shenfei 2019/11/17
@@ -179,11 +182,11 @@
 	.history {
 		background-color: #FFF;
 		position: absolute;
-		width: 369px;
+		width: 89%;
 		color: #333;
 		z-index: 100;
 
-		p {
+		p{
 			padding: 5px;
 			font-size: 15px;
 		}
@@ -203,6 +206,7 @@
 		height: 100%;
 		z-index: 5;
 		filter: blur(0upx);
+		
 	}
 
 	.loginBox {
@@ -301,7 +305,9 @@
 		color: #fff;
 		line-height: 80upx;
 		font-size: 30upx;
-		background: #FF9226;
+		/*background: #d34a43;*/
+		background: #ff5500;	
+		
 	}
 
 	.newUser {
